@@ -1,0 +1,62 @@
+\doxysection{salvataggi.\+h}
+\hypertarget{salvataggi_8h_source}{}\label{salvataggi_8h_source}\mbox{\hyperlink{salvataggi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ ...existing\ code...}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ SALVATAGGI\_H\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Inizio\ guardia\ di\ inclusione:\ se\ SALVATAGGI\_H\ non\ è\ definito\ entriamo}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ SALVATAGGI\_H\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Definisce\ SALVATAGGI\_H\ per\ evitare\ doppie\ inclusioni\ dello\ stesso\ header}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{eroe_8h}{eroe.h}}"{}}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ la\ definizione\ della\ struttura\ Eroe\ e\ le\ sue\ funzioni/prototipi}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ le\ definizioni\ standard\ I/O\ (FILE,\ snprintf,\ ecc.)}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}\ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ il\ tipo\ bool\ e\ i\ valori\ true/false}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <time.h>}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ time\_t\ e\ funzioni/data/time\ per\ timestamp\ dei\ salvataggi}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{menu_8h}{menu.h}}"{}}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ prototipi\ relativi\ al\ menu\ (es.\ mostraMenuSalvataggi)}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ MAX\_NOME\_FILE\ 256\ \ }\textcolor{comment}{//\ Definisce\ la\ dimensione\ massima\ del\ buffer\ per\ i\ nomi\ dei\ file\ (in\ caratteri)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ INPUT\_BACK\ 'b'\ \ \ \ \ }\textcolor{comment}{//\ Carattere\ usato\ per\ indicare\ "{}torna\ indietro"{}\ nei\ menu}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Struttura\ che\ rappresenta\ i\ dati\ salvati\ per\ una\ partita}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inizio\ dichiarazione\ della\ struct\ Salvataggio}}
+\DoxyCodeLine{00015\ \ \ \ \ time\_t\ \mbox{\hyperlink{struct_salvataggio_ab91073429151884b2ac831962d6986ff}{dataSalvataggio}};\ \textcolor{comment}{//\ Timestamp\ Unix\ del\ momento\ in\ cui\ è\ stato\ creato\ il\ salvataggio}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_salvataggio_a789c61f84ab501e0c30ab4302a266244}{nome}}[\mbox{\hyperlink{eroe_8h_abc2a76b50bd4df1b46cdeed12288cab3}{MAX\_NOME\_EROE}}];\ \textcolor{comment}{//\ Nome\ del\ giocatore\ (usa\ la\ costante\ MAX\_NOME\_EROE\ definita\ in\ eroe.h)}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_a61e0d2a3c2fc46a802b5709304d0a24c}{vita}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Punti\ vita\ salvati\ del\ giocatore}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_ae58bd36d3c97492e364eb01a075600df}{monete}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Quantità\ di\ monete\ salvate}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_a979e4c81ea9aef789909d04a9c239ff6}{oggettiPosseduti}};\ \ \textcolor{comment}{//\ Numero\ di\ oggetti\ nell'inventario\ salvato}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_adf720aef5afd6c2bdceb5eb2024562c0}{missioniCompletate}};\textcolor{comment}{//\ Conteggio\ delle\ missioni\ completate\ al\ momento\ del\ salvataggio}}
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fine\ della\ definizione\ della\ struct\ e\ typedef\ con\ nome\ 'Salvataggio'}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Prototipi\ helper\ per\ conversione\ tra\ Eroe\ e\ Salvataggio:}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ crea\ una\ struttura\ Salvataggio\ a\ partire\ dallo\ stato\ di\ un\ Eroe}}
+\DoxyCodeLine{00027\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}\ \mbox{\hyperlink{salvataggi_8h_af3c16efe1b6e045152e11ea958c0bf88}{creaSalvataggioDaEroe}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ crea\ una\ struttura\ Eroe\ a\ partire\ dai\ dati\ di\ un\ Salvataggio}}
+\DoxyCodeLine{00029\ \mbox{\hyperlink{struct_eroe}{Eroe}}\ \mbox{\hyperlink{salvataggi_8h_a55dd6831205103c2503963957a3f3505}{creaEroeDaSalvataggio}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ salvataggio);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Prototipo:\ salva\ la\ struttura\ Salvataggio\ in\ un\ nuovo\ file;\ ritorna\ true\ se\ ha\ successo}}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a13f80ceb3aaf9fe232746d54c77ede32}{salvaGioco}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ s);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ Prototipo:\ conta\ quanti\ file\ di\ salvataggio\ ci\ sono\ nella\ cartella\ "{}salvataggi"{}}}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_a5dd0e9ff7d4f211f9a164a2c39367f5e}{contaSalvataggi}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Prototipo:\ legge\ il\ salvataggio\ con\ indice\ idx\ (1-\/based)\ nella\ struttura\ s;\ true\ se\ ok}}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a0f4001322f53c0e656294204c8d57fae}{leggiSalvataggioIndice}}(\textcolor{keywordtype}{int}\ idx,\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ s);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Prototipo:\ elimina\ il\ salvataggio\ con\ indice\ idx\ (1-\/based);\ true\ se\ rimosso\ con\ successo}}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a0be0273d67c2ce434e6373f2348999ec}{eliminaSalvataggio}}(\textcolor{keywordtype}{int}\ idx);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ Mostra\ il\ menu\ che\ elenca\ i\ salvataggi\ disponibili\ (interfaccia\ utente)}}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{salvataggi_8h_abfaddceea4779220a1b570777e224ba5}{mostraMenuSalvataggi}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ Chiede\ all'utente\ quale\ salvataggio\ caricare\ e\ ritorna\ l'indice\ scelto\ (o\ -\/1\ per\ annullare)}}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_ab8529650699e14624257148e1e9a7b1b}{chiediSalvataggioDaCaricare}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ Gestisce\ le\ azioni\ possibili\ su\ un\ salvataggio\ scelto\ (carica/modifica/elimina\ ...)}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ Riceve\ l'indice\ della\ scelta\ e\ ritorna\ un\ codice\ di\ risultato/azione}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_ab6063233b11a847da5d09bdfac77601a}{gestioneSalvataggioScelto}}(\textcolor{keywordtype}{int}\ sceltaSalvataggio);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SALVATAGGI\_H\ \ \ \ \ //\ Fine\ guardia\ di\ inclusione:\ chiude\ il\ blocco\ \#ifndef/\#define}}
+
+\end{DoxyCode}

@@ -1,0 +1,118 @@
+\doxysection{salvataggi.\+c File Reference}
+\hypertarget{salvataggi_8c}{}\label{salvataggi_8c}\index{salvataggi.c@{salvataggi.c}}
+{\ttfamily \#include "{}salvataggi.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{salvataggi_8c_a33f0483b64221b258b080bba5882cf3c}{MKDIR}}(path)
+\item 
+\#define \mbox{\hyperlink{salvataggi_8c_a475cbee9e61392fbcaa8ed16ae398486}{CARTELLA\+\_\+\+SALVATAGGI}}~"{}salvataggi"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}{salva\+Gioco}} (const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}s)
+\item 
+int \mbox{\hyperlink{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}{conta\+Salvataggi}} (void)
+\item 
+bool \mbox{\hyperlink{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}{leggi\+Salvataggio\+Indice}} (int idx, \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}s)
+\item 
+bool \mbox{\hyperlink{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec}{elimina\+Salvataggio}} (int idx)
+\item 
+\mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \mbox{\hyperlink{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88}{crea\+Salvataggio\+Da\+Eroe}} (const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe)
+\item 
+\mbox{\hyperlink{struct_eroe}{Eroe}} \mbox{\hyperlink{salvataggi_8c_a55dd6831205103c2503963957a3f3505}{crea\+Eroe\+Da\+Salvataggio}} (const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}salvataggio)
+\item 
+void \mbox{\hyperlink{salvataggi_8c_abfaddceea4779220a1b570777e224ba5}{mostra\+Menu\+Salvataggi}} ()
+\item 
+int \mbox{\hyperlink{salvataggi_8c_ab8529650699e14624257148e1e9a7b1b}{chiedi\+Salvataggio\+Da\+Caricare}} ()
+\item 
+int \mbox{\hyperlink{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}{gestione\+Salvataggio\+Scelto}} (int scelta\+Salvataggio)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{salvataggi_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{salvataggi_8c_a475cbee9e61392fbcaa8ed16ae398486}\index{salvataggi.c@{salvataggi.c}!CARTELLA\_SALVATAGGI@{CARTELLA\_SALVATAGGI}}
+\index{CARTELLA\_SALVATAGGI@{CARTELLA\_SALVATAGGI}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{CARTELLA\_SALVATAGGI}{CARTELLA\_SALVATAGGI}}
+{\footnotesize\ttfamily \label{salvataggi_8c_a475cbee9e61392fbcaa8ed16ae398486} 
+\#define CARTELLA\+\_\+\+SALVATAGGI~"{}salvataggi"{}}
+
+\Hypertarget{salvataggi_8c_a33f0483b64221b258b080bba5882cf3c}\index{salvataggi.c@{salvataggi.c}!MKDIR@{MKDIR}}
+\index{MKDIR@{MKDIR}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{MKDIR}{MKDIR}}
+{\footnotesize\ttfamily \label{salvataggi_8c_a33f0483b64221b258b080bba5882cf3c} 
+\#define MKDIR(\begin{DoxyParamCaption}\item[{}]{path}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir(path,\ 0700)}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{salvataggi_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{salvataggi_8c_ab8529650699e14624257148e1e9a7b1b}\index{salvataggi.c@{salvataggi.c}!chiediSalvataggioDaCaricare@{chiediSalvataggioDaCaricare}}
+\index{chiediSalvataggioDaCaricare@{chiediSalvataggioDaCaricare}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{chiediSalvataggioDaCaricare()}{chiediSalvataggioDaCaricare()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_ab8529650699e14624257148e1e9a7b1b} 
+int chiedi\+Salvataggio\+Da\+Caricare (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}\index{salvataggi.c@{salvataggi.c}!contaSalvataggi@{contaSalvataggi}}
+\index{contaSalvataggi@{contaSalvataggi}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{contaSalvataggi()}{contaSalvataggi()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e} 
+int conta\+Salvataggi (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_a55dd6831205103c2503963957a3f3505}\index{salvataggi.c@{salvataggi.c}!creaEroeDaSalvataggio@{creaEroeDaSalvataggio}}
+\index{creaEroeDaSalvataggio@{creaEroeDaSalvataggio}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{creaEroeDaSalvataggio()}{creaEroeDaSalvataggio()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_a55dd6831205103c2503963957a3f3505} 
+\mbox{\hyperlink{struct_eroe}{Eroe}} crea\+Eroe\+Da\+Salvataggio (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}}]{salvataggio}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88}\index{salvataggi.c@{salvataggi.c}!creaSalvataggioDaEroe@{creaSalvataggioDaEroe}}
+\index{creaSalvataggioDaEroe@{creaSalvataggioDaEroe}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{creaSalvataggioDaEroe()}{creaSalvataggioDaEroe()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88} 
+\mbox{\hyperlink{struct_salvataggio}{Salvataggio}} crea\+Salvataggio\+Da\+Eroe (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec}\index{salvataggi.c@{salvataggi.c}!eliminaSalvataggio@{eliminaSalvataggio}}
+\index{eliminaSalvataggio@{eliminaSalvataggio}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{eliminaSalvataggio()}{eliminaSalvataggio()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec} 
+bool elimina\+Salvataggio (\begin{DoxyParamCaption}\item[{int}]{idx}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}\index{salvataggi.c@{salvataggi.c}!gestioneSalvataggioScelto@{gestioneSalvataggioScelto}}
+\index{gestioneSalvataggioScelto@{gestioneSalvataggioScelto}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{gestioneSalvataggioScelto()}{gestioneSalvataggioScelto()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a} 
+int gestione\+Salvataggio\+Scelto (\begin{DoxyParamCaption}\item[{int}]{scelta\+Salvataggio}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}\index{salvataggi.c@{salvataggi.c}!leggiSalvataggioIndice@{leggiSalvataggioIndice}}
+\index{leggiSalvataggioIndice@{leggiSalvataggioIndice}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{leggiSalvataggioIndice()}{leggiSalvataggioIndice()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae} 
+bool leggi\+Salvataggio\+Indice (\begin{DoxyParamCaption}\item[{int}]{idx}{, }\item[{\mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_abfaddceea4779220a1b570777e224ba5}\index{salvataggi.c@{salvataggi.c}!mostraMenuSalvataggi@{mostraMenuSalvataggi}}
+\index{mostraMenuSalvataggi@{mostraMenuSalvataggi}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{mostraMenuSalvataggi()}{mostraMenuSalvataggi()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_abfaddceea4779220a1b570777e224ba5} 
+void mostra\+Menu\+Salvataggi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}\index{salvataggi.c@{salvataggi.c}!salvaGioco@{salvaGioco}}
+\index{salvaGioco@{salvaGioco}!salvataggi.c@{salvataggi.c}}
+\doxysubsubsection{\texorpdfstring{salvaGioco()}{salvaGioco()}}
+{\footnotesize\ttfamily \label{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32} 
+bool salva\+Gioco (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+

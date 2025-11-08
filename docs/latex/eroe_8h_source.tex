@@ -1,0 +1,38 @@
+\doxysection{eroe.\+h}
+\hypertarget{eroe_8h_source}{}\label{eroe_8h_source}\mbox{\hyperlink{eroe_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ ...existing\ code...}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ EROE\_H\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Se\ EROE\_H\ non\ è\ definito,\ entra:\ inizio\ della\ guardia\ di\ inclusione\ per\ evitare\ doppie\ inclusioni}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ EROE\_H\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Definisce\ la\ macro\ EROE\_H\ per\ segnare\ che\ questo\ header\ è\ stato\ incluso}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ MAX\_NOME\_EROE\ 25\ \ }\textcolor{comment}{//\ Definisce\ la\ costante\ MAX\_NOME\_EROE\ =\ 25\ (usata\ per\ limiti\ di\ lunghezza\ nome)}}
+\DoxyCodeLine{00006\ \ \textcolor{comment}{//\ Nota:\ assicurarsi\ che\ la\ dimensione\ dell'array\ nome\ nella\ struct\ sia\ coerente\ con\ questa\ macro}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Definizione\ della\ struttura\ Eroe\ che\ rappresenta\ lo\ stato\ di\ un\ personaggio}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inizio\ della\ dichiarazione\ della\ struct\ anonima\ che\ poi\ verrà\ chiamata\ Eroe}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_eroe_af4cf2aa115fea7b562d9f0a65fe7192e}{nome}}[50];\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ di\ char\ per\ il\ nome\ dell'eroe\ (qui\ 50\ caratteri\ inclusivo\ di\ '\(\backslash\)0')}}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Attenzione:\ 50\ non\ corrisponde\ a\ MAX\_NOME\_EROE\ (potenziale\ incoerenza)}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_eroe_afc44ae8efca89cd8a999845f03badc7f}{vita}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Intero\ che\ memorizza\ i\ punti\ vita\ correnti\ dell'eroe}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_eroe_ab101fe7017f1514ba5f4056608a8f283}{monete}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Intero\ che\ memorizza\ il\ numero\ di\ monete\ possedute}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_eroe_acd8db6902c44079ba0a9ca6e1e81b6a7}{missioniCompletate}};\textcolor{comment}{//\ Intero\ che\ memorizza\ quante\ missioni\ l'eroe\ ha\ completato}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_eroe_aa0fa41e668972d68db663ddfe06b00f3}{oggettiPosseduti}};\ \textcolor{comment}{//\ Intero\ che\ memorizza\ quanti\ oggetti\ sono\ nel\ suo\ inventario}}
+\DoxyCodeLine{00017\ \}\mbox{\hyperlink{struct_eroe}{Eroe}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fine\ della\ struct\ e\ typedef:\ il\ nuovo\ tipo\ si\ chiama\ 'Eroe'}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Prototipi\ delle\ funzioni\ che\ operano\ sulla\ struttura\ Eroe:}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eroe_8h_a35e9a227291bcf4781f74e0f6ed06c1c}{modificaMonete}}(\mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe,\ \textcolor{keywordtype}{int}\ delta);\ \textcolor{comment}{//\ Dichiara\ funzione\ che\ modifica\ il\ campo\ monete\ di\ 'eroe'\ di\ 'delta'\ (positivo\ o\ negativo)}}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eroe_8h_a94f0caed1dfcdf0cda2f74a8de368537}{modificaVita}}(\mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe,\ \textcolor{keywordtype}{int}\ delta);\ \ \ \textcolor{comment}{//\ Dichiara\ funzione\ che\ modifica\ il\ campo\ vita\ di\ 'eroe'\ di\ 'delta'\ (positivo\ o\ negativo)}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eroe_8h_a220496c68ae491cabe928dd7939896ed}{dichiaraNomeEroe}}(\textcolor{keywordtype}{char}*\ nomeEroe);\ \ \ \ \ \ \textcolor{comment}{//\ Dichiara\ funzione\ che\ legge/assegna\ il\ nome\ dell'eroe\ in\ 'nomeEroe'}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Funzione\ per\ mostrare\ le\ informazioni\ dell'eroe}}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eroe_8h_ace4becbef2722cd419d079dbb14ebe51}{mostraEroe}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dichiara\ funzione\ che\ stampa\ i\ campi\ dell'eroe;\ prende\ un\ puntatore\ const\ per\ non\ modificare\ i\ dati}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Funzione\ per\ inizializzare\ un\ eroe}}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eroe_8h_ac8fca7480c0a65d5cfaa1b21bfe7bb9c}{inizializzaEroe}}(\mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome);\textcolor{comment}{//\ Dichiara\ funzione\ che\ imposta\ i\ valori\ iniziali\ dell'eroe\ e\ copia\ 'nome'\ in\ eroe-\/>nome}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Commento\ aggiuntivo:\ utile\ chiamare\ questa\ funzione\ all'inizio\ di\ una\ nuova\ partita}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Fine\ della\ guardia\ di\ inclusione:\ chiude\ il\ blocco\ \#ifndef/\#define}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ ...existing\ code...}}
+
+\end{DoxyCode}
