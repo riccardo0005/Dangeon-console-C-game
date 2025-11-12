@@ -4,6 +4,7 @@
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include "{}menu.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -12,8 +13,6 @@ struct \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{salvataggi_8h_aa35cf6174f10a94d36923e006648adff}{SALVATAGGI\+\_\+H}}
 \item 
 \#define \mbox{\hyperlink{salvataggi_8h_a3ca1a269c404969dd433b4a5fad5901b}{MAX\+\_\+\+NOME\+\_\+\+FILE}}~256
 \item 
@@ -39,6 +38,8 @@ void \mbox{\hyperlink{salvataggi_8h_abfaddceea4779220a1b570777e224ba5}{mostra\+M
 int \mbox{\hyperlink{salvataggi_8h_ab8529650699e14624257148e1e9a7b1b}{chiedi\+Salvataggio\+Da\+Caricare}} ()
 \item 
 int \mbox{\hyperlink{salvataggi_8h_ab6063233b11a847da5d09bdfac77601a}{gestione\+Salvataggio\+Scelto}} (int scelta\+Salvataggio)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{salvataggi_8h_acf6a639aa0f51df5dfc1543cd2fabc14}{calcola\+\_\+crc32}} (const void \texorpdfstring{$\ast$}{*}dati, size\+\_\+t lunghezza)
 \end{DoxyCompactItemize}
 
 
@@ -57,17 +58,17 @@ int \mbox{\hyperlink{salvataggi_8h_ab6063233b11a847da5d09bdfac77601a}{gestione\+
 {\footnotesize\ttfamily \label{salvataggi_8h_a3ca1a269c404969dd433b4a5fad5901b} 
 \#define MAX\+\_\+\+NOME\+\_\+\+FILE~256}
 
-\Hypertarget{salvataggi_8h_aa35cf6174f10a94d36923e006648adff}\index{salvataggi.h@{salvataggi.h}!SALVATAGGI\_H@{SALVATAGGI\_H}}
-\index{SALVATAGGI\_H@{SALVATAGGI\_H}!salvataggi.h@{salvataggi.h}}
-\doxysubsubsection{\texorpdfstring{SALVATAGGI\_H}{SALVATAGGI\_H}}
-{\footnotesize\ttfamily \label{salvataggi_8h_aa35cf6174f10a94d36923e006648adff} 
-\#define SALVATAGGI\+\_\+H}
-
 
 
 \label{doc-func-members}
 \Hypertarget{salvataggi_8h_doc-func-members}
 \doxysubsection{Function Documentation}
+\Hypertarget{salvataggi_8h_acf6a639aa0f51df5dfc1543cd2fabc14}\index{salvataggi.h@{salvataggi.h}!calcola\_crc32@{calcola\_crc32}}
+\index{calcola\_crc32@{calcola\_crc32}!salvataggi.h@{salvataggi.h}}
+\doxysubsubsection{\texorpdfstring{calcola\_crc32()}{calcola\_crc32()}}
+{\footnotesize\ttfamily \label{salvataggi_8h_acf6a639aa0f51df5dfc1543cd2fabc14} 
+uint32\+\_\+t calcola\+\_\+crc32 (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{dati}{, }\item[{size\+\_\+t}]{lunghezza}{}\end{DoxyParamCaption})}
+
 \Hypertarget{salvataggi_8h_ab8529650699e14624257148e1e9a7b1b}\index{salvataggi.h@{salvataggi.h}!chiediSalvataggioDaCaricare@{chiediSalvataggioDaCaricare}}
 \index{chiediSalvataggioDaCaricare@{chiediSalvataggioDaCaricare}!salvataggi.h@{salvataggi.h}}
 \doxysubsubsection{\texorpdfstring{chiediSalvataggioDaCaricare()}{chiediSalvataggioDaCaricare()}}

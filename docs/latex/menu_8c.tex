@@ -3,9 +3,10 @@
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
-{\ttfamily \#include "{}trucchi.\+h"{}}\newline
-{\ttfamily \#include "{}eroe.\+h"{}}\newline
+{\ttfamily \#include "{}menu.\+h"{}}\newline
 {\ttfamily \#include "{}salvataggi.\+h"{}}\newline
+{\ttfamily \#include "{}eroe.\+h"{}}\newline
+{\ttfamily \#include "{}trucchi.\+h"{}}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,11 +15,17 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{menu_8c_af24b0c8a2612ea2257c9fdc614517f5c}{menu\+Principale}} ()
+char \mbox{\hyperlink{menu_8c_a3dcb2cfbc60e13545d59a4b8dbf614ae}{leggi\+Carattere\+Pulito}} (void)
 \item 
-void \mbox{\hyperlink{menu_8c_a6feacafb33e2cfcceeeb9d16c9407a39}{stampa\+Menu\+Con\+Riquadro\+ADue\+Opzioni}} ()
+void \mbox{\hyperlink{menu_8c_a1e1b8b253155b43c12d85a6c5470604d}{menu\+Principale}} (void)
 \item 
-void \mbox{\hyperlink{menu_8c_a81312e4638ddaa6cc23432e222923e2d}{stampa\+Menu\+Con\+Riquadro\+Atre\+Opzioni}} ()
+void \mbox{\hyperlink{menu_8c_a8317e99bab1d0c0dd87b5f8462d44b5b}{gestisci\+Nuova\+Partita}} (void)
+\item 
+void \mbox{\hyperlink{menu_8c_a7452d80c8ff3424d6cc51c9ff8ab475b}{gestisci\+Carica\+Salvataggio}} (void)
+\item 
+void \mbox{\hyperlink{menu_8c_a89eb138abb5397d215c5f262de0c152a}{gestisci\+Menu\+Trucchi}} (void)
+\item 
+void \mbox{\hyperlink{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modifica\+Campo\+Salvataggio}} (int scelta\+Salvataggio)
 \end{DoxyCompactItemize}
 
 
@@ -36,21 +43,39 @@ void \mbox{\hyperlink{menu_8c_a81312e4638ddaa6cc23432e222923e2d}{stampa\+Menu\+C
 \label{doc-func-members}
 \Hypertarget{menu_8c_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{menu_8c_af24b0c8a2612ea2257c9fdc614517f5c}\index{menu.c@{menu.c}!menuPrincipale@{menuPrincipale}}
+\Hypertarget{menu_8c_a7452d80c8ff3424d6cc51c9ff8ab475b}\index{menu.c@{menu.c}!gestisciCaricaSalvataggio@{gestisciCaricaSalvataggio}}
+\index{gestisciCaricaSalvataggio@{gestisciCaricaSalvataggio}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{gestisciCaricaSalvataggio()}{gestisciCaricaSalvataggio()}}
+{\footnotesize\ttfamily \label{menu_8c_a7452d80c8ff3424d6cc51c9ff8ab475b} 
+void gestisci\+Carica\+Salvataggio (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a89eb138abb5397d215c5f262de0c152a}\index{menu.c@{menu.c}!gestisciMenuTrucchi@{gestisciMenuTrucchi}}
+\index{gestisciMenuTrucchi@{gestisciMenuTrucchi}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{gestisciMenuTrucchi()}{gestisciMenuTrucchi()}}
+{\footnotesize\ttfamily \label{menu_8c_a89eb138abb5397d215c5f262de0c152a} 
+void gestisci\+Menu\+Trucchi (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a8317e99bab1d0c0dd87b5f8462d44b5b}\index{menu.c@{menu.c}!gestisciNuovaPartita@{gestisciNuovaPartita}}
+\index{gestisciNuovaPartita@{gestisciNuovaPartita}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{gestisciNuovaPartita()}{gestisciNuovaPartita()}}
+{\footnotesize\ttfamily \label{menu_8c_a8317e99bab1d0c0dd87b5f8462d44b5b} 
+void gestisci\+Nuova\+Partita (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a3dcb2cfbc60e13545d59a4b8dbf614ae}\index{menu.c@{menu.c}!leggiCaratterePulito@{leggiCaratterePulito}}
+\index{leggiCaratterePulito@{leggiCaratterePulito}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{leggiCaratterePulito()}{leggiCaratterePulito()}}
+{\footnotesize\ttfamily \label{menu_8c_a3dcb2cfbc60e13545d59a4b8dbf614ae} 
+char leggi\+Carattere\+Pulito (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Legge un singolo carattere dall\textquotesingle{}input e svuota il buffer fino a newline o EOF. Restituisce il carattere letto. \Hypertarget{menu_8c_a1e1b8b253155b43c12d85a6c5470604d}\index{menu.c@{menu.c}!menuPrincipale@{menuPrincipale}}
 \index{menuPrincipale@{menuPrincipale}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{menuPrincipale()}{menuPrincipale()}}
-{\footnotesize\ttfamily \label{menu_8c_af24b0c8a2612ea2257c9fdc614517f5c} 
-void menu\+Principale (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{menu_8c_a1e1b8b253155b43c12d85a6c5470604d} 
+void menu\+Principale (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{menu_8c_a6feacafb33e2cfcceeeb9d16c9407a39}\index{menu.c@{menu.c}!stampaMenuConRiquadroADueOpzioni@{stampaMenuConRiquadroADueOpzioni}}
-\index{stampaMenuConRiquadroADueOpzioni@{stampaMenuConRiquadroADueOpzioni}!menu.c@{menu.c}}
-\doxysubsubsection{\texorpdfstring{stampaMenuConRiquadroADueOpzioni()}{stampaMenuConRiquadroADueOpzioni()}}
-{\footnotesize\ttfamily \label{menu_8c_a6feacafb33e2cfcceeeb9d16c9407a39} 
-void stampa\+Menu\+Con\+Riquadro\+ADue\+Opzioni (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-\Hypertarget{menu_8c_a81312e4638ddaa6cc23432e222923e2d}\index{menu.c@{menu.c}!stampaMenuConRiquadroAtreOpzioni@{stampaMenuConRiquadroAtreOpzioni}}
-\index{stampaMenuConRiquadroAtreOpzioni@{stampaMenuConRiquadroAtreOpzioni}!menu.c@{menu.c}}
-\doxysubsubsection{\texorpdfstring{stampaMenuConRiquadroAtreOpzioni()}{stampaMenuConRiquadroAtreOpzioni()}}
-{\footnotesize\ttfamily \label{menu_8c_a81312e4638ddaa6cc23432e222923e2d} 
-void stampa\+Menu\+Con\+Riquadro\+Atre\+Opzioni (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}\index{menu.c@{menu.c}!modificaCampoSalvataggio@{modificaCampoSalvataggio}}
+\index{modificaCampoSalvataggio@{modificaCampoSalvataggio}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{modificaCampoSalvataggio()}{modificaCampoSalvataggio()}}
+{\footnotesize\ttfamily \label{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2} 
+void modifica\+Campo\+Salvataggio (\begin{DoxyParamCaption}\item[{int}]{scelta\+Salvataggio}{}\end{DoxyParamCaption})}
 

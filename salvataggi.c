@@ -1,4 +1,4 @@
-// salvataggi.c  (versione con CRC32 di integrità)
+// salvataggi.c  (versione corretta con aggiornamento salvataggi)
 #include "salvataggi.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,9 +19,7 @@
 #define CARTELLA_SALVATAGGI "salvataggi"
 
 /* ------------------ CRC32 (table-based) ------------------ */
-/* polynomial 0xEDB88320 (standard CRC-32/ISO-HDLC) */
 static const uint32_t crc32_table[256] = {
-    /* precomputed 256-entry table */
     0x00000000U,0x77073096U,0xee0e612cU,0x990951baU,0x076dc419U,0x706af48fU,0xe963a535U,0x9e6495a3U,
     0x0edb8832U,0x79dcb8a4U,0xe0d5e91eU,0x97d2d988U,0x09b64c2bU,0x7eb17cbdU,0xe7b82d07U,0x90bf1d91U,
     0x1db71064U,0x6ab020f2U,0xf3b97148U,0x84be41deU,0x1adad47dU,0x6ddde4ebU,0xf4d4b551U,0x83d385c7U,
@@ -81,14 +79,6 @@ static void controllaCreaCartella() {
 
 /* ------------------ I/O con CRC ------------------ */
 
-/*
-  Formato on-disk:
-    [Salvataggio] (binary sizeof(Salvataggio))
-    [uint32_t CRC32 little-endian] (4 bytes)
-*/
-
-/* Scrive un Salvataggio e il CRC nel file specificato (overwrite).
-   Ritorna true se OK. */
 static bool scriviFileConCRC(const char* path, const Salvataggio* s) {
     FILE* f = fopen(path, "wb");
     if (!f) return false;
@@ -98,7 +88,6 @@ static bool scriviFileConCRC(const char* path, const Salvataggio* s) {
         return false;
     }
     uint32_t crc = crc32_compute((const void*)s, sizeof(Salvataggio));
-    /* scrivo crc in formato little-endian portabile */
     uint8_t crc_bytes[4];
     crc_bytes[0] = (uint8_t)(crc & 0xFFU);
     crc_bytes[1] = (uint8_t)((crc >> 8) & 0xFFU);
@@ -112,12 +101,6 @@ static bool scriviFileConCRC(const char* path, const Salvataggio* s) {
     return true;
 }
 
-/* Legge un file che potrebbe essere nel vecchio formato (solo Salvataggio)
-   o nel nuovo formato (Salvataggio + CRC). Se il CRC è presente lo verifica.
-   Se file è nel vecchio formato, esegue l'upgrade riscrivendo con CRC.
-   Ritorna:
-     - true e popola *s se lettura OK e CRC valido (o upgrade OK)
-     - false se file corrotto, CRC mismatch o altro errore */
 bool leggiSalvataggioIndice(int idx, Salvataggio* s) {
     if (idx <= 0) return false;
     char nomeFile[MAX_NOME_FILE];
@@ -126,24 +109,19 @@ bool leggiSalvataggioIndice(int idx, Salvataggio* s) {
     FILE* f = fopen(nomeFile, "rb");
     if (!f) return false;
 
-    /* determina dimensione file */
     if (fseek(f, 0, SEEK_END) != 0) { fclose(f); return false; }
     long sz = ftell(f);
     rewind(f);
 
     if (sz == (long)sizeof(Salvataggio)) {
-        /* vecchio formato: leggilo e poi riscrivi con CRC (upgrade) */
         if (fread(s, sizeof(Salvataggio), 1, f) != 1) { fclose(f); return false; }
         fclose(f);
-        /* write back with CRC (safe rewrite) */
         controllaCreaCartella();
         if (!scriviFileConCRC(nomeFile, s)) {
-            /* se non riesce a riscrivere, comunque ritorna il salvataggio letto */
             return true;
         }
         return true;
     } else if (sz == (long)(sizeof(Salvataggio) + 4)) {
-        /* nuovo formato: leggi salvataggio + crc e verifica */
         if (fread(s, sizeof(Salvataggio), 1, f) != 1) { fclose(f); return false; }
         uint8_t crc_bytes[4];
         if (fread(crc_bytes, 1, 4, f) != 4) { fclose(f); return false; }
@@ -151,56 +129,76 @@ bool leggiSalvataggioIndice(int idx, Salvataggio* s) {
         uint32_t file_crc = (uint32_t)crc_bytes[0] | ((uint32_t)crc_bytes[1] << 8) | ((uint32_t)crc_bytes[2] << 16) | ((uint32_t)crc_bytes[3] << 24);
         uint32_t calc = crc32_compute((const void*)s, sizeof(Salvataggio));
         if (file_crc != calc) {
-            /* CRC mismatch -> file corrotto */
             fprintf(stderr, "Attenzione: salvataggio %d corrotto (CRC mismatch).\n", idx);
             return false;
         }
         return true;
     } else {
-        /* formato non riconosciuto */
         fclose(f);
         fprintf(stderr, "Attenzione: salvataggio %d con formato sconosciuto (size=%ld).\n", idx, sz);
         return false;
     }
 }
 
-/* Scrive/aggiorna file con CRC. Ritorna true se OK. */
+/* FUNZIONE CORRETTA: Salva o aggiorna il salvataggio */
 bool salvaGioco(const Salvataggio* s) {
+    if (s == NULL) return false;
+    
     controllaCreaCartella();
 
     char nomeFile[MAX_NOME_FILE];
     Salvataggio temp;
 
-
     int count = contaSalvataggi();
     bool trovato = false;
+    int indiceTrovato = -1;
 
-    /* cerca se esiste profilo con lo stesso nome (usando leggiSalvataggioIndice che verifica CRC) */
+    // Cerca se esiste già un salvataggio con lo stesso nome
     for (int i = 1; i <= count; i++) {
         if (!leggiSalvataggioIndice(i, &temp)) {
-            /* salta file non leggibile (corrotto) */
-            continue;
+            continue; // Salta file corrotti
         }
+        
+        // Confronta i nomi (case-sensitive)
         if (strcmp(temp.nome, s->nome) == 0) {
-            /* aggiorna quel file */
-            costruisciNomeFile(i, nomeFile);
-            if (!scriviFileConCRC(nomeFile, s)) return false;
+            indiceTrovato = i;
             trovato = true;
-            printf("Salvataggio aggiornato per il profilo '%s'!\n", s->nome);
             break;
         }
     }
 
-    if (!trovato) {
+    if (trovato) {
+        // AGGIORNA il salvataggio esistente
+        costruisciNomeFile(indiceTrovato, nomeFile);
+        
+        // Crea una copia del nuovo salvataggio ma mantiene il timestamp originale
+        Salvataggio salvataggioAggiornato = *s;
+        salvataggioAggiornato.dataSalvataggio = time(NULL); // Aggiorna timestamp
+        
+        if (!scriviFileConCRC(nomeFile, &salvataggioAggiornato)) {
+            printf("Errore nell'aggiornamento del salvataggio!\n");
+            return false;
+        }
+        
+        printf("Salvataggio aggiornato per '%s' (slot %d)\n", s->nome, indiceTrovato);
+        return true;
+    } else {
+        // CREA un nuovo salvataggio
         costruisciNomeFile(count + 1, nomeFile);
-        if (!scriviFileConCRC(nomeFile, s)) return false;
-        printf("Nuovo salvataggio creato per '%s'!\n", s->nome);
+        
+        Salvataggio nuovoSalvataggio = *s;
+        nuovoSalvataggio.dataSalvataggio = time(NULL);
+        
+        if (!scriviFileConCRC(nomeFile, &nuovoSalvataggio)) {
+            printf("Errore nella creazione del salvataggio!\n");
+            return false;
+        }
+        
+        printf("Nuovo salvataggio creato per '%s' (slot %d)\n", s->nome, count + 1);
+        return true;
     }
-
-    return true;
 }
 
-/* Conta quanti file di salvataggio esistono (slot sequenziali) */
 int contaSalvataggi(void) {
     controllaCreaCartella();
 
@@ -221,7 +219,6 @@ int contaSalvataggi(void) {
     return count;
 }
 
-/* Rimuove slot e ricompatta gli altri */
 bool eliminaSalvataggio(int idx) {
     if (idx <= 0) return false;
 
@@ -243,7 +240,6 @@ bool eliminaSalvataggio(int idx) {
     return true;
 }
 
-/* Crea Salvataggio da Eroe (non tocca CRC / file I/O) */
 Salvataggio creaSalvataggioDaEroe(const Eroe* eroe) {
     Salvataggio s = {0};
     strncpy(s.nome, eroe->nome, MAX_NOME_EROE - 1);
@@ -252,11 +248,11 @@ Salvataggio creaSalvataggioDaEroe(const Eroe* eroe) {
     s.monete = eroe->monete;
     s.missioniCompletate = eroe->missioniCompletate;
     s.oggettiPosseduti = eroe->oggettiPosseduti;
-    s.dataSalvataggio = time(NULL);
+    // NON impostiamo il timestamp qui, lo fa salvaGioco()
+    s.dataSalvataggio = 0; 
     return s;
 }
 
-/* Crea Eroe da Salvataggio (in-memory conversion) */
 Eroe creaEroeDaSalvataggio(const Salvataggio* salvataggio) {
     Eroe e = {0};
     strncpy(e.nome, salvataggio->nome, MAX_NOME_EROE - 1);
@@ -268,33 +264,40 @@ Eroe creaEroeDaSalvataggio(const Salvataggio* salvataggio) {
     return e;
 }
 
-/* Stampa elenco salvataggi (usa leggiSalvataggioIndice per leggere e verificare) */
 void mostraMenuSalvataggi() {
     int totaleSalvataggi = contaSalvataggi();
-    printf("Ci sono %d salvataggi disponibili:\n", totaleSalvataggi);
+    printf("\n----------------------------------------\n");
+    printf("       LISTA SALVATAGGI DISPONIBILI     \n");
+    printf("----------------------------------------\n");
+    
     if (totaleSalvataggi == 0) {
         printf("Nessun salvataggio trovato.\n");
         return;
     }
+    
+    printf("Ci sono %d salvataggio/i disponibile/i:\n\n", totaleSalvataggi);
+    
     for (int i = 0; i < totaleSalvataggi; i++) {
         Salvataggio s;
         if (leggiSalvataggioIndice(i + 1, &s)) {
-            printf("\033[94mSalvataggio\033[0m %d: Nome: %s | %s | %d P. Vita| %d Monete| %d Oggetti| %d Missioni Completate\n",
-                i + 1,
-                s.nome,
-                strtok(ctime(&s.dataSalvataggio), "\n"),
-                s.vita,
-                s.monete,
-                s.oggettiPosseduti,
-                s.missioniCompletate);
+            char* dataStr = ctime(&s.dataSalvataggio);
+            // Rimuovi il newline da ctime
+            if (dataStr) {
+                size_t len = strlen(dataStr);
+                if (len > 0 && dataStr[len-1] == '\n') {
+                    dataStr[len-1] = '\0';
+                }
+            }
+            
+            printf("\033[94m[%d]\033[0m %s", i + 1, s.nome);
+            printf("     %s", dataStr ? dataStr : "Data sconosciuta");
+            printf("      Vita: %d |  Monete: %d |  Oggetti: %d |  Missioni: %d\n\n",
+                s.vita, s.monete, s.oggettiPosseduti, s.missioniCompletate);
         } else {
-            printf("Salvataggio %d: file corrotto o non leggibile.\n", i + 1);
+            printf("[%d] File corrotto o non leggibile.\n\n", i + 1);
         }
     }
 }
-
-/* chiediSalvataggioDaCaricare() e gestioneSalvataggioScelto() restano identiche al tuo codice precedente,
-   quindi te le lascio come erano (non modificate) — se vuoi, le reintegro qui identiche. */
 
 int chiediSalvataggioDaCaricare(void) {
     char input[16];
@@ -321,13 +324,13 @@ int chiediSalvataggioDaCaricare(void) {
         }
 
         if (!valido || strlen(input) == 0) {
-            printf("❌ Inserisci solo numeri tra 1 e %d.\n", contaSalvataggi());
+            printf("Inserisci solo numeri tra 1 e %d.\n", contaSalvataggi());
             continue;
         }
 
         scelta = atoi(input);
         if (scelta < 1 || scelta > contaSalvataggi()) {
-            printf("⚠️  Numero non valido! Scegli tra 1 e %d.\n", contaSalvataggi());
+            printf("Numero non valido! Scegli tra 1 e %d.\n", contaSalvataggi());
             continue;
         }
 
@@ -365,10 +368,18 @@ int gestioneSalvataggioScelto(int sceltaSalvataggio) {
             }
             return 1;
         } else if (scelta == '2') {
-            if (eliminaSalvataggio(sceltaSalvataggio)) {
-                printf("Salvataggio eliminato con successo.\n");
+            printf("Sei sicuro di voler eliminare questo salvataggio? [S/N]: ");
+            char conferma = getchar();
+            while ((c = getchar()) != '\n' && c != EOF);
+            
+            if (conferma == 'S' || conferma == 's') {
+                if (eliminaSalvataggio(sceltaSalvataggio)) {
+                    printf("Salvataggio eliminato con successo.\n");
+                } else {
+                    printf("Errore nell'eliminazione.\n");
+                }
             } else {
-                printf("Errore nell'eliminazione.\n");
+                printf("Eliminazione annullata.\n");
             }
             return 1;
         } else if (scelta == '3') {

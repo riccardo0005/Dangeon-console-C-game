@@ -95,6 +95,7 @@ $(function(){initNavTree('salvataggi_8h.html','',''); });
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code><br />
 </div>
 <p><a href="salvataggi_8h_source.html">Go to the source code of this file.</a></p>
@@ -105,7 +106,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aa35cf6174f10a94d36923e006648adff" id="r_aa35cf6174f10a94d36923e006648adff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa35cf6174f10a94d36923e006648adff">SALVATAGGI_H</a></td></tr>
 <tr class="memitem:a3ca1a269c404969dd433b4a5fad5901b" id="r_a3ca1a269c404969dd433b4a5fad5901b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ca1a269c404969dd433b4a5fad5901b">MAX_NOME_FILE</a>&#160;&#160;&#160;256</td></tr>
 <tr class="memitem:a5bddaad9262f70cf02246b86ff816e1e" id="r_a5bddaad9262f70cf02246b86ff816e1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bddaad9262f70cf02246b86ff816e1e">INPUT_BACK</a>&#160;&#160;&#160;'b'</td></tr>
 </table><table class="memberdecls">
@@ -120,6 +120,7 @@ Functions</h2></td></tr>
 <tr class="memitem:abfaddceea4779220a1b570777e224ba5" id="r_abfaddceea4779220a1b570777e224ba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfaddceea4779220a1b570777e224ba5">mostraMenuSalvataggi</a> ()</td></tr>
 <tr class="memitem:ab8529650699e14624257148e1e9a7b1b" id="r_ab8529650699e14624257148e1e9a7b1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8529650699e14624257148e1e9a7b1b">chiediSalvataggioDaCaricare</a> ()</td></tr>
 <tr class="memitem:ab6063233b11a847da5d09bdfac77601a" id="r_ab6063233b11a847da5d09bdfac77601a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6063233b11a847da5d09bdfac77601a">gestioneSalvataggioScelto</a> (int sceltaSalvataggio)</td></tr>
+<tr class="memitem:acf6a639aa0f51df5dfc1543cd2fabc14" id="r_acf6a639aa0f51df5dfc1543cd2fabc14"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf6a639aa0f51df5dfc1543cd2fabc14">calcola_crc32</a> (const void *dati, size_t lunghezza)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a5bddaad9262f70cf02246b86ff816e1e" name="a5bddaad9262f70cf02246b86ff816e1e"></a>
@@ -150,21 +151,28 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa35cf6174f10a94d36923e006648adff" name="aa35cf6174f10a94d36923e006648adff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa35cf6174f10a94d36923e006648adff">&#9670;&#160;</a></span>SALVATAGGI_H</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="acf6a639aa0f51df5dfc1543cd2fabc14" name="acf6a639aa0f51df5dfc1543cd2fabc14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6a639aa0f51df5dfc1543cd2fabc14">&#9670;&#160;</a></span>calcola_crc32()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SALVATAGGI_H</td>
+          <td class="memname">uint32_t calcola_crc32 </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>dati</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>lunghezza</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="ab8529650699e14624257148e1e9a7b1b" name="ab8529650699e14624257148e1e9a7b1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8529650699e14624257148e1e9a7b1b">&#9670;&#160;</a></span>chiediSalvataggioDaCaricare()</h2>
 

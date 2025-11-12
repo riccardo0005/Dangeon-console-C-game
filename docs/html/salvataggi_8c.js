@@ -2,7 +2,7 @@ var salvataggi_8c =
 [
     [ "CARTELLA_SALVATAGGI", "salvataggi_8c.html#a475cbee9e61392fbcaa8ed16ae398486", null ],
     [ "MKDIR", "salvataggi_8c.html#a33f0483b64221b258b080bba5882cf3c", null ],
-    [ "chiediSalvataggioDaCaricare", "salvataggi_8c.html#ab8529650699e14624257148e1e9a7b1b", null ],
+    [ "chiediSalvataggioDaCaricare", "salvataggi_8c.html#a1c2e4a144ba24718e303cbbb6c212951", null ],
     [ "contaSalvataggi", "salvataggi_8c.html#a5dd0e9ff7d4f211f9a164a2c39367f5e", null ],
     [ "creaEroeDaSalvataggio", "salvataggi_8c.html#a55dd6831205103c2503963957a3f3505", null ],
     [ "creaSalvataggioDaEroe", "salvataggi_8c.html#af3c16efe1b6e045152e11ea958c0bf88", null ],

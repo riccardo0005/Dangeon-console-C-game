@@ -4,8 +4,8 @@ var indexSectionsWithContent =
   1: "es",
   2: "cdempstu",
   3: "cdegilms",
-  4: "dmnov",
-  5: "ceims"
+  4: "cdmnov",
+  5: "ceim"
 };
 
 var indexSectionNames =

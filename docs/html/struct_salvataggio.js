@@ -1,5 +1,6 @@
 var struct_salvataggio =
 [
+    [ "crc32", "struct_salvataggio.html#a3b68848b0498fbf56c2b84bf7bf4ff42", null ],
     [ "dataSalvataggio", "struct_salvataggio.html#ab91073429151884b2ac831962d6986ff", null ],
     [ "missioniCompletate", "struct_salvataggio.html#adf720aef5afd6c2bdceb5eb2024562c0", null ],
     [ "monete", "struct_salvataggio.html#ae58bd36d3c97492e364eb01a075600df", null ],

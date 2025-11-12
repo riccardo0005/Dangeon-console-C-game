@@ -94,9 +94,10 @@ $(function(){initNavTree('menu_8c.html','',''); });
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="trucchi_8h_source.html">trucchi.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="eroe_8h_source.html">eroe.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="salvataggi_8h_source.html">salvataggi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="eroe_8h_source.html">eroe.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="trucchi_8h_source.html">trucchi.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -104,9 +105,12 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af24b0c8a2612ea2257c9fdc614517f5c" id="r_af24b0c8a2612ea2257c9fdc614517f5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af24b0c8a2612ea2257c9fdc614517f5c">menuPrincipale</a> ()</td></tr>
-<tr class="memitem:a6feacafb33e2cfcceeeb9d16c9407a39" id="r_a6feacafb33e2cfcceeeb9d16c9407a39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6feacafb33e2cfcceeeb9d16c9407a39">stampaMenuConRiquadroADueOpzioni</a> ()</td></tr>
-<tr class="memitem:a81312e4638ddaa6cc23432e222923e2d" id="r_a81312e4638ddaa6cc23432e222923e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81312e4638ddaa6cc23432e222923e2d">stampaMenuConRiquadroAtreOpzioni</a> ()</td></tr>
+<tr class="memitem:a3dcb2cfbc60e13545d59a4b8dbf614ae" id="r_a3dcb2cfbc60e13545d59a4b8dbf614ae"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dcb2cfbc60e13545d59a4b8dbf614ae">leggiCaratterePulito</a> (void)</td></tr>
+<tr class="memitem:a1e1b8b253155b43c12d85a6c5470604d" id="r_a1e1b8b253155b43c12d85a6c5470604d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e1b8b253155b43c12d85a6c5470604d">menuPrincipale</a> (void)</td></tr>
+<tr class="memitem:a8317e99bab1d0c0dd87b5f8462d44b5b" id="r_a8317e99bab1d0c0dd87b5f8462d44b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8317e99bab1d0c0dd87b5f8462d44b5b">gestisciNuovaPartita</a> (void)</td></tr>
+<tr class="memitem:a7452d80c8ff3424d6cc51c9ff8ab475b" id="r_a7452d80c8ff3424d6cc51c9ff8ab475b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7452d80c8ff3424d6cc51c9ff8ab475b">gestisciCaricaSalvataggio</a> (void)</td></tr>
+<tr class="memitem:a89eb138abb5397d215c5f262de0c152a" id="r_a89eb138abb5397d215c5f262de0c152a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89eb138abb5397d215c5f262de0c152a">gestisciMenuTrucchi</a> (void)</td></tr>
+<tr class="memitem:aa5cbbdfe35f70ea22f212ac4c6f4f0a2" id="r_aa5cbbdfe35f70ea22f212ac4c6f4f0a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5cbbdfe35f70ea22f212ac4c6f4f0a2">modificaCampoSalvataggio</a> (int sceltaSalvataggio)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a0373eed137f990f73fac4681e0c7a5e7" name="a0373eed137f990f73fac4681e0c7a5e7"></a>
@@ -124,8 +128,77 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="af24b0c8a2612ea2257c9fdc614517f5c" name="af24b0c8a2612ea2257c9fdc614517f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af24b0c8a2612ea2257c9fdc614517f5c">&#9670;&#160;</a></span>menuPrincipale()</h2>
+<a id="a7452d80c8ff3424d6cc51c9ff8ab475b" name="a7452d80c8ff3424d6cc51c9ff8ab475b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7452d80c8ff3424d6cc51c9ff8ab475b">&#9670;&#160;</a></span>gestisciCaricaSalvataggio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gestisciCaricaSalvataggio </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89eb138abb5397d215c5f262de0c152a" name="a89eb138abb5397d215c5f262de0c152a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89eb138abb5397d215c5f262de0c152a">&#9670;&#160;</a></span>gestisciMenuTrucchi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gestisciMenuTrucchi </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8317e99bab1d0c0dd87b5f8462d44b5b" name="a8317e99bab1d0c0dd87b5f8462d44b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8317e99bab1d0c0dd87b5f8462d44b5b">&#9670;&#160;</a></span>gestisciNuovaPartita()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gestisciNuovaPartita </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3dcb2cfbc60e13545d59a4b8dbf614ae" name="a3dcb2cfbc60e13545d59a4b8dbf614ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dcb2cfbc60e13545d59a4b8dbf614ae">&#9670;&#160;</a></span>leggiCaratterePulito()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char leggiCaratterePulito </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Legge un singolo carattere dall'input e svuota il buffer fino a newline o EOF. Restituisce il carattere letto. </p>
+
+</div>
+</div>
+<a id="a1e1b8b253155b43c12d85a6c5470604d" name="a1e1b8b253155b43c12d85a6c5470604d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e1b8b253155b43c12d85a6c5470604d">&#9670;&#160;</a></span>menuPrincipale()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,7 +206,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void menuPrincipale </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -141,33 +214,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6feacafb33e2cfcceeeb9d16c9407a39" name="a6feacafb33e2cfcceeeb9d16c9407a39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6feacafb33e2cfcceeeb9d16c9407a39">&#9670;&#160;</a></span>stampaMenuConRiquadroADueOpzioni()</h2>
+<a id="aa5cbbdfe35f70ea22f212ac4c6f4f0a2" name="aa5cbbdfe35f70ea22f212ac4c6f4f0a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5cbbdfe35f70ea22f212ac4c6f4f0a2">&#9670;&#160;</a></span>modificaCampoSalvataggio()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stampaMenuConRiquadroADueOpzioni </td>
+          <td class="memname">void modificaCampoSalvataggio </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a81312e4638ddaa6cc23432e222923e2d" name="a81312e4638ddaa6cc23432e222923e2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81312e4638ddaa6cc23432e222923e2d">&#9670;&#160;</a></span>stampaMenuConRiquadroAtreOpzioni()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stampaMenuConRiquadroAtreOpzioni </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sceltaSalvataggio</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

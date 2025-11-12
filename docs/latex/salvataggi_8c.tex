@@ -5,7 +5,8 @@
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$sys/stat.\+h$>$}\newline
-{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -17,11 +18,11 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+bool \mbox{\hyperlink{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}{leggi\+Salvataggio\+Indice}} (int idx, \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}s)
+\item 
 bool \mbox{\hyperlink{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}{salva\+Gioco}} (const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}s)
 \item 
 int \mbox{\hyperlink{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}{conta\+Salvataggi}} (void)
-\item 
-bool \mbox{\hyperlink{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}{leggi\+Salvataggio\+Indice}} (int idx, \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}s)
 \item 
 bool \mbox{\hyperlink{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec}{elimina\+Salvataggio}} (int idx)
 \item 
@@ -31,7 +32,7 @@ bool \mbox{\hyperlink{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec}{elimina\+
 \item 
 void \mbox{\hyperlink{salvataggi_8c_abfaddceea4779220a1b570777e224ba5}{mostra\+Menu\+Salvataggi}} ()
 \item 
-int \mbox{\hyperlink{salvataggi_8c_ab8529650699e14624257148e1e9a7b1b}{chiedi\+Salvataggio\+Da\+Caricare}} ()
+int \mbox{\hyperlink{salvataggi_8c_a1c2e4a144ba24718e303cbbb6c212951}{chiedi\+Salvataggio\+Da\+Caricare}} (void)
 \item 
 int \mbox{\hyperlink{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}{gestione\+Salvataggio\+Scelto}} (int scelta\+Salvataggio)
 \end{DoxyCompactItemize}
@@ -62,11 +63,11 @@ int \mbox{\hyperlink{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}{gestione\+
 \label{doc-func-members}
 \Hypertarget{salvataggi_8c_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{salvataggi_8c_ab8529650699e14624257148e1e9a7b1b}\index{salvataggi.c@{salvataggi.c}!chiediSalvataggioDaCaricare@{chiediSalvataggioDaCaricare}}
+\Hypertarget{salvataggi_8c_a1c2e4a144ba24718e303cbbb6c212951}\index{salvataggi.c@{salvataggi.c}!chiediSalvataggioDaCaricare@{chiediSalvataggioDaCaricare}}
 \index{chiediSalvataggioDaCaricare@{chiediSalvataggioDaCaricare}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{chiediSalvataggioDaCaricare()}{chiediSalvataggioDaCaricare()}}
-{\footnotesize\ttfamily \label{salvataggi_8c_ab8529650699e14624257148e1e9a7b1b} 
-int chiedi\+Salvataggio\+Da\+Caricare (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{salvataggi_8c_a1c2e4a144ba24718e303cbbb6c212951} 
+int chiedi\+Salvataggio\+Da\+Caricare (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
 \Hypertarget{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}\index{salvataggi.c@{salvataggi.c}!contaSalvataggi@{contaSalvataggi}}
 \index{contaSalvataggi@{contaSalvataggi}!salvataggi.c@{salvataggi.c}}

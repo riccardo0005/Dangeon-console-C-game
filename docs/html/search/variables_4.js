@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vita_0',['vita',['../struct_eroe.html#afc44ae8efca89cd8a999845f03badc7f',1,'Eroe::vita'],['../struct_salvataggio.html#a61e0d2a3c2fc46a802b5709304d0a24c',1,'Salvataggio::vita']]]
+  ['oggettiposseduti_0',['oggettiPosseduti',['../struct_eroe.html#aa0fa41e668972d68db663ddfe06b00f3',1,'Eroe::oggettiPosseduti'],['../struct_salvataggio.html#a979e4c81ea9aef789909d04a9c239ff6',1,'Salvataggio::oggettiPosseduti']]]
 ];
