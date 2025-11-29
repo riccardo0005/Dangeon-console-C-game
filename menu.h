@@ -76,4 +76,6 @@ bool gestisciUscita(void);
  */
 char leggiCaratterePulito(void);
 
+void pulisciBuffer(void);
+
 #endif // MENU_H                      // Fine della guardia di inclusione: chiude il blocco #ifndef/#define

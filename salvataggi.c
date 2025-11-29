@@ -18,7 +18,71 @@
 
 #define CARTELLA_SALVATAGGI "salvataggi"
 
-/* ------------------ CRC32 (table-based) ------------------ */
+/*
+ * IMPLEMENTAZIONE DEL CRC32
+ *
+ * 1. Cos'è il CRC32:
+ *    Il CRC32 (Cyclic Redundancy Check a 32 bit) è un codice di controllo utilizzato per verificare
+ *    l'integrità dei dati. Calcola un valore di 32 bit (4 byte) a partire da un blocco di dati,
+ *    permettendo di rilevare errori o modifiche accidentali o intenzionali nel contenuto.
+ *
+ * 2. Tabella CRC32 (crc32_table):
+ *    La tabella crc32_table contiene 256 valori precalcolati di 32 bit.
+ *    Serve a velocizzare il calcolo del CRC.
+ *    Senza questa tabella, bisognerebbe fare il calcolo bit per bit, molto più lento.
+ *    La tabella viene generata usando un polinomio standard per il CRC32, e viene usata per ogni byte di dati
+ *    per aggiornare rapidamente il valore di controllo.
+ *
+ * 3. Funzionamento del calcolo (funzione crc32_compute):
+ *    - Si inizializza il valore CRC a 0xFFFFFFFF.
+ *    - Per ogni byte del blocco dati:
+ *      - Si esegue un XOR tra l'ultimo byte del CRC attuale e il byte di dati corrente.
+ *      - Si usa questo valore per indicizzare la tabella crc32_table.
+ *      - Si aggiorna il valore CRC con un'operazione di shift a destra di 8 bit combinata con il valore preso dalla tabella.
+ *    - Alla fine, si fa un XOR finale con 0xFFFFFFFF per ottenere il valore CRC definitivo.
+ *    Questo processo sintetizza il contenuto del blocco dati in un unico valore di 32 bit.
+ *
+ * 4. Come viene usato nel codice:
+ *    Quando si salva la struttura Salvataggio, si calcola il CRC32 sul blocco dati corrispondente alla struttura.
+ *    Il CRC calcolato viene scritto nel file subito dopo i dati.
+ *    Quando si legge il file, si ricalcola il CRC32 sui dati letti e lo si confronta con quello salvato.
+ *    Se i due valori coincidono, significa che i dati non sono stati modificati o corrotti.
+ *    Altrimenti, il file è considerato corrotto o non valido.
+ *
+ * 5. Problematiche di questo metodo:
+ *    - Il CRC32 è efficace nel rilevare errori casuali, ma non è a prova di manomissione intenzionale:
+ *      qualcuno che modifica il file può rigenerare il CRC corretto e quindi bypassare il controllo.
+ *    - Non è un algoritmo di crittografia né di autenticazione, solo di integrità.
+ *    - Può non rilevare alcuni tipi molto di errori.
+ *
+ * 6. Possibili soluzioni per migliorare la sicurezza:
+ *    - Usare un algoritmi crittografici che pero' non sono stati implementati per mantenere il codice il piu semplice possibile.
+ * 
+ * Link utilizzati per capire CRC32, la tabella e i consigli d'uso:
+ *
+ * 1. Spiegazione teorica e calcolo CRC32:
+ *    - Wikipedia: https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+ *    - Tutorial con esempio: https://www.sunshine2k.de/coding/javascript/crc/crc_js.html
+ *
+ * 2. Tabella CRC32 e generazione:
+ *    - Come generare la tabella CRC32: https://create.stephan-brumme.com/crc32/
+ *    - Esempio in C per la tabella: https://stackoverflow.com/questions/21001659/crc32-implementation-in-c-with-a-look-up-table
+ *
+ * 3. Implementazioni comuni e librerie:
+ *    - Libreria (open source): https://github.com/madler/zlib/blob/master/crc32.c
+ *    - Spiegazione + codice CRC32 in C: https://www.programmersought.com/article/42936123907/
+ *
+ * 4. Consigli d’uso e limiti:
+ *    - Quando e perché usare CRC32: https://embeddedgurus.com/stack-overflow/2013/07/crc-calculation-in-embedded-systems/
+ *    - Limiti e alternative (MD5, SHA): https://stackoverflow.com/questions/22912118/when-to-use-crc32-vs-md5
+ *
+ * 5. Strumenti online per test:
+ *    - Calcolatore CRC32 online: https://www.lammertbies.nl/comm/info/crc-calculation.html
+ */
+
+ 
+
+/* ------------------ CRC32 Tabella ------------------ */
 static const uint32_t crc32_table[256] = {
     0x00000000U,0x77073096U,0xee0e612cU,0x990951baU,0x076dc419U,0x706af48fU,0xe963a535U,0x9e6495a3U,
     0x0edb8832U,0x79dcb8a4U,0xe0d5e91eU,0x97d2d988U,0x09b64c2bU,0x7eb17cbdU,0xe7b82d07U,0x90bf1d91U,
@@ -54,69 +118,173 @@ static const uint32_t crc32_table[256] = {
     0xb3667a2eU,0xc4614ab8U,0x5d681b02U,0x2a6f2b94U,0xb40bbe37U,0xc30c8ea1U,0x5a05df1bU,0x2d02ef8dU
 };
 
+//Funzione che calcola il crc di un buffer di dati
+//data punta ai dati e len e' la lunghezza in byte dei dati
 static uint32_t crc32_compute(const void* data, size_t len) {
+    //Converto il puntatore generico 'data' in un puntatore a byte (uint8_t)
+    //Perché il CRC si calcola byte per byte.
+    //QUESTA CONVERSIONE E' FONDAMENTALE PER POTER TRARRARE I DATI COME BYTE
     const uint8_t* p = (const uint8_t*)data;
+
+    //Inizializzo il valore CRC a 0xFFFFFFFF (tutti i bit a 1).
+    //Questo è uno standard per il calcolo CRC32.
     uint32_t crc = 0xFFFFFFFFU;
-    while (len--) {
-        uint8_t byte = *p++;
-        crc = (crc >> 8) ^ crc32_table[(crc ^ byte) & 0xFFU];
-    }
+
+    //Ciclo finché la lunghezza 'len' non arriva a zero,
+    // processando un byte per iterazione.
+while (len--) {
+    // Prendo il byte attuale dai dati (il primo byte non ancora letto)
+    // e sposto il puntatore 'p' al byte successivo per la prossima lettura.
+    uint8_t byte = *p++;
+
+    // Aggiorno il valore CRC usando questo nuovo byte:
+    // 1) Sposto a destra di 8 bit il valore CRC attuale, 
+    //    come se "tagliassi" il byte già elaborato.
+    //
+    // 2) Faccio un'operazione XOR tra il byte meno significativo di 'crc' 
+    //    e il nuovo byte letto, per "mescolare" il nuovo dato con il CRC corrente.
+    //
+    // 3) Uso questo risultato che sara un valore tra zero e 255 come indice per cercare nella tabella 'crc32_table' 
+    //    un valore già calcolato che aiuta a velocizzare il calcolo. Quel valore sara una sequenza di byte
+    //
+    // 4) Infine, faccio l'XOR tra il valore del crc shiftato di 8 bit(perche gia li ho usati ne lpasso 1) e quello preso dalla tabella (passo 3)
+    //    ottenendo il nuovo valore aggiornato di CRC.
+    crc = (crc >> 8) ^ crc32_table[(crc ^ byte) & 0xFFU/* & 0xFFU operazione che prende il bite meno significativo, l'ultimo*/];
+}
+    // Alla fine inverto tutti i bit del CRC (XOR con 0xFFFFFFFF),
+    // perché la definizione standard di CRC32 richiede questo passaggio per poter rilevare il minimo errore.
     return crc ^ 0xFFFFFFFFU;
+
+    // Queste operazioni servono a "mescolare" bene i dati,
+    // in modo che anche una piccola modifica in un singolo byte
+    // cambi molto il valore finale del CRC.
+    // Questo rende il CRC molto sensibile agli errori,
+    // permettendo di rilevare se i dati sono stati modificati o corrotti.
+
 }
 
-/* ------------------ helper file utilities ------------------ */
-
+//Funzione che costruisce il nome del file, puo servire ad esempio per trovare un file
 static void costruisciNomeFile(int idx, char* buffer) {
+
+          //“Prendi la cartella dei salvataggi, aggiungi /save, poi il numero, poi .dat e metti tutto nel buffer.
+          //(destinazione,dimensione massima, nome salvataggio,dove salvarli,indice salvataggo
     snprintf(buffer, MAX_NOME_FILE, "%s/save%d.dat", CARTELLA_SALVATAGGI, idx);
 }
 
+
+//Funzione che controlla l'esistenza di una cartella, se non esiste la crea
 static void controllaCreaCartella() {
-    struct stat st = {0};
-    if (stat(CARTELLA_SALVATAGGI, &st) == -1) {
-        MKDIR(CARTELLA_SALVATAGGI);
+    //Questa struttura contiene vari campi tra cui permessi , dimensioni, data di modifica e tanto altro, e; una struttura standard gia presente nel linguaggio c
+    struct stat st = {0};//creo una struttura stat e inizializzo i campi a 0, la struttura va creata altrimenti non posso usare la  funzione stat
+
+    if (stat(CARTELLA_SALVATAGGI, &st) == -1) {//se la cartella non esiste allora
+        MKDIR(CARTELLA_SALVATAGGI);//creo la cartella di nome CARTELLA_SALVATAGGI(vedi riga 19 per il nome)
     }
 }
 
-/* ------------------ I/O con CRC ------------------ */
-
+//Funzione che salva su un file un campo di tipo Salvataggio aggiungendo alla fine un crc a 32 bit per poi verificare lintegrita del dato alla lettura
 static bool scriviFileConCRC(const char* path, const Salvataggio* s) {
-    FILE* f = fopen(path, "wb");
-    if (!f) return false;
+    FILE* f = fopen(path, "wb");//Apro il file in modalita di sacrittura binaria, ovviamente gli passo il percorso per poterci accedere
+    if (!f) return false;//Se non riesce ad aprirlo torna false
 
+    //Scrivo sul file aperto un elemento di dimensione  salvataggio, della struttura stessa 
+    //( puntatore ai dati da scrivere, dimensione in byte di ogni elemento, numero di elementi da scrivere, puntatore al file aperto)
+    //Se avvengono errori nella scrittura torna un numero diverso da uno.
+    //In breve sto copiando tutta la struttura Salvataggio dentro al file
     if (fwrite(s, sizeof(Salvataggio), 1, f) != 1) {
-        fclose(f);
+        fclose(f);//chiudo il file per evitare perdite di risorse
+        perror("Errore nella scrittura del file");
         return false;
     }
+
+    /**
+     * Chiama la funzione crc32_compute che calcola il CRC32 su un blocco di dati.
+     * Passa a questa funzione un puntatore generico (const void*)s che punta alla struttura Salvataggio.
+     * Passa anche la dimensione in byte della struttura Salvataggio con sizeof(Salvataggio).
+     * Il risultato è un valore uint32_t (32 bit) che rappresenta il checksum CRC, ovvero un codice che sintetizza i dati e permette di verificarne l'integrità.
+     * uint32_t è un intero senza segno a 32 bit definito nello standard C (in <stdint.h>).
+     *Serve a contenere esattamente 32 bit di dati, cioè il valore di CRC calcolato.
+     *
+     * const void* data: void* è un puntatore generico: può puntare a qualsiasi tipo di dato (intero, struct, array, ecc).
+     * Questo rende la funzione generica, cioè può calcolare il CRC di qualunque blocco di memoria, indipendentemente dal tipo di dati che contiene.
+     * const significa che la funzione non modificherà i dati a cui punta data. È una promessa che la funzione legge solo i dati senza cambiarli.
+     **/
     uint32_t crc = crc32_compute((const void*)s, sizeof(Salvataggio));
-    uint8_t crc_bytes[4];
-    crc_bytes[0] = (uint8_t)(crc & 0xFFU);
-    crc_bytes[1] = (uint8_t)((crc >> 8) & 0xFFU);
-    crc_bytes[2] = (uint8_t)((crc >> 16) & 0xFFU);
-    crc_bytes[3] = (uint8_t)((crc >> 24) & 0xFFU);
+    uint8_t crc_bytes[4];//dichiaro un array di 4 byte. uint8_t sono 8bit
+    
+    //Poiche il crc e' un valore di 32 bit e quindi 4 byte divido larray in 4
+    
+    //Invece di scrivere direttamente il valore uint32_t (che potrebbe essere interpretato diversamente su piattaforme diverse),
+    //lo "spezzettiamo" in byte per avere un formato file  ovunque
+    crc_bytes[0] = (uint8_t)(crc & 0xFFU);//prendo l'ultimo byte meno significativo del codice CRC  (gli 8 bit piu a destra) tramite crc & 0xFFU
+    crc_bytes[1] = (uint8_t)((crc >> 8) & 0xFFU);//mi sposto a destra ancora di otto bit per prendere un altro byte
+    crc_bytes[2] = (uint8_t)((crc >> 16) & 0xFFU);//mi sposto a destra ancora di otto bit per prendere un altro byte
+    crc_bytes[3] = (uint8_t)((crc >> 24) & 0xFFU);//mi sposto a destra ancora di otto bit per prendere un altro byte
+    
+    //In pratica ho scomposto il valore di 32 bitin 4 blocchi di 8 bit(4byte)
+    //scrivo i 4 elementi da un byte allinterno del file aperto f
+    //se non riesce a scriverli tutti torna false
     if (fwrite(crc_bytes, 1, 4, f) != 4) {
-        fclose(f);
-        return false;
+        fclose(f);                           //chiudo il file per evitare perdita di dati
+        return false;                       //torno false
     }
-    fclose(f);
-    return true;
+    fclose(f);              //chiudo il file terminate tutte le varie operazioni
+    return true;            //Se la scrittura e' avvenuta con successo ritorno true
 }
 
-bool leggiSalvataggioIndice(int idx, Salvataggio* s) {
-    if (idx <= 0) return false;
-    char nomeFile[MAX_NOME_FILE];
-    costruisciNomeFile(idx, nomeFile);
+//Funzione che legge il salvataggio dal suo indice
+bool leggiSalvataggioIndice(int idx, Salvataggio* s) {//parametri: indice del salvataggio e puntatore al saalvataggio stesso
+    
+    if (idx <= 0) return false; //Se l'indice e' zero o negativo ce un errore e quindi usciamo
 
-    FILE* f = fopen(nomeFile, "rb");
-    if (!f) return false;
+    char nomeFile[MAX_NOME_FILE];//Variabile contenitore del nome del file
+    costruisciNomeFile(idx, nomeFile);//Costruisce il nome del file avendo il suo indice affijnche sia possibile identificarlo
 
+    FILE* f = fopen(nomeFile, "rb");//Provo a leggere il file in lettura binaria
+    if (!f) return false;//Se f e null allora il file non e stato letto e ce un errore, quindi esco
+
+    //fseek sposta il puntatore alla fine del file(SEEK END) permettendo di misurare la dimensione del file tramite ftell
+    //Se fseek ritorna un valore diverso da zero significa che lo spostamento è fallito (ad esempio file non leggibile o errore).
+    //In tal caso chiude il file e ritorna false  perche non possiamo continuare
     if (fseek(f, 0, SEEK_END) != 0) { fclose(f); return false; }
-    long sz = ftell(f);
-    rewind(f);
+    
+    //In caso contrario si prosegue
+    //ftell restituisce la posizione corrente del puntatore nel file, che dopo il fseek su SEEK_END equivale alla dimensione in byte del file.
+    long sz = ftell(f);//long e il tipo di dato tipico per la posizione dei file 
+    rewind(f);//Riportiamo il puntatore alla posizione di partenza (fondamentale per poter usare fread)
 
+/**
+ * IMPORTANTE CONSIDERAZIONE
+ * Problematica riscontrata: A questo punto del programma mi sono chiesto cosa potesse succedere qualora avessi modificato
+ *                           i file di testo manualmente e successivamente provato a ricaricarli.
+ * 
+ * Risposta: I file vengono caricati comunque e nel peggiore dei casi rischio dati invalidi.
+ * 
+ * Domanda iniziale: E' possibile riuscire a leggere i file vecchi e capire se sono stati modificati, ovviamente lo stesso deve essere fatto anche per i file nuovi
+ * 
+ * Soluzione: Dopo essermi documentato in merito ho deciso di provare ad implementare all'interno del programma un controllo chiamato CRC (CYCLIC REDUNDANCY CHECK)
+ * Spiegazione: -Il controllo CRC permette quando salvi i dati, di andare a calcolare un valore chiamato CRC
+ *              -Questo valore viene inserito insieme ai dati
+ *              -Quando carico i dati, ricalcolo questo valore e lo confronto con il CRC salvato precedentemente
+ *              -Se i due valori non corrispondono, significa che i dati sono stati modificati o corrotti
+ * 
+ **/            
+
+ 
+    //se la dimensione e' esattamente la dimensione della struttura salvataggio
+    //Allora il file corrisponde al formato vecchio senza il CRC
     if (sz == (long)sizeof(Salvataggio)) {
+
+        //Tenta di leggere dal file la struttura Salvataggio in un blocco singolo
+        //fread ritorna il numero di elementi letti
+        //Se la lettura fallisce(numero di elementi diversi da 1)
+        //Legge dal file aperto (f) un blocco di dati in binario di dimensione sizeof(Salvataggio(cioe lo spazio di memoria che occupa)) e lo salva nella memoria puntata da s
+        //Il parametro uno indica che si vuole leggere un solo elemento di quella dimensione (quindi l'intera struttura)
+        //Se il valore di ritorno e' diverso da uno significa che non e' riuscito a leggere in modo corretto la struttura
         if (fread(s, sizeof(Salvataggio), 1, f) != 1) { fclose(f); return false; }
-        fclose(f);
-        controllaCreaCartella();
+        fclose(f);///se la lettura e andata bene chiude il file per liberare le risorse
+        controllaCreaCartella();//controlla se la cartellaesiste altrimenti la crea
+        
         if (!scriviFileConCRC(nomeFile, s)) {
             return true;
         }
@@ -140,17 +308,17 @@ bool leggiSalvataggioIndice(int idx, Salvataggio* s) {
     }
 }
 
-/* FUNZIONE CORRETTA: Salva o aggiorna il salvataggio */
+//Funzione che salva o aggiorna il salvataggio
 bool salvaGioco(const Salvataggio* s) {
-    if (s == NULL) return false;
+    if (s == NULL) return false;    //se il puntatore e nullo torna false
     
-    controllaCreaCartella();
+    controllaCreaCartella();        //controlla se la cartella esiste o meno. La crea se non esiste
 
-    char nomeFile[MAX_NOME_FILE];
-    Salvataggio temp;
+    char nomeFile[MAX_NOME_FILE];   //nome del file di gioco di dimensione massima pari a MAX NOME FILE
+    Salvataggio temp;               //Creo un istanza salvataggio
 
-    int count = contaSalvataggi();
-    bool trovato = false;
+    int count = contaSalvataggi();  //contatore del numero di salvataggi presenti nella cartella
+    bool trovato = false;           //Variabile che permette di capire se un file ce o no
     int indiceTrovato = -1;
 
     // Cerca se esiste già un salvataggio con lo stesso nome
@@ -184,6 +352,7 @@ bool salvaGioco(const Salvataggio* s) {
         return true;
     } else {
         // CREA un nuovo salvataggio
+    
         costruisciNomeFile(count + 1, nomeFile);
         
         Salvataggio nuovoSalvataggio = *s;
@@ -199,24 +368,27 @@ bool salvaGioco(const Salvataggio* s) {
     }
 }
 
+//Funzione che conta il numero di salvataggi e torna il numero scorrendoli e si ferma quando non ne trova piu
 int contaSalvataggi(void) {
-    controllaCreaCartella();
 
-    int count = 0;
-    char nomeFile[MAX_NOME_FILE];
-    FILE* f;
+    controllaCreaCartella();         //Controlla se la cartella esiste o meno. La crea se non esiste
 
-    while (1) {
-        costruisciNomeFile(count + 1, nomeFile);
-        f = fopen(nomeFile, "rb");
-        if (f) {
-            fclose(f);
-            count++;
-        } else {
-            break;
+    int count = 0;                   //imposta un contatore di salvataggi a 0
+    char nomeFile[MAX_NOME_FILE];    //Variabile contenente il nome del salvataggio
+    FILE* f;                         //Creo un file f di tipo FILE
+
+    while (1) {                                 //Ciclo infinito
+        costruisciNomeFile(count + 1, nomeFile);//costruisce il nome del file numero count+1, per  identificare i salvataggio e lo inserisce nel buffer nomeFile
+        f = fopen(nomeFile, "rb");              //Prova ad aprire il file in lettura binarioa (rb)
+        
+        if (f) {           //Se fopen non e' null allora il file esiste
+            fclose(f);     //Chiudi il file
+            count++;       //Passa al salvataggio successiov
+        } else {//Altrimenti
+            break;         //Il file non esiste quindi esci dal ciclo
         }
-    }
-    return count;
+    }   
+    return count;          //Torna il numero di file
 }
 
 bool eliminaSalvataggio(int idx) {
@@ -240,17 +412,26 @@ bool eliminaSalvataggio(int idx) {
     return true;
 }
 
-Salvataggio creaSalvataggioDaEroe(const Eroe* eroe) {
-    Salvataggio s = {0};
-    strncpy(s.nome, eroe->nome, MAX_NOME_EROE - 1);
-    s.nome[MAX_NOME_EROE - 1] = '\0';
+
+//Funzione che ritorna un salvataggio una volta creato un eroe
+Salvataggio creaSalvataggioDaEroe(const Eroe* eroe) {//passo un puntatore all'eroe
+    
+    //best practice
+    Salvataggio s = {0};//creo un salvataggio inizializzandolo tutti i campi a 0 per evitare valori casuali indesiderati che potrebbero causare problematiche
+    
+    strncpy(s.nome, eroe->nome, MAX_NOME_EROE - 1);//Copio il nome dell'eroe nel campo del salvataggio indicato con un numero massimo di caratteri da copiare pari a MAX NOME EROE -1
+    
+    s.nome[MAX_NOME_EROE - 1] = '\0';//Imposto il terminatore
+    
+    //Imposto i campi del salvataggio s di tipo Salvataggio con i campi attuali del mio eroe
     s.vita = eroe->vita;
     s.monete = eroe->monete;
     s.missioniCompletate = eroe->missioniCompletate;
     s.oggettiPosseduti = eroe->oggettiPosseduti;
-    // NON impostiamo il timestamp qui, lo fa salvaGioco()
-    s.dataSalvataggio = 0; 
-    return s;
+
+    //NON impostiamo il timestamp qui, lo fa salvaGioco() questo perche la nostra funzioene crea un dato, non lo salva
+    s.dataSalvataggio = 0; //Imposto un valore iniziale per evitare dati indesiderati
+    return s;//Ritorno il salvataggio
 }
 
 Eroe creaEroeDaSalvataggio(const Salvataggio* salvataggio) {

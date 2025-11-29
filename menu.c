@@ -1,159 +1,230 @@
+//Include la libreria standard per input/output (printf scanf getchar etcetc)
 #include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
-#include "menu.h"
-#include "salvataggi.h"
-#include "eroe.h"
-#include "trucchi.h"
-#include "missioni.h"
 
+//Include la libreria per i tipi booleani (false e true)
+#include <stdbool.h>
+
+//Include la libreria per le funzioni di gestione delle stringhe (strcmp / strcpy)
+#include <string.h>
+
+//Include tutti i file header personalizzati del progetto che contengono le varie dichiarazioni delle funzioni
+#include "menu.h" //funzioni relative al menu di gioco
+#include "salvataggi.h"//Funzioni relative al salvataggio e il caricamento delle partite
+#include "eroe.h"//Funzioni e strutture relative all'eroe ed al personaggio
+#include "trucchi.h"//Funzioni per gestire i trucchi
+#include "missioni.h"//Funzioni per gestire le varie missioni di gioco
+
+//Definizione di una costante corrispondente al numero massimo di caratteri corrispondente ai trucchi
 #define MAX_TRUCCHI 32
 
-// Colori ANSI per output colorato
+// Definizione di codici ANSI per colorare il testo del terminale e renderlo piu' apprezzabile esteticamente
+// \033[ è la sequenza di escape che dice di iniziare un determinato comando, 1 è per grassetto, i numeri sono i colori
+//m indica di terminare il comando
 #define COLORE_VERDE "\033[1;32m"
 #define COLORE_ROSSO "\033[1;31m"
 #define COLORE_GIALLO "\033[1;33m"
 #define COLORE_BLU "\033[1;34m"
 #define COLORE_CIANO "\033[1;36m"
 #define COLORE_MAGENTA "\033[1;35m"
-#define COLORE_RESET "\033[0m"
+#define COLORE_RESET "\033[0m"//rispristina normale fonadmentale senno rimarrebbe tutto di un colore
 
-// Variabile statica per tracciare se i trucchi sono attivi
+//Variabile glocale statica (quindi visibiler solo in questo file )
+//FONDAMENTALE per tracciare se i trucchi sono stati attivati o meno
 static bool trucchiAttivi = false;
 
-// Prototipi di funzioni private (usate solo in questo file)
+
+//Prototipi (dichiarazioini) di funzioni statiche (usate solo in questo file)
+//servono per dichiarare funzioni che verranno usate piu avanti nel codice
+
+//Funzione che stampa un menu con le due opzioni iniziali
 static void stampaMenuConRiquadroADueOpzioni(void);
+
+//Funzione che stampa un menu con l'opzione trucchi attivata
 static void stampaMenuConRiquadroAtreOpzioni(void);
+
+//Funzione che stampa il menu specifico del villaggio di gioco
 static void stampaMenuVillaggio(void);
 
-/**
- * Legge un singolo carattere dall'input e svuota il buffer fino a newline o EOF.
- * Restituisce il carattere letto.
+
+
+/*
+ ******************************************************** 
+ * GESTIONE DEL BUFFER DEGLI INPUT MEDIANTE DUE FUNIZONI*
+ ********************************************************
+ *NECESSITA':Pulire il buffer di input dopo scanf() e getchar() per evitare che il carattere
+ *           '\n' o altri caratteri residui causino bug nelle letture successive.
+ * PROBLEMATICA: Sia scanf che getchar oltre al carattere letto memorizzano dei caratteri residui
+ *               che sarebbero poi letti da un eventuale successivo scanf ad esempio
+ *NB. EQF e' fondamentale poiche' in caso l'input fallise inaspettatamente si finirebbe in un while infinito
+ *    per cui con EQF l'input esce comunque permettendo al programma di non bloccarsi mai.
+ *    EQF e' un numero intero che vale -1 definito nella libreria stdio.h
+ *    -1 viene restituito da getchar in varie situazioni tra cui quando fallisce
+ * 
+ */
+//SOLUZIONE PER GETCHAR//
+/*QUANDO USARLA:
+ * - Menu di gioco (scelta 1, 2, 3, ecc.)
+ * - Conferme (S/N)
+ * - Qualsiasi input di un singolo carattere
+ * 
+ * COME FUNZIONA:
+ * 1. Legge il carattere inserito dall'utente
+ * 2. Automaticamente svuota il buffer (rimuove '\n' e altri residui)
+ * 3. Restituisce solo il carattere valido
  */
 char leggiCaratterePulito(void) {
-    int c;
-    char ch = getchar();
+    
+    int c;//Variabile per leggere i caratteri aggiunti dal buffer
+
+
+    char ch = getchar();//Legge il primo carattere inserito dall'utente e lo memorizza in ch
+    
+    
+    //Ciclo while che continua finche' non trova '\n' o EQF
     while ((c = getchar()) != '\n' && c != EOF);
-    return ch;
+    
+    return ch;//Restituisce il carattere valido
 }
 
-// ============================================
+//SOLUZIONE PER SCANF//
+/*QUANDO USARLA:
+ * - SEMPRE dopo scanf("%d", ...) (numeri interi)
+ * - SEMPRE dopo scanf("%f", ...) (numeri decimali)  
+ * - SEMPRE dopo scanf("%s", ...) (stringhe)
+ * 
+ * COME FUNZIONA:
+ * 1. Legge e scarta tutti i caratteri nel buffer
+ * 2. Si ferma quando trova '\n' (newline) o EOF (fine file)
+ * 3. Non restituisce nulla (void), pulisce solamente
+ */
+void pulisciBuffer(void) {
+    int c;                              // Variabile temporanea per leggere caratteri
+    while ((c = getchar()) != '\n' && c != EOF);  // Svuota tutto fino a newline o EOF
+}
+
+// +++++++++++++++++++++++++++++++++++++++++
 // MENU PRINCIPALE (SCHERMATA INIZIALE)
-// ============================================
-
+// +++++++++++++++++++++++++++++++++++++++++
+//Questa funzione va a gestire a 365 gradi il menu'
 void menuPrincipale(void) {
-    char opzione;
-    char contTrucchi[MAX_TRUCCHI] = {0};  // Buffer per memorizzare la sequenza Konami
-    int i = 0;                             // Contatore per la posizione nel buffer
 
-    while (1) {
+    char opzione;//variabile contenente un opzione del gioco
+    
+    char contTrucchi[MAX_TRUCCHI] = {0};  // Buffer per memorizzare la sequenza Konami mediante un array di dimensione MAX_TRUCCHI
+    int i = 0;                             // Contatore per la posizione nel buffer dei trucchi
+
+    while (1) {//ciclo infinito 
+
         // Stampa il menu appropriato in base allo stato dei trucchi
-        if (trucchiAttivi) {
-            stampaMenuConRiquadroAtreOpzioni();
-        } else {
-            stampaMenuConRiquadroADueOpzioni();
+        if (trucchiAttivi) { //se i trucchi sono attivi
+            stampaMenuConRiquadroAtreOpzioni();//personalizzazione con trucchi
+        } else {//altrimenti
+            stampaMenuConRiquadroADueOpzioni();//personalizzazione senzatrucchi
         }
-        
+                                                              //  xondizione ? se vera : se falsa
         printf("Seleziona una delle opzioni del menu [%s] : ", trucchiAttivi ? "1 - 3" : "1 - 2 - 0");
 
-        opzione = leggiCaratterePulito();
+        opzione = leggiCaratterePulito();//svuota il buffer per evitare terminatori non desiderati
 
         // Verifica se il carattere inserito è valido
-        if (!carattereValido(opzione, trucchiAttivi)) {
+        if (!carattereValido(opzione, trucchiAttivi)) {//se il carattere non e' valido
+
             printf(COLORE_ROSSO "Carattere non valido, riprova.\n" COLORE_RESET);
-            continue;
+            continue;//salta tutto il codice corrente e torna all'inizio del loop (FONDAMENTALE)
         }
 
+        //Opzioni del menu
         switch (opzione) {
             case '0':
                 printf(COLORE_GIALLO "Uscita dal gioco. Arrivederci!\n" COLORE_RESET);
                 return; // Termina il programma
                 
             case '1':
-                gestisciNuovaPartita();
-                break; // Torna al menu principale dopo la partita
+                gestisciNuovaPartita();//gestione nuova partita
+                break; // Torna al menu principale dopo la partita, esce dallo switch
                 
             case '2':
-                gestisciCaricaSalvataggio();
-                break;
+                gestisciCaricaSalvataggio();//gestione carica del salvataggio
+                break; // Torna al menu principale dopo la partita, esce dallo switch
                 
             case '3':
-                if (trucchiAttivi) {
-                    gestisciMenuTrucchi();
-                } else {
+                if (trucchiAttivi) {// se i trucchi sono attivi
+                    gestisciMenuTrucchi();//gestione del menu trucchi
+                } else {//altrimenti
                     printf(COLORE_ROSSO "Opzione non valida.\n" COLORE_RESET);
                 }
-                break;
+                break;//esce dallo switch
                 
             case ' ':
                 // Terminatore della sequenza Konami
-                if (i == 0) {
+                if (i == 0) {//se il contatore dei caratteri konami rimane invariato
                     printf(COLORE_ROSSO "Errore: terminatore spazio inserito senza sequenza.\n" COLORE_RESET);
-                } else {
-                    if (confrontoString(contTrucchi)) {
+                } else {//altrimenti
+                    if (confrontoString(contTrucchi)) {//se la stringa corrisponde alla stringa della sequenza konami
                         printf("\n" COLORE_VERDE "TRUCCHI ATTIVATI!\n" COLORE_RESET);
-                        trucchiAttivi = true;
+                        trucchiAttivi = true;//imposta i trucchi a true
                     } else {
                         printf("\n" COLORE_ROSSO "Codice errato. Riprova.\n" COLORE_RESET);
                     }
-                    i = 0;
-                    contTrucchi[0] = '\0';
+                    i = 0;//riparte con il conteggio a 0
+                    contTrucchi[0] = '\0';//imposta il terminatore del contenitore di trucchi per la partita sucessiva o per un successivo inserimento
                 }
-                break;
+                break; //esce dallo switch
                 
             default:
                 // Se non siamo in modalità trucchi, accumula caratteri per il codice Konami
-                if (!trucchiAttivi) {
-                    if (i < MAX_TRUCCHI - 1) {
-                        contTrucchi[i++] = opzione;
-                        contTrucchi[i] = '\0';
-                    } else {
+                if (!trucchiAttivi) {//se i trucchi non sono stati attivati
+                    if (i < MAX_TRUCCHI - 1) {//finche il contatore i dei trucchi e' inferiore alla dimensione massima meno uno (il meno uno serve per lasciare lo spazio al terminatrore '\0')
+                        contTrucchi[i++] = opzione;//scorro l'array e salvo il carattere
+                        contTrucchi[i] = '\0';//imposto quello successivo con il terminatore
+                    } else { //altrimenti se i  supera il massimo di caratteri ammessi
                         printf(COLORE_ROSSO "Sequenza troppo lunga, ripartiamo.\n" COLORE_RESET);
-                        i = 0;
-                        contTrucchi[0] = '\0';
+                        i = 0;//reimposta i a 0
+                        contTrucchi[0] = '\0';//imposta il terminatore del contenitore di trucchi per la partita sucessiva o per un successivo inserimento
                     }
                 } else {
                     printf(COLORE_ROSSO "Opzione non valida.\n" COLORE_RESET);
                 }
-                break;
+                break;//esce dallo switch
         }
     }
 }
 
-// ============================================
-// NUOVA PARTITA
-// ============================================
 
+// +++++++++++++++++++++++++++++++++++
+// NUOVA PARTITA                        
+// +++++++++++++++++++++++++++++++++++
+//Funzione che gestisce l'intera partita e il sa
 void gestisciNuovaPartita(void) {
     printf("\n" COLORE_VERDE "Hai scelto NUOVA PARTITA!\n" COLORE_RESET);
     
-    // Crea un nuovo eroe
-    Eroe eroe;
+    //Crea un nuovo eroe
+    Eroe eroe;//crea una variabile eroe di tipo Eroe, un istanza di Eroe(vedi struct Eroe.h)
     printf("Inserisci il nome del tuo eroe: ");
-    dichiaraNomeEroe(eroe.nome);
+    dichiaraNomeEroe(eroe.nome);//passo come parametro il campo della struct del mio eroe appena creato alla funzione 
 
-    inizializzaEroe(&eroe, eroe.nome);
+    inizializzaEroe(&eroe, eroe.nome);//inizializzazione dell'eroe passando l'indirizzo di memoria della mia variabile eroe e il nome senza caratteri fastidiosi nel buffer
     
-    // Crea un salvataggio iniziale
-    Salvataggio s = creaSalvataggioDaEroe(&eroe);
+    //Crea un salvataggio iniziale di tipo Salvataggio (vedi struct file salvataggi.h)
+    Salvataggio s = creaSalvataggioDaEroe(&eroe);//passo l'indirizzo di memoria della mia variabile eroe 
 
-    if (salvaGioco(&s)) {
+    if (salvaGioco(&s)) {//Se il gioco viene salvato correttamente(se la funzione mi torna true)
         printf(COLORE_VERDE "Salvataggio iniziale creato con successo!\n" COLORE_RESET);
-    } else {
+    } else {//altrimenti(se mi torna false)
         printf(COLORE_ROSSO "Errore nel salvataggio iniziale.\n" COLORE_RESET);
     }
 
-    mostraEroe(&eroe);
+    mostraEroe(&eroe);//mostra tutte le caratteristiche del mio eroe
     
-    // Inizializza il gestore delle missioni
-    GestoreMissioni gestore;
-    inizializzaGestoreMissioni(&gestore);
+    //Inizializza il gestore delle missioni
+    GestoreMissioni gestore;//Creo un istanza di GestoreMissioni
+    inizializzaGestoreMissioni(&gestore);//Inizializzo il gestore delle missioni(vedi missioni.c)
     
     printf("\n" COLORE_CIANO "Benvenuto nel villaggio, %s!\n" COLORE_RESET, eroe.nome);
     printf(COLORE_GIALLO "Il capo del villaggio ti chiama...\n" COLORE_RESET);
     printf(COLORE_ROSSO "\"Un'oscura minaccia incombe sul regno. Sei la nostra ultima speranza!\"\n" COLORE_RESET);
     
-    // Entra nel menu del villaggio (loop principale di gioco)
+    //Entra nel menu del villaggio (loop principale di gioco)
     bool continuaGioco = true;
     while (continuaGioco) {
         continuaGioco = menuDelVillaggio(&eroe, &gestore);
@@ -289,7 +360,6 @@ void modificaCampoSalvataggio(int sceltaSalvataggio) {
     printf("3. Sblocca Missione Finale\n");
 
     char scelta;
-    int c;
     
     while (1) {
         printf("Scegli un'opzione [1-3]: ");
@@ -315,7 +385,7 @@ void modificaCampoSalvataggio(int sceltaSalvataggio) {
         printf("Di quanto vuoi modificare la vita? (usa numero negativo per diminuire): ");
         int delta;
         scanf("%d", &delta);
-        while ((c = getchar()) != '\n' && c != EOF);
+        pulisciBuffer();  
         modificaVita(&eroeModificato, delta);
         printf(COLORE_VERDE "Vita modificata! Nuova vita: %d\n" COLORE_RESET, eroeModificato.vita);
         
@@ -324,13 +394,12 @@ void modificaCampoSalvataggio(int sceltaSalvataggio) {
         printf("Di quanto vuoi modificare le monete? (usa numero negativo per diminuire): ");
         int delta;
         scanf("%d", &delta);
-        while ((c = getchar()) != '\n' && c != EOF);
+        pulisciBuffer();  
         modificaMonete(&eroeModificato, delta);
         printf(COLORE_VERDE "Monete modificate! Nuove monete: %d\n" COLORE_RESET, eroeModificato.monete);
         
     } else if (scelta == '3') {
         printf(COLORE_MAGENTA "Sblocco della MISSIONE FINALE selezionata.\n" COLORE_RESET);
-        // Impostiamo tutte le missioni come completate
         eroeModificato.missioniCompletate = 3;
         printf(COLORE_VERDE "Missione finale sbloccata! Tutte le missioni preliminari sono ora completate.\n" COLORE_RESET);
     }
@@ -342,7 +411,6 @@ void modificaCampoSalvataggio(int sceltaSalvataggio) {
         printf(COLORE_ROSSO "Errore nel salvataggio delle modifiche.\n" COLORE_RESET);
     }
 }
-
 // ============================================
 // MENU DEL VILLAGGIO (LOOP PRINCIPALE DI GIOCO)
 // ============================================

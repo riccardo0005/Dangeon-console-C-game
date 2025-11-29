@@ -12,6 +12,7 @@
 #define COLORE_MAGENTA "\033[1;35m"
 #define COLORE_RESET "\033[0m"
 
+
 // --- FUNZIONI DI INIZIALIZZAZIONE ---
 
 void inizializzaMissione(Missione* m, TipoMissione tipo, const char* nome, 
@@ -30,13 +31,15 @@ void inizializzaMissione(Missione* m, TipoMissione tipo, const char* nome,
     m->oggettoRecuperato = false;
 }
 
+//Funzione di inizializzazione del gestore delle missioni
+//stile di formattazione: Vertical-Aligment-Style-->Antirez
 void inizializzaGestoreMissioni(GestoreMissioni* gestore) {
-    if (gestore == NULL) return;
+    if (gestore == NULL) return;//se il puntatore e' nulla e quindi non punta a nulla esce
     
-    gestore->missioniCompletate = 0;
-    gestore->missioneCorrente = MISSIONE_NESSUNA;
+    gestore->missioniCompletate = 0;                //Inizializza a 0 i campi gel gestore
+    gestore->missioneCorrente = MISSIONE_NESSUNA;   //Inizializza la missione attuale (vedi typedef Enum)
     
-    // Inizializza Palude Putrescente
+    //Inizializza Palude Putrescente
     inizializzaMissione(&gestore->missioni[MISSIONE_PALUDE], 
                        MISSIONE_PALUDE,
                        "Palude Putrescente",
