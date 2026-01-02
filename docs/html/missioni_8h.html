@@ -91,8 +91,718 @@ $(function(){initNavTree('missioni_8h.html','',''); });
   <div class="headertitle"><div class="title">missioni.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="eroe_8h_source.html">eroe.h</a>&quot;</code><br />
+</div>
 <p><a href="missioni_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Missione" id="r_Missione"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_missione.html">Missione</a></td></tr>
+<tr class="memitem:GestoreMissioni" id="r_GestoreMissioni"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:acbce430db034e51d69e38c9a3b3afb66" id="r_acbce430db034e51d69e38c9a3b3afb66"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> { <br />
+&#160;&#160;<a class="el" href="#acbce430db034e51d69e38c9a3b3afb66a07ad597a0f8426278d4aa45b05a1a59a">MISSIONE_PALUDE</a> = 0
+, <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66a5655bc185a92843db6412993007be487">MISSIONE_MAGIONE</a> = 1
+, <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66ad1aa34b981d8d131a8cc18806f1e399d">MISSIONE_GROTTA</a> = 2
+, <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66a04a813b0262a0196f899c770aaacbddb">MISSIONE_CASTELLO</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="#acbce430db034e51d69e38c9a3b3afb66ae74b7c123b31bed50350507601a17519">MISSIONE_NESSUNA</a> = -1
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aef568376d75252444158ef638cef2e06" id="r_aef568376d75252444158ef638cef2e06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef568376d75252444158ef638cef2e06">inizializzaGestoreMissioni</a> (<a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore)</td></tr>
+<tr class="memdesc:aef568376d75252444158ef638cef2e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inizializza il gestore delle missioni con tutte le missioni del gioco.  <br /></td></tr>
+<tr class="memitem:a1e1fc23481e963b9963fd84548e797b9" id="r_a1e1fc23481e963b9963fd84548e797b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e1fc23481e963b9963fd84548e797b9">inizializzaMissione</a> (<a class="el" href="struct_missione.html">Missione</a> *m, <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> tipo, const char *nome, const char *descrizione, int obiettiviTotali)</td></tr>
+<tr class="memdesc:a1e1fc23481e963b9963fd84548e797b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inizializza una singola missione con i parametri specificati.  <br /></td></tr>
+<tr class="memitem:a46b4f2c526efae6fb9b150395b139bd5" id="r_a46b4f2c526efae6fb9b150395b139bd5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46b4f2c526efae6fb9b150395b139bd5">mostraMenuMissioni</a> (const <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore)</td></tr>
+<tr class="memdesc:a46b4f2c526efae6fb9b150395b139bd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra il menu di selezione delle missioni disponibili.  <br /></td></tr>
+<tr class="memitem:a27db372b55e7dd6844171954c6c97df8" id="r_a27db372b55e7dd6844171954c6c97df8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27db372b55e7dd6844171954c6c97df8">mostraMenuDuranteMissione</a> (const <a class="el" href="struct_missione.html">Missione</a> *missione, const <a class="el" href="struct_eroe.html">Eroe</a> *eroe)</td></tr>
+<tr class="memdesc:a27db372b55e7dd6844171954c6c97df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visualizza il menu di azioni disponibili durante una missione.  <br /></td></tr>
+<tr class="memitem:a2c7460cf60f8dbd2e93a2f0de3ac9e9b" id="r_a2c7460cf60f8dbd2e93a2f0de3ac9e9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c7460cf60f8dbd2e93a2f0de3ac9e9b">mostraStatoMissione</a> (const <a class="el" href="struct_missione.html">Missione</a> *missione)</td></tr>
+<tr class="memdesc:a2c7460cf60f8dbd2e93a2f0de3ac9e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visualizza lo stato dettagliato di una missione specifica.  <br /></td></tr>
+<tr class="memitem:a1bbe64a9fd84e926807106afd32b7c21" id="r_a1bbe64a9fd84e926807106afd32b7c21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bbe64a9fd84e926807106afd32b7c21">selezionaMissione</a> (<a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore)</td></tr>
+<tr class="memdesc:a1bbe64a9fd84e926807106afd32b7c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permette al giocatore di selezionare una missione dal menu.  <br /></td></tr>
+<tr class="memitem:a3fc6979cf6ee97607bdcf71cd28af962" id="r_a3fc6979cf6ee97607bdcf71cd28af962"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fc6979cf6ee97607bdcf71cd28af962">eseguiMissione</a> (<a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore, <a class="el" href="struct_eroe.html">Eroe</a> *eroe, <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> tipo)</td></tr>
+<tr class="memdesc:a3fc6979cf6ee97607bdcf71cd28af962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esegue il loop principale di una missione selezionata.  <br /></td></tr>
+<tr class="memitem:aed23b8cecc5e8df2f891ab0c3203222d" id="r_aed23b8cecc5e8df2f891ab0c3203222d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed23b8cecc5e8df2f891ab0c3203222d">completaMissione</a> (<a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore, <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> tipo)</td></tr>
+<tr class="memdesc:aed23b8cecc5e8df2f891ab0c3203222d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marca una missione come completata e gestisce gli effetti collaterali.  <br /></td></tr>
+<tr class="memitem:a05f72f5249de6c1a68acccbeb41fd6b1" id="r_a05f72f5249de6c1a68acccbeb41fd6b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05f72f5249de6c1a68acccbeb41fd6b1">incrementaObiettivi</a> (<a class="el" href="struct_missione.html">Missione</a> *missione)</td></tr>
+<tr class="memdesc:a05f72f5249de6c1a68acccbeb41fd6b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrementa il contatore degli obiettivi completati di una missione.  <br /></td></tr>
+<tr class="memitem:a35c075385299f444a2c0082007f455dd" id="r_a35c075385299f444a2c0082007f455dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35c075385299f444a2c0082007f455dd">segnaOggettoRecuperato</a> (<a class="el" href="struct_missione.html">Missione</a> *missione)</td></tr>
+<tr class="memdesc:a35c075385299f444a2c0082007f455dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Segna un oggetto speciale come recuperato nella missione.  <br /></td></tr>
+<tr class="memitem:adbb3e8706caacc269f95a8c7b72e9fcf" id="r_adbb3e8706caacc269f95a8c7b72e9fcf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbb3e8706caacc269f95a8c7b72e9fcf">missioneCompletata</a> (const <a class="el" href="struct_missione.html">Missione</a> *missione)</td></tr>
+<tr class="memitem:a23227139b23751c54ff01312ae84526a" id="r_a23227139b23751c54ff01312ae84526a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23227139b23751c54ff01312ae84526a">missioneSbloccata</a> (const <a class="el" href="struct_missione.html">Missione</a> *missione)</td></tr>
+<tr class="memitem:a563f38a63854396d7c408e1c16b156de" id="r_a563f38a63854396d7c408e1c16b156de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a563f38a63854396d7c408e1c16b156de">tutteLePreliminariCompletate</a> (const <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore)</td></tr>
+<tr class="memitem:a74ac475b8477bc4c37f32aa74b2c8847" id="r_a74ac475b8477bc4c37f32aa74b2c8847"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74ac475b8477bc4c37f32aa74b2c8847">obiettiviRaggiunti</a> (const <a class="el" href="struct_missione.html">Missione</a> *missione)</td></tr>
+<tr class="memitem:a2c10c0eac36b114a66b8f0d0939fd9e6" id="r_a2c10c0eac36b114a66b8f0d0939fd9e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c10c0eac36b114a66b8f0d0939fd9e6">sbloccaMissioneFinale</a> (<a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore)</td></tr>
+<tr class="memitem:a0f4db2b7c3b8afa660ff0c67d198bd59" id="r_a0f4db2b7c3b8afa660ff0c67d198bd59"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f4db2b7c3b8afa660ff0c67d198bd59">getNomeMissione</a> (<a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> tipo)</td></tr>
+<tr class="memitem:af4c8ee8536c53100a657dd2ee4c37994" id="r_af4c8ee8536c53100a657dd2ee4c37994"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4c8ee8536c53100a657dd2ee4c37994">getDescrizioneMissione</a> (<a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> tipo)</td></tr>
+<tr class="memitem:a29e98a568c844a804f90126dfde7dbd2" id="r_a29e98a568c844a804f90126dfde7dbd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_missione.html">Missione</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29e98a568c844a804f90126dfde7dbd2">getMissione</a> (<a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore, <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> tipo)</td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="acbce430db034e51d69e38c9a3b3afb66" name="acbce430db034e51d69e38c9a3b3afb66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbce430db034e51d69e38c9a3b3afb66">&#9670;&#160;</a></span>TipoMissione</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acbce430db034e51d69e38c9a3b3afb66a07ad597a0f8426278d4aa45b05a1a59a" name="acbce430db034e51d69e38c9a3b3afb66a07ad597a0f8426278d4aa45b05a1a59a"></a>MISSIONE_PALUDE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acbce430db034e51d69e38c9a3b3afb66a5655bc185a92843db6412993007be487" name="acbce430db034e51d69e38c9a3b3afb66a5655bc185a92843db6412993007be487"></a>MISSIONE_MAGIONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acbce430db034e51d69e38c9a3b3afb66ad1aa34b981d8d131a8cc18806f1e399d" name="acbce430db034e51d69e38c9a3b3afb66ad1aa34b981d8d131a8cc18806f1e399d"></a>MISSIONE_GROTTA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acbce430db034e51d69e38c9a3b3afb66a04a813b0262a0196f899c770aaacbddb" name="acbce430db034e51d69e38c9a3b3afb66a04a813b0262a0196f899c770aaacbddb"></a>MISSIONE_CASTELLO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acbce430db034e51d69e38c9a3b3afb66ae74b7c123b31bed50350507601a17519" name="acbce430db034e51d69e38c9a3b3afb66ae74b7c123b31bed50350507601a17519"></a>MISSIONE_NESSUNA&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aed23b8cecc5e8df2f891ab0c3203222d" name="aed23b8cecc5e8df2f891ab0c3203222d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed23b8cecc5e8df2f891ab0c3203222d">&#9670;&#160;</a></span>completaMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void completaMissione </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a></td>          <td class="paramname"><span class="paramname"><em>tipo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marca una missione come completata e gestisce gli effetti collaterali. </p>
+<p>Completa una missione, aggiorna i contatori e sblocca eventualmente la finale</p>
+<p>Questa funzione:</p><ul>
+<li>Marca la missione specificata come completata</li>
+<li>Incrementa il contatore delle missioni completate</li>
+<li>Mostra un messaggio celebrativo</li>
+<li>Verifica se tutte le missioni preliminari sono complete</li>
+<li>Sblocca la missione finale se le condizioni sono soddisfatte</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">gestore</td><td>Puntatore al <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tipo</td><td>Tipo della missione da completare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>gestore deve essere un puntatore valido </dd>
+<dd>
+tipo deve essere un valore valido (0-3)</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>missione-&gt;completata è impostato a true </dd>
+<dd>
+gestore-&gt;missioniCompletate è incrementato </dd>
+<dd>
+MISSIONE_CASTELLO può essere sbloccata se tutte le preliminari sono complete</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se la missione è già completata, la funzione ritorna senza modifiche </dd>
+<dd>
+Se gestore è NULL o tipo non è valido, la funzione ritorna senza operazioni</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="missioni_8c.html#a2c10c0eac36b114a66b8f0d0939fd9e6">sbloccaMissioneFinale()</a> </dd>
+<dd>
+<a class="el" href="missioni_8c.html#a563f38a63854396d7c408e1c16b156de">tutteLePreliminariCompletate()</a> </dd>
+<dd>
+<a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3fc6979cf6ee97607bdcf71cd28af962" name="a3fc6979cf6ee97607bdcf71cd28af962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fc6979cf6ee97607bdcf71cd28af962">&#9670;&#160;</a></span>eseguiMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool eseguiMissione </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_eroe.html">Eroe</a> *</td>          <td class="paramname"><span class="paramname"><em>eroe</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a></td>          <td class="paramname"><span class="paramname"><em>tipo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esegue il loop principale di una missione selezionata. </p>
+<p>Avvia l'esecuzione di una missione specifica Gestisce tutto il gameplay della missione (dungeon, combattimenti, ecc.) Ritorna true se la missione è stata completata</p>
+<p>Questa funzione gestisce l'intera esecuzione di una missione, fornendo un menu interattivo che permette al giocatore di:</p><ul>
+<li>Esplorare il dungeon (da implementare)</li>
+<li>Visitare il negozio (da implementare)</li>
+<li>Controllare l'inventario</li>
+<li>Tornare al villaggio (gratis se completata, 50 monete altrimenti)</li>
+</ul>
+<p>La missione continua finché il giocatore non decide di tornare al villaggio. Se la missione è completata (obiettivi raggiunti e oggetti recuperati), viene automaticamente marcata come completata.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">gestore</td><td>Puntatore al <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">eroe</td><td>Puntatore all'<a class="el" href="struct_eroe.html">Eroe</a> che esegue la missione </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tipo</td><td>Tipo di missione da eseguire</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se la missione è stata completata, false altrimenti</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>La missione è stata completata con successo </td></tr>
+    <tr><td class="paramname">false</td><td>La missione non è disponibile, è già completata, o parametri non validi</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>gestore ed eroe devono essere puntatori validi </dd>
+<dd>
+tipo deve essere un valore valido tra 0 e 3 </dd>
+<dd>
+La missione deve essere sbloccata e non ancora completata</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>gestore-&gt;missioneCorrente è impostato a tipo durante l'esecuzione </dd>
+<dd>
+gestore-&gt;missioneCorrente è reimpostato a MISSIONE_NESSUNA alla fine </dd>
+<dd>
+Le monete dell'eroe possono essere ridotte di 50 se torna senza completare </dd>
+<dd>
+La missione può essere marcata come completata</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Questa funzione contiene segnaposto (TODO) per sistemi non ancora implementati </dd>
+<dd>
+Il ritorno anticipato costa 50 monete se la missione non è completa</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Attualmente alcune funzionalità sono stub e richiedono implementazione</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="missioni_8c.html#aed23b8cecc5e8df2f891ab0c3203222d" title="Marca una missione come completata e gestisce gli effetti collaterali.">completaMissione()</a> </dd>
+<dd>
+<a class="el" href="missioni_8c.html#a74ac475b8477bc4c37f32aa74b2c8847">obiettiviRaggiunti()</a> </dd>
+<dd>
+<a class="el" href="missioni_8c.html#a27db372b55e7dd6844171954c6c97df8" title="Visualizza il menu di azioni disponibili durante una missione.">mostraMenuDuranteMissione()</a> </dd></dl>
+
+</div>
+</div>
+<a id="af4c8ee8536c53100a657dd2ee4c37994" name="af4c8ee8536c53100a657dd2ee4c37994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c8ee8536c53100a657dd2ee4c37994">&#9670;&#160;</a></span>getDescrizioneMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * getDescrizioneMissione </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a></td>          <td class="paramname"><span class="paramname"><em>tipo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ottiene la descrizione dell'obiettivo di una missione </p>
+
+</div>
+</div>
+<a id="a29e98a568c844a804f90126dfde7dbd2" name="a29e98a568c844a804f90126dfde7dbd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e98a568c844a804f90126dfde7dbd2">&#9670;&#160;</a></span>getMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_missione.html">Missione</a> * getMissione </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a></td>          <td class="paramname"><span class="paramname"><em>tipo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ritorna il puntatore alla missione specifica nel gestore </p>
+
+</div>
+</div>
+<a id="a0f4db2b7c3b8afa660ff0c67d198bd59" name="a0f4db2b7c3b8afa660ff0c67d198bd59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4db2b7c3b8afa660ff0c67d198bd59">&#9670;&#160;</a></span>getNomeMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * getNomeMissione </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a></td>          <td class="paramname"><span class="paramname"><em>tipo</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ottiene il nome di una missione dal suo tipo </p>
+
+</div>
+</div>
+<a id="a05f72f5249de6c1a68acccbeb41fd6b1" name="a05f72f5249de6c1a68acccbeb41fd6b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05f72f5249de6c1a68acccbeb41fd6b1">&#9670;&#160;</a></span>incrementaObiettivi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void incrementaObiettivi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>missione</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Incrementa il contatore degli obiettivi completati di una missione. </p>
+<p>Incrementa il contatore degli obiettivi completati (es: nemico sconfitto)</p>
+<p>Aumenta di uno il numero di obiettivi completati per la missione specificata. Fornisce feedback visivo all'utente riguardo al progresso della missione:</p><ul>
+<li>Messaggio di completamento se tutti gli obiettivi sono raggiunti</li>
+<li>Messaggio di progresso con conteggio corrente altrimenti</li>
+</ul>
+<p>Il contatore non può superare il numero totale di obiettivi della missione.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">missione</td><td>Puntatore alla <a class="el" href="struct_missione.html">Missione</a> da aggiornare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>missione deve essere un puntatore valido </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>missione-&gt;obiettiviCompletati è incrementato di 1 </dd>
+<dd>
+Il valore viene limitato a obiettiviTotali se necessario </dd>
+<dd>
+Viene stampato un messaggio di feedback su stdout</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se missione è NULL, la funzione ritorna senza operazioni </dd>
+<dd>
+Il valore massimo è limitato a obiettiviTotali anche se incrementato oltre</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="missioni_8c.html#a74ac475b8477bc4c37f32aa74b2c8847">obiettiviRaggiunti()</a> </dd>
+<dd>
+<a class="el" href="struct_missione.html">Missione</a> </dd></dl>
+
+</div>
+</div>
+<a id="aef568376d75252444158ef638cef2e06" name="aef568376d75252444158ef638cef2e06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef568376d75252444158ef638cef2e06">&#9670;&#160;</a></span>inizializzaGestoreMissioni()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inizializzaGestoreMissioni </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inizializza il gestore delle missioni con tutte le missioni del gioco. </p>
+<p>Inizializza il gestore delle missioni con i dati di default Le prime 3 missioni sono sbloccate, la finale è bloccata</p>
+<p>Questa funzione configura il <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> con tutte e quattro le missioni disponibili nel gioco, impostando i loro parametri iniziali. Utilizza lo stile di formattazione Vertical-Alignment-Style (Antirez).</p>
+<p>Le missioni inizializzate sono:</p><ul>
+<li>MISSIONE_PALUDE: "Palude Putrescente" - 3 Generali Orco da eliminare</li>
+<li>MISSIONE_MAGIONE: "Magione Infestata" - 1 Vampiro Superiore + recupero chiave</li>
+<li>MISSIONE_GROTTA: "Grotta di Cristallo" - Recupero Spada dell'<a class="el" href="struct_eroe.html">Eroe</a></li>
+<li>MISSIONE_CASTELLO: "Castello del Signore Oscuro" - Boss finale (bloccata)</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">gestore</td><td>Puntatore alla struttura <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> da inizializzare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>gestore deve essere un puntatore valido ad una struttura allocata </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Tutte le missioni sono inizializzate con i loro parametri di default </dd>
+<dd>
+missioniCompletate è impostato a 0 </dd>
+<dd>
+missioneCorrente è impostato a MISSIONE_NESSUNA </dd>
+<dd>
+Solo MISSIONE_CASTELLO inizia in stato bloccato</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se gestore è NULL, la funzione ritorna immediatamente senza operazioni </dd></dl>
+
+</div>
+</div>
+<a id="a1e1fc23481e963b9963fd84548e797b9" name="a1e1fc23481e963b9963fd84548e797b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e1fc23481e963b9963fd84548e797b9">&#9670;&#160;</a></span>inizializzaMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inizializzaMissione </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a></td>          <td class="paramname"><span class="paramname"><em>tipo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>descrizione</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>obiettiviTotali</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inizializza una singola missione con i parametri specificati. </p>
+<p>Inizializza una singola missione con nome, descrizione e obiettivi</p>
+<p>Questa funzione configura tutti i campi di una struttura <a class="el" href="struct_missione.html">Missione</a> con i valori iniziali appropriati. Il nome e la descrizione vengono copiati in modo sicuro usando strncpy con terminazione garantita della stringa.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">m</td><td>Puntatore alla struttura <a class="el" href="struct_missione.html">Missione</a> da inizializzare </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tipo</td><td>Tipo della missione (MISSIONE_PALUDE, MISSIONE_MAGIONE, etc.) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nome</td><td>Nome descrittivo della missione (max 49 caratteri) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">descrizione</td><td>Descrizione dettagliata dell'obiettivo (max 199 caratteri) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">obiettiviTotali</td><td>Numero totale di obiettivi da completare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Se m è NULL, la funzione ritorna immediatamente senza operazioni </dd>
+<dd>
+Le stringhe vengono troncate se superano la lunghezza massima consentita </dd>
+<dd>
+Tutte le missioni sono sbloccate di default tranne MISSIONE_CASTELLO</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Il puntatore m deve essere valido e allocato prima della chiamata </dd></dl>
+
+</div>
+</div>
+<a id="adbb3e8706caacc269f95a8c7b72e9fcf" name="adbb3e8706caacc269f95a8c7b72e9fcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbb3e8706caacc269f95a8c7b72e9fcf">&#9670;&#160;</a></span>missioneCompletata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool missioneCompletata </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>missione</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se una missione è completata </p>
+
+</div>
+</div>
+<a id="a23227139b23751c54ff01312ae84526a" name="a23227139b23751c54ff01312ae84526a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23227139b23751c54ff01312ae84526a">&#9670;&#160;</a></span>missioneSbloccata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool missioneSbloccata </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>missione</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se una missione è accessibile/sbloccata </p>
+
+</div>
+</div>
+<a id="a27db372b55e7dd6844171954c6c97df8" name="a27db372b55e7dd6844171954c6c97df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27db372b55e7dd6844171954c6c97df8">&#9670;&#160;</a></span>mostraMenuDuranteMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mostraMenuDuranteMissione </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>missione</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_eroe.html">Eroe</a> *</td>          <td class="paramname"><span class="paramname"><em>eroe</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Visualizza il menu di azioni disponibili durante una missione. </p>
+<p>Mostra il menu durante una missione in corso Include: Esplora, Negozio, Inventario, Torna al Villaggio</p>
+<p>Mostra il menu interattivo che il giocatore vede mentre è all'interno di una missione. Include lo stato corrente della missione e le opzioni disponibili:</p><ul>
+<li>Esplora stanza del Dungeon</li>
+<li>Negozio</li>
+<li>Inventario</li>
+<li>Torna al Villaggio (con indicazione del costo se applicabile)</li>
+</ul>
+<p>L'opzione di ritorno al villaggio mostra il costo di 50 monete solo se la missione non è ancora completata (obiettivi non raggiunti o oggetto speciale non recuperato).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">missione</td><td>Puntatore costante alla <a class="el" href="struct_missione.html">Missione</a> corrente </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">eroe</td><td>Puntatore costante all'<a class="el" href="struct_eroe.html">Eroe</a> (per visualizzare statistiche)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>missione e eroe devono essere puntatori validi </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Visualizza lo stato della missione e il menu su stdout</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se missione o eroe sono NULL, la funzione ritorna immediatamente </dd>
+<dd>
+Il costo per tornare al villaggio è 50 monete se la missione non è completa</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="missioni_8c.html#a2c7460cf60f8dbd2e93a2f0de3ac9e9b" title="Visualizza lo stato dettagliato di una missione specifica.">mostraStatoMissione()</a> </dd>
+<dd>
+<a class="el" href="missioni_8c.html#a74ac475b8477bc4c37f32aa74b2c8847">obiettiviRaggiunti()</a> </dd>
+<dd>
+<a class="el" href="struct_eroe.html">Eroe</a> </dd></dl>
+
+</div>
+</div>
+<a id="a46b4f2c526efae6fb9b150395b139bd5" name="a46b4f2c526efae6fb9b150395b139bd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b4f2c526efae6fb9b150395b139bd5">&#9670;&#160;</a></span>mostraMenuMissioni()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mostraMenuMissioni </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mostra il menu di selezione delle missioni disponibili. </p>
+<p>Mostra il menu di selezione delle missioni disponibili Ritorna il numero di missioni disponibili da scegliere</p>
+<p>Visualizza un menu formattato con tutte le missioni attualmente disponibili per il giocatore. Vengono mostrate solo le missioni non completate e sbloccate. Il menu include il nome e la descrizione di ciascuna missione disponibile. La missione finale viene evidenziata con una marcatura speciale.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gestore</td><td>Puntatore costante al <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Numero di missioni disponibili (0 se tutte completate o gestore è NULL)</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>gestore deve essere un puntatore valido </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Visualizza il menu formattato su stdout</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se non ci sono missioni disponibili, mostra un messaggio di completamento </dd>
+<dd>
+Utilizza codici colore ANSI per migliorare la visualizzazione</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="missioni_8c.html#a1bbe64a9fd84e926807106afd32b7c21" title="Permette al giocatore di selezionare una missione dal menu.">selezionaMissione()</a> </dd>
+<dd>
+<a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2c7460cf60f8dbd2e93a2f0de3ac9e9b" name="a2c7460cf60f8dbd2e93a2f0de3ac9e9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c7460cf60f8dbd2e93a2f0de3ac9e9b">&#9670;&#160;</a></span>mostraStatoMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mostraStatoMissione </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>missione</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Visualizza lo stato dettagliato di una missione specifica. </p>
+<p>Mostra lo stato di avanzamento della missione corrente</p>
+<p>Mostra informazioni complete sulla missione corrente, inclusi:</p><ul>
+<li>Nome e descrizione della missione</li>
+<li>Progresso degli obiettivi (se applicabile) con barra visuale</li>
+<li>Stato del recupero di oggetti speciali (chiave o spada)</li>
+</ul>
+<p>La funzione adatta la visualizzazione in base al tipo di missione:</p><ul>
+<li>Per missioni con obiettivi numerici mostra una barra di progresso</li>
+<li>Per MISSIONE_MAGIONE mostra lo stato della chiave</li>
+<li>Per MISSIONE_GROTTA mostra lo stato della spada</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">missione</td><td>Puntatore costante alla <a class="el" href="struct_missione.html">Missione</a> da visualizzare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>missione deve essere un puntatore valido </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Stampa le informazioni formattate su stdout</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se missione è NULL, la funzione ritorna immediatamente </dd>
+<dd>
+La barra di progresso usa caratteri Unicode per una migliore visualizzazione</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> </dd>
+<dd>
+<a class="el" href="struct_missione.html">Missione</a> </dd></dl>
+
+</div>
+</div>
+<a id="a74ac475b8477bc4c37f32aa74b2c8847" name="a74ac475b8477bc4c37f32aa74b2c8847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ac475b8477bc4c37f32aa74b2c8847">&#9670;&#160;</a></span>obiettiviRaggiunti()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool obiettiviRaggiunti </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>missione</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se gli obiettivi della missione sono stati raggiunti </p>
+
+</div>
+</div>
+<a id="a2c10c0eac36b114a66b8f0d0939fd9e6" name="a2c10c0eac36b114a66b8f0d0939fd9e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c10c0eac36b114a66b8f0d0939fd9e6">&#9670;&#160;</a></span>sbloccaMissioneFinale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sbloccaMissioneFinale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sblocca la missione finale quando le 3 missioni base sono completate </p>
+
+</div>
+</div>
+<a id="a35c075385299f444a2c0082007f455dd" name="a35c075385299f444a2c0082007f455dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c075385299f444a2c0082007f455dd">&#9670;&#160;</a></span>segnaOggettoRecuperato()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void segnaOggettoRecuperato </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_missione.html">Missione</a> *</td>          <td class="paramname"><span class="paramname"><em>missione</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Segna un oggetto speciale come recuperato nella missione. </p>
+<p>Segna un oggetto speciale come recuperato (es: chiave, spada dell'eroe)</p>
+<p>Imposta il flag oggettoRecuperato a true per la missione specificata e mostra messaggi appropriati in base al tipo di oggetto:</p><ul>
+<li>Per MISSIONE_MAGIONE: mostra messaggio recupero Chiave del Castello</li>
+<li>Per MISSIONE_GROTTA: mostra messaggio recupero Spada dell'<a class="el" href="struct_eroe.html">Eroe</a> e bonus attacco</li>
+</ul>
+<p>Gli oggetti speciali sono:</p><ul>
+<li>Chiave del Castello (MISSIONE_MAGIONE): necessaria per accedere alla missione finale</li>
+<li>Spada dell'<a class="el" href="struct_eroe.html">Eroe</a> (MISSIONE_GROTTA): fornisce bonus di +2 all'attacco</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">missione</td><td>Puntatore alla <a class="el" href="struct_missione.html">Missione</a> in cui recuperare l'oggetto</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>missione deve essere un puntatore valido </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>missione-&gt;oggettoRecuperato è impostato a true </dd>
+<dd>
+Messaggi informativi vengono stampati su stdout</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se missione è NULL, la funzione ritorna senza operazioni </dd>
+<dd>
+L'incremento effettivo dell'attacco per la Spada deve essere gestito altrove</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> </dd>
+<dd>
+<a class="el" href="struct_missione.html">Missione</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1bbe64a9fd84e926807106afd32b7c21" name="a1bbe64a9fd84e926807106afd32b7c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bbe64a9fd84e926807106afd32b7c21">&#9670;&#160;</a></span>selezionaMissione()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> selezionaMissione </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permette al giocatore di selezionare una missione dal menu. </p>
+<p>Permette al giocatore di selezionare una missione dal menu Ritorna il tipo di missione selezionata o MISSIONE_NESSUNA se annullato</p>
+<p>Mostra il menu delle missioni disponibili e gestisce l'input dell'utente per la selezione. Valida l'input e restituisce il tipo di missione corrispondente alla scelta del giocatore.</p>
+<p>Il processo di selezione:</p><ol type="1">
+<li>Mostra tutte le missioni disponibili</li>
+<li>Richiede input numerico all'utente</li>
+<li>Valida la scelta (deve essere nel range valido)</li>
+<li>Mappa la scelta numerica alla missione corrispondente</li>
+</ol>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">gestore</td><td>Puntatore al <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> selezionato dall'utente, o MISSIONE_NESSUNA se:<ul>
+<li>gestore è NULL</li>
+<li>Non ci sono missioni disponibili</li>
+<li>L'input dell'utente non è valido</li>
+<li>Si verifica un errore di lettura</li>
+</ul>
+</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>gestore deve essere un puntatore valido </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Non modifica lo stato del gestore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Utilizza fgets per una lettura sicura dell'input </dd>
+<dd>
+Mostra messaggio di errore per scelte non valide</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="missioni_8c.html#a46b4f2c526efae6fb9b150395b139bd5" title="Mostra il menu di selezione delle missioni disponibili.">mostraMenuMissioni()</a> </dd>
+<dd>
+<a class="el" href="#acbce430db034e51d69e38c9a3b3afb66">TipoMissione</a> </dd></dl>
+
+</div>
+</div>
+<a id="a563f38a63854396d7c408e1c16b156de" name="a563f38a63854396d7c408e1c16b156de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563f38a63854396d7c408e1c16b156de">&#9670;&#160;</a></span>tutteLePreliminariCompletate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tutteLePreliminariCompletate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verifica se tutte le missioni preliminari sono completate (necessario per sbloccare la missione finale) </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

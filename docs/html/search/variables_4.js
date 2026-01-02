@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['oggettiposseduti_0',['oggettiPosseduti',['../struct_eroe.html#aa0fa41e668972d68db663ddfe06b00f3',1,'Eroe::oggettiPosseduti'],['../struct_salvataggio.html#a979e4c81ea9aef789909d04a9c239ff6',1,'Salvataggio::oggettiPosseduti']]]
+  ['obiettivicompletati_0',['obiettiviCompletati',['../struct_missione.html#a4c0d181584f648419f6b9b992cd7ebb3',1,'Missione']]],
+  ['obiettivitotali_1',['obiettiviTotali',['../struct_missione.html#a0ad9a849efba58086b747f26e5e68d97',1,'Missione']]],
+  ['oggettiposseduti_2',['oggettiPosseduti',['../struct_eroe.html#aa0fa41e668972d68db663ddfe06b00f3',1,'Eroe::oggettiPosseduti'],['../struct_salvataggio.html#a979e4c81ea9aef789909d04a9c239ff6',1,'Salvataggio::oggettiPosseduti']]],
+  ['oggettorecuperato_3',['oggettoRecuperato',['../struct_missione.html#af94da889a44025b86e538f6557142db5',1,'Missione']]]
 ];

@@ -91,7 +91,10 @@ $(function(){initNavTree('menu_8h.html','',''); });
   <div class="headertitle"><div class="title">menu.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="eroe_8h_source.html">eroe.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="missioni_8h_source.html">missioni.h</a>&quot;</code><br />
+</div>
 <p><a href="menu_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
@@ -101,10 +104,29 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1e1b8b253155b43c12d85a6c5470604d" id="r_a1e1b8b253155b43c12d85a6c5470604d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e1b8b253155b43c12d85a6c5470604d">menuPrincipale</a> (void)</td></tr>
+<tr class="memdesc:a1e1b8b253155b43c12d85a6c5470604d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il menu principale del gioco a 360 gradi.  <br /></td></tr>
 <tr class="memitem:a8317e99bab1d0c0dd87b5f8462d44b5b" id="r_a8317e99bab1d0c0dd87b5f8462d44b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8317e99bab1d0c0dd87b5f8462d44b5b">gestisciNuovaPartita</a> (void)</td></tr>
+<tr class="memdesc:a8317e99bab1d0c0dd87b5f8462d44b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce l'avvio di una nuova partita.  <br /></td></tr>
 <tr class="memitem:a7452d80c8ff3424d6cc51c9ff8ab475b" id="r_a7452d80c8ff3424d6cc51c9ff8ab475b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7452d80c8ff3424d6cc51c9ff8ab475b">gestisciCaricaSalvataggio</a> (void)</td></tr>
+<tr class="memdesc:a7452d80c8ff3424d6cc51c9ff8ab475b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il caricamento di un salvataggio esistente.  <br /></td></tr>
 <tr class="memitem:a89eb138abb5397d215c5f262de0c152a" id="r_a89eb138abb5397d215c5f262de0c152a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89eb138abb5397d215c5f262de0c152a">gestisciMenuTrucchi</a> (void)</td></tr>
+<tr class="memdesc:a89eb138abb5397d215c5f262de0c152a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce l'accesso al menu trucchi.  <br /></td></tr>
 <tr class="memitem:aa5cbbdfe35f70ea22f212ac4c6f4f0a2" id="r_aa5cbbdfe35f70ea22f212ac4c6f4f0a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5cbbdfe35f70ea22f212ac4c6f4f0a2">modificaCampoSalvataggio</a> (int sceltaSalvataggio)</td></tr>
+<tr class="memdesc:aa5cbbdfe35f70ea22f212ac4c6f4f0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permette di modificare i campi di un salvataggio specifico.  <br /></td></tr>
+<tr class="memitem:aa0d3e9d74f3d774658ee60da237393de" id="r_aa0d3e9d74f3d774658ee60da237393de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0d3e9d74f3d774658ee60da237393de">menuDelVillaggio</a> (<a class="el" href="struct_eroe.html">Eroe</a> *eroe, <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *gestore)</td></tr>
+<tr class="memdesc:aa0d3e9d74f3d774658ee60da237393de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop principale del gioco - Menu del villaggio.  <br /></td></tr>
+<tr class="memitem:a6f573a6ad450b87bf7d35cfc5f735d9e" id="r_a6f573a6ad450b87bf7d35cfc5f735d9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f573a6ad450b87bf7d35cfc5f735d9e">riposatiAlVillaggio</a> (<a class="el" href="struct_eroe.html">Eroe</a> *eroe)</td></tr>
+<tr class="memdesc:a6f573a6ad450b87bf7d35cfc5f735d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permette all'eroe di riposarsi e recuperare i punti vita.  <br /></td></tr>
+<tr class="memitem:af43665d00bb95174bbedf11ad81a1541" id="r_af43665d00bb95174bbedf11ad81a1541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af43665d00bb95174bbedf11ad81a1541">mostraInventario</a> (const <a class="el" href="struct_eroe.html">Eroe</a> *eroe)</td></tr>
+<tr class="memdesc:af43665d00bb95174bbedf11ad81a1541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra l'inventario e le statistiche dell'eroe.  <br /></td></tr>
+<tr class="memitem:a24f70eef3f978b7893e6d05f46e30efa" id="r_a24f70eef3f978b7893e6d05f46e30efa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24f70eef3f978b7893e6d05f46e30efa">salvaPartitaCorrente</a> (const <a class="el" href="struct_eroe.html">Eroe</a> *eroe)</td></tr>
+<tr class="memdesc:a24f70eef3f978b7893e6d05f46e30efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva lo stato corrente della partita.  <br /></td></tr>
+<tr class="memitem:a67d3d3b54b780ec1f018f8c3409127b6" id="r_a67d3d3b54b780ec1f018f8c3409127b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67d3d3b54b780ec1f018f8c3409127b6">gestisciUscita</a> (void)</td></tr>
+<tr class="memdesc:a67d3d3b54b780ec1f018f8c3409127b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce la conferma di uscita dal gioco.  <br /></td></tr>
+<tr class="memitem:ga3dcb2cfbc60e13545d59a4b8dbf614ae" id="r_ga3dcb2cfbc60e13545d59a4b8dbf614ae"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___buffer_management.html#ga3dcb2cfbc60e13545d59a4b8dbf614ae">leggiCaratterePulito</a> (void)</td></tr>
+<tr class="memdesc:ga3dcb2cfbc60e13545d59a4b8dbf614ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legge un singolo carattere dall'input e pulisce automaticamente il buffer.  <br /></td></tr>
+<tr class="memitem:gaa60cedda7865b9d1a42bfd7c3f4c73e3" id="r_gaa60cedda7865b9d1a42bfd7c3f4c73e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___buffer_management.html#gaa60cedda7865b9d1a42bfd7c3f4c73e3">pulisciBuffer</a> (void)</td></tr>
+<tr class="memdesc:gaa60cedda7865b9d1a42bfd7c3f4c73e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pulisce completamente il buffer di input.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a9552ba249c0540ffe9a08a05d1b92504" name="a9552ba249c0540ffe9a08a05d1b92504"></a>
@@ -137,6 +159,51 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gestisce il caricamento di un salvataggio esistente. </p>
+<p>Gestisce il caricamento di un salvataggio esistente Mostra la lista dei salvataggi e permette di caricarne uno</p>
+<p>Questa funzione coordina l'intero processo di caricamento di un salvataggio:</p><ol type="1">
+<li>Mostra l'elenco dei salvataggi disponibili</li>
+<li>Verifica se esistono salvataggi</li>
+<li>Chiede all'utente quale salvataggio selezionare</li>
+<li>Presenta un sottomenu con opzioni: Carica / Elimina / Annulla</li>
+<li>Se l'utente sceglie "Carica":<ul>
+<li>Carica i dati del salvataggio</li>
+<li>Ricrea l'eroe con le caratteristiche salvate</li>
+<li>Ripristina lo stato delle missioni completate</li>
+<li>Entra nel menu del villaggio</li>
+</ul>
+</li>
+<li>Se l'utente sceglie "Elimina":<ul>
+<li>Chiede conferma</li>
+<li>Elimina definitivamente il salvataggio</li>
+</ul>
+</li>
+<li>Se l'utente sceglie "Annulla":<ul>
+<li>Torna al menu principale</li>
+</ul>
+</li>
+</ol>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>La funzione include un meccanismo di sicurezza che richiede conferma esplicita prima di eliminare un salvataggio</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo</a></b></dt><dd>Implementare il salvataggio e il ripristino completo dello stato delle missioni (attualmente viene ripristinato solo il contatore delle missioni completate)</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Se non ci sono salvataggi disponibili, la funzione esce immediatamente senza mostrare ulteriori opzioni</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="salvataggi_8c.html#abfaddceea4779220a1b570777e224ba5" title="Mostra un menu formattato con l&#39;elenco dei salvataggi disponibili.">mostraMenuSalvataggi()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a5dd0e9ff7d4f211f9a164a2c39367f5e" title="Conta il numero totale di salvataggi presenti.">contaSalvataggi()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a1c2e4a144ba24718e303cbbb6c212951" title="Richiede all&#39;utente di selezionare un salvataggio da gestire.">chiediSalvataggioDaCaricare()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a0f4001322f53c0e656294204c8d57fae" title="Legge un salvataggio da file.">leggiSalvataggioIndice()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a0be0273d67c2ce434e6373f2348999ec" title="Elimina un salvataggio e riordina i file rimanenti.">eliminaSalvataggio()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a55dd6831205103c2503963957a3f3505" title="Crea una struttura Eroe a partire da una struttura Salvataggio.">creaEroeDaSalvataggio()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#aa0d3e9d74f3d774658ee60da237393de" title="Loop principale del gioco - Menu del villaggio.">menuDelVillaggio()</a> </dd></dl>
+<p>&lt; Variabile per memorizzare la scelta dell'utente</p>
+<p>&lt; Struttura per contenere i dati del salvataggio caricato</p>
+<p>&lt; Ricrea l'eroe dai dati del salvataggio</p>
+
 </div>
 </div>
 <a id="a89eb138abb5397d215c5f262de0c152a" name="a89eb138abb5397d215c5f262de0c152a"></a>
@@ -153,6 +220,25 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gestisce l'accesso al menu trucchi. </p>
+<p>Gestisce il menu dei trucchi (Konami code) Permette di modificare statistiche e sbloccare la missione finale</p>
+<p>Questa funzione viene chiamata quando l'utente accede al menu trucchi (disponibile solo dopo aver attivato la sequenza Konami). Processo:</p><ol type="1">
+<li>Mostra l'elenco dei salvataggi disponibili</li>
+<li>Verifica se esistono salvataggi da modificare</li>
+<li>Chiede all'utente quale salvataggio modificare</li>
+<li>Se valido, passa il controllo a <a class="el" href="menu_8c.html#aa5cbbdfe35f70ea22f212ac4c6f4f0a2" title="Permette di modificare i campi di un salvataggio specifico.">modificaCampoSalvataggio()</a></li>
+</ol>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Questa funzione è accessibile solo quando trucchiAttivi == true</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Se non ci sono salvataggi disponibili, la funzione esce immediatamente</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="menu_8c.html#aa5cbbdfe35f70ea22f212ac4c6f4f0a2" title="Permette di modificare i campi di un salvataggio specifico.">modificaCampoSalvataggio()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#abfaddceea4779220a1b570777e224ba5" title="Mostra un menu formattato con l&#39;elenco dei salvataggi disponibili.">mostraMenuSalvataggi()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a5dd0e9ff7d4f211f9a164a2c39367f5e" title="Conta il numero totale di salvataggi presenti.">contaSalvataggi()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a1c2e4a144ba24718e303cbbb6c212951" title="Richiede all&#39;utente di selezionare un salvataggio da gestire.">chiediSalvataggioDaCaricare()</a> </dd></dl>
 
 </div>
 </div>
@@ -171,6 +257,146 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gestisce l'avvio di una nuova partita. </p>
+<p>Gestisce l'avvio di una nuova partita Crea un nuovo eroe e avvia il menu del villaggio</p>
+<p>Questa funzione coordina tutte le operazioni necessarie per iniziare una nuova partita:</p><ol type="1">
+<li>Richiede il nome dell'eroe al giocatore</li>
+<li>Inizializza la struttura <a class="el" href="struct_eroe.html">Eroe</a> con i parametri di default</li>
+<li>Crea un salvataggio iniziale</li>
+<li>Mostra le caratteristiche dell'eroe</li>
+<li>Inizializza il gestore delle missioni</li>
+<li>Mostra il messaggio introduttivo del gioco</li>
+<li>Entra nel menu del villaggio (loop principale di gioco)</li>
+</ol>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>La funzione crea automaticamente un salvataggio iniziale per permettere al giocatore di riprendere la partita in caso di uscita</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Se il salvataggio iniziale fallisce, viene mostrato un messaggio di errore ma il gioco continua comunque</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_eroe.html">Eroe</a> Struttura dati dell'eroe </dd>
+<dd>
+<a class="el" href="eroe_8c.html#ac8fca7480c0a65d5cfaa1b21bfe7bb9c">inizializzaEroe()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#af3c16efe1b6e045152e11ea958c0bf88" title="Crea una struttura Salvataggio a partire da una struttura Eroe.">creaSalvataggioDaEroe()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a13f80ceb3aaf9fe232746d54c77ede32" title="Salva o aggiorna un salvataggio di gioco.">salvaGioco()</a> </dd>
+<dd>
+<a class="el" href="eroe_8c.html#ace4becbef2722cd419d079dbb14ebe51">mostraEroe()</a> </dd>
+<dd>
+<a class="el" href="missioni_8c.html#aef568376d75252444158ef638cef2e06" title="Inizializza il gestore delle missioni con tutte le missioni del gioco.">inizializzaGestoreMissioni()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#aa0d3e9d74f3d774658ee60da237393de" title="Loop principale del gioco - Menu del villaggio.">menuDelVillaggio()</a> </dd></dl>
+<p>&lt; Crea una variabile eroe di tipo <a class="el" href="struct_eroe.html">Eroe</a>, un'istanza di <a class="el" href="struct_eroe.html">Eroe</a> (vedi struct <a class="el" href="eroe_8h.html">Eroe.h</a>)</p>
+<p>&lt; Passo come parametro il campo della struct del mio eroe appena creato alla funzione</p>
+<p>&lt; Inizializzazione dell'eroe passando l'indirizzo di memoria della mia variabile eroe e il nome senza caratteri fastidiosi nel buffer</p>
+<p>&lt; Passo l'indirizzo di memoria della mia variabile eroe</p>
+<p>&lt; Mostra tutte le caratteristiche del mio eroe</p>
+<p>&lt; Creo un'istanza di <a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a></p>
+<p>&lt; Inizializzo il gestore delle missioni (vedi <a class="el" href="missioni_8c.html" title="Implementazione del sistema di gestione delle missioni.">missioni.c</a>)</p>
+<p>&lt; Flag per controllare il loop di gioco</p>
+
+</div>
+</div>
+<a id="a67d3d3b54b780ec1f018f8c3409127b6" name="a67d3d3b54b780ec1f018f8c3409127b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d3d3b54b780ec1f018f8c3409127b6">&#9670;&#160;</a></span>gestisciUscita()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gestisciUscita </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gestisce la conferma di uscita dal gioco. </p>
+<p>Gestisce l'uscita dal gioco con conferma Avvisa il giocatore di salvare prima di uscire</p>
+<p>Questa funzione implementa un meccanismo di sicurezza che previene la perdita accidentale dei progressi. Quando l'utente sceglie di uscire:</p><ol type="1">
+<li>Mostra un avviso di ricordarsi di salvare</li>
+<li>Chiede conferma esplicita (S/N)</li>
+<li>Se conferma, esce dal loop di gioco</li>
+<li>Se non conferma, riprende il gioco</li>
+</ol>
+<dl class="section return"><dt>Returns</dt><dd>bool Indica se il gioco deve continuare o terminare</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>Il giocatore vuole continuare a giocare (ha annullato l'uscita) </td></tr>
+    <tr><td class="paramname">false</td><td>Il giocatore conferma l'uscita (torna al menu principale)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Questa funzione NON salva automaticamente - è responsabilità del giocatore salvare prima di uscire</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">// Esempio di utilizzo nel menu:</span></div>
+<div class="line"><span class="keywordflow">case</span> <span class="charliteral">&#39;5&#39;</span>:</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code hl_function" href="menu_8c.html#a67d3d3b54b780ec1f018f8c3409127b6">gestisciUscita</a>(); <span class="comment">// Il valore di ritorno determina se continuare</span></div>
+<div class="ttc" id="amenu_8c_html_a67d3d3b54b780ec1f018f8c3409127b6"><div class="ttname"><a href="menu_8c.html#a67d3d3b54b780ec1f018f8c3409127b6">gestisciUscita</a></div><div class="ttdeci">bool gestisciUscita(void)</div><div class="ttdoc">Gestisce la conferma di uscita dal gioco.</div><div class="ttdef"><b>Definition</b> menu.c:849</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="menu_8c.html#aa0d3e9d74f3d774658ee60da237393de" title="Loop principale del gioco - Menu del villaggio.">menuDelVillaggio()</a> </dd></dl>
+<p>&lt; Legge la risposta dell'utente</p>
+
+</div>
+</div>
+<a id="aa0d3e9d74f3d774658ee60da237393de" name="aa0d3e9d74f3d774658ee60da237393de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d3e9d74f3d774658ee60da237393de">&#9670;&#160;</a></span>menuDelVillaggio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool menuDelVillaggio </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_eroe.html">Eroe</a> *</td>          <td class="paramname"><span class="paramname"><em>eroe</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_gestore_missioni.html">GestoreMissioni</a> *</td>          <td class="paramname"><span class="paramname"><em>gestore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loop principale del gioco - Menu del villaggio. </p>
+<p>Menu principale durante il gioco, accessibile dopo aver iniziato una partita Opzioni: intraprendi missione, riposati, inventario, salva, esci Ritorna true se il giocatore vuole continuare a giocare</p>
+<p>Questa è la funzione centrale che gestisce il gameplay nel villaggio. Presenta al giocatore le seguenti opzioni:</p><ol type="1">
+<li>Intraprendi una missione - permette di selezionare ed eseguire missioni</li>
+<li>Riposati - ripristina i punti vita dell'eroe al massimo</li>
+<li>Inventario - mostra le statistiche e l'inventario dell'eroe</li>
+<li>Salva la partita - salva i progressi attuali</li>
+<li>Esci - torna al menu principale (con conferma)</li>
+</ol>
+<p>La funzione continua a ciclare finché il giocatore non sceglie di uscire o finché l'eroe non viene sconfitto (vita = 0).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">eroe</td><td>Puntatore alla struttura dell'eroe (modificabile durante il gioco) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">gestore</td><td>Puntatore al gestore delle missioni (traccia missioni completate)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool true se il gioco deve continuare, false per uscire al menu principale</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>Il giocatore ha scelto di continuare a giocare </td></tr>
+    <tr><td class="paramname">false</td><td>Il giocatore ha scelto di uscire al menu principale</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Questa funzione valida i puntatori all'inizio e restituisce false se nulli</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Se l'eroe muore durante una missione, il gioco dovrebbe gestirlo appropriatamente (attualmente non implementato in questa funzione)</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>stampaMenuVillaggio() </dd>
+<dd>
+<a class="el" href="missioni_8c.html#a1bbe64a9fd84e926807106afd32b7c21" title="Permette al giocatore di selezionare una missione dal menu.">selezionaMissione()</a> </dd>
+<dd>
+<a class="el" href="missioni_8c.html#a3fc6979cf6ee97607bdcf71cd28af962" title="Esegue il loop principale di una missione selezionata.">eseguiMissione()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#a6f573a6ad450b87bf7d35cfc5f735d9e" title="Permette all&#39;eroe di riposarsi e recuperare i punti vita.">riposatiAlVillaggio()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#af43665d00bb95174bbedf11ad81a1541" title="Mostra l&#39;inventario e le statistiche dell&#39;eroe.">mostraInventario()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#a24f70eef3f978b7893e6d05f46e30efa" title="Salva lo stato corrente della partita.">salvaPartitaCorrente()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#a67d3d3b54b780ec1f018f8c3409127b6" title="Gestisce la conferma di uscita dal gioco.">gestisciUscita()</a> </dd></dl>
+<p>&lt; Legge la scelta dell'utente</p>
+
 </div>
 </div>
 <a id="a1e1b8b253155b43c12d85a6c5470604d" name="a1e1b8b253155b43c12d85a6c5470604d"></a>
@@ -188,6 +414,31 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gestisce il menu principale del gioco a 360 gradi. </p>
+<p>Funzione principale che gestisce il menu iniziale del gioco Permette di: avviare nuova partita, caricare salvataggio, usare trucchi Include la gestione del codice Konami per sbloccare i trucchi</p>
+<p>Questa è la funzione centrale che coordina tutto il flusso del menu principale. Gestisce:</p><ul>
+<li>Visualizzazione del menu appropriato (con o senza trucchi)</li>
+<li>Lettura e validazione dell'input utente</li>
+<li>Gestione della sequenza Konami per attivare i trucchi</li>
+<li>Routing verso le varie funzionalità (nuova partita, carica, trucchi, esci)</li>
+</ul>
+<p>Il menu rimane attivo in un ciclo infinito fino a quando l'utente sceglie di uscire. La sequenza Konami viene memorizzata carattere per carattere e verificata quando l'utente preme spazio come terminatore.</p>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore (il ciclo continua fino all'uscita)</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>La sequenza Konami è nascosta e viene attivata inserendo una serie specifica di caratteri seguita da spazio. Una volta attivati i trucchi, appare l'opzione "3. Trucchi" nel menu.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Se l'utente inserisce una sequenza troppo lunga (&gt;MAX_TRUCCHI), viene automaticamente resettata per evitare overflow del buffer</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>stampaMenuConRiquadroADueOpzioni() </dd>
+<dd>
+stampaMenuConRiquadroAtreOpzioni() </dd>
+<dd>
+<a class="el" href="menu_8c.html#a8317e99bab1d0c0dd87b5f8462d44b5b" title="Gestisce l&#39;avvio di una nuova partita.">gestisciNuovaPartita()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#a7452d80c8ff3424d6cc51c9ff8ab475b" title="Gestisce il caricamento di un salvataggio esistente.">gestisciCaricaSalvataggio()</a> </dd>
+<dd>
+<a class="el" href="menu_8c.html#a89eb138abb5397d215c5f262de0c152a" title="Gestisce l&#39;accesso al menu trucchi.">gestisciMenuTrucchi()</a> </dd></dl>
+<p>&lt; Variabile contenente l'opzione scelta dall'utente</p>
+<p>&lt; Buffer per memorizzare la sequenza Konami mediante un array di dimensione MAX_TRUCCHI</p>
+<p>&lt; Contatore per la posizione corrente nel buffer dei trucchi</p>
+
 </div>
 </div>
 <a id="aa5cbbdfe35f70ea22f212ac4c6f4f0a2" name="aa5cbbdfe35f70ea22f212ac4c6f4f0a2"></a>
@@ -204,6 +455,171 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Permette di modificare i campi di un salvataggio specifico. </p>
+<p>Modifica un campo specifico di un salvataggio (vita, monete, missione finale)</p>
+<p>Questa funzione implementa il sistema di trucchi permettendo di modificare:</p><ol type="1">
+<li>Vita dell'eroe (aggiungere o sottrarre punti vita)</li>
+<li>Monete dell'eroe (aggiungere o sottrarre monete)</li>
+<li>Sblocco missione finale (completa automaticamente le 3 missioni preliminari)</li>
+</ol>
+<p>Processo:</p><ol type="1">
+<li>Mostra le opzioni di modifica disponibili</li>
+<li>Carica il salvataggio selezionato</li>
+<li>Applica la modifica scelta dall'utente</li>
+<li>Salva le modifiche nel file di salvataggio</li>
+</ol>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sceltaSalvataggio</td><td>Indice del salvataggio da modificare (0-based)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Le modifiche sono permanenti e sovrascrivono il salvataggio originale</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>L'utente può inserire valori negativi per diminuire vita/monete. La funzione modificaVita/modificaMonete dovrebbe gestire i limiti appropriati.</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">// Esempio di flusso:</span></div>
+<div class="line"><span class="comment">// Utente seleziona salvataggio 1</span></div>
+<div class="line"><span class="comment">// Sceglie opzione 1 (Vita)</span></div>
+<div class="line"><span class="comment">// Inserisce +50 -&gt; vita aumenta di 50 punti</span></div>
+<div class="line"><span class="comment">// Modifiche salvate automaticamente</span></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="salvataggi_8c.html#a0f4001322f53c0e656294204c8d57fae" title="Legge un salvataggio da file.">leggiSalvataggioIndice()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a55dd6831205103c2503963957a3f3505" title="Crea una struttura Eroe a partire da una struttura Salvataggio.">creaEroeDaSalvataggio()</a> </dd>
+<dd>
+<a class="el" href="eroe_8c.html#a94f0caed1dfcdf0cda2f74a8de368537">modificaVita()</a> </dd>
+<dd>
+<a class="el" href="eroe_8c.html#a35e9a227291bcf4781f74e0f6ed06c1c">modificaMonete()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#af3c16efe1b6e045152e11ea958c0bf88" title="Crea una struttura Salvataggio a partire da una struttura Eroe.">creaSalvataggioDaEroe()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a13f80ceb3aaf9fe232746d54c77ede32" title="Salva o aggiorna un salvataggio di gioco.">salvaGioco()</a> </dd></dl>
+<p>&lt; Variabile per memorizzare la scelta dell'utente</p>
+<p>&lt; Struttura per contenere i dati del salvataggio</p>
+<p>&lt; Ricrea l'eroe dal salvataggio per modificarlo</p>
+<p>&lt; Valore di modifica (positivo o negativo)</p>
+<p>&lt; Valore di modifica (positivo o negativo)</p>
+<p>&lt; Imposta a 3 per sbloccare la missione finale</p>
+<p>&lt; Crea un nuovo salvataggio con le modifiche</p>
+
+</div>
+</div>
+<a id="af43665d00bb95174bbedf11ad81a1541" name="af43665d00bb95174bbedf11ad81a1541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af43665d00bb95174bbedf11ad81a1541">&#9670;&#160;</a></span>mostraInventario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mostraInventario </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_eroe.html">Eroe</a> *</td>          <td class="paramname"><span class="paramname"><em>eroe</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mostra l'inventario e le statistiche dell'eroe. </p>
+<p>Mostra l'inventario completo dell'eroe con tutti i suoi dati</p>
+<p>Questa funzione fornisce una visualizzazione dettagliata di tutte le caratteristiche dell'eroe chiamando la funzione <a class="el" href="eroe_8c.html#ace4becbef2722cd419d079dbb14ebe51">mostraEroe()</a>. Include tipicamente: nome, vita, monete, missioni completate, ecc.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eroe</td><td>Puntatore costante alla struttura dell'eroe da visualizzare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Il parametro è const perché questa funzione è di sola lettura </dd>
+<dd>
+La funzione esegue un controllo di sicurezza sul puntatore null prima di operare</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Se eroe è NULL, la funzione ritorna immediatamente senza fare nulla</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="eroe_8c.html#ace4becbef2722cd419d079dbb14ebe51">mostraEroe()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6f573a6ad450b87bf7d35cfc5f735d9e" name="a6f573a6ad450b87bf7d35cfc5f735d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f573a6ad450b87bf7d35cfc5f735d9e">&#9670;&#160;</a></span>riposatiAlVillaggio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void riposatiAlVillaggio </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_eroe.html">Eroe</a> *</td>          <td class="paramname"><span class="paramname"><em>eroe</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permette all'eroe di riposarsi e recuperare i punti vita. </p>
+<p>Permette all'eroe di riposare, ripristinando tutti i punti vita a 20</p>
+<p>Questa funzione simula il riposo alla locanda del villaggio. Se l'eroe non è già al massimo della vita (20/20), ripristina completamente i suoi punti vita e mostra quanti punti sono stati recuperati. Se l'eroe è già in perfetta salute, lo notifica senza fare modifiche.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">eroe</td><td>Puntatore alla struttura dell'eroe da far riposare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>La funzione esegue un controllo di sicurezza sul puntatore null prima di operare</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>L'eroe deve avere vita &gt;= 0 e &lt;= 20 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>L'eroe avrà vita = 20 (massimo)</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">// Esempio di utilizzo:</span></div>
+<div class="line"><a class="code hl_struct" href="struct_eroe.html">Eroe</a> mioEroe;</div>
+<div class="line">mioEroe.<a class="code hl_variable" href="struct_eroe.html#afc44ae8efca89cd8a999845f03badc7f">vita</a> = 10; <span class="comment">// Eroe ferito</span></div>
+<div class="line"><a class="code hl_function" href="menu_8c.html#a6f573a6ad450b87bf7d35cfc5f735d9e">riposatiAlVillaggio</a>(&amp;mioEroe);</div>
+<div class="line"><span class="comment">// Output: &quot;Hai recuperato 10 punti vita!&quot;</span></div>
+<div class="line"><span class="comment">// mioEroe.vita è ora 20</span></div>
+<div class="ttc" id="amenu_8c_html_a6f573a6ad450b87bf7d35cfc5f735d9e"><div class="ttname"><a href="menu_8c.html#a6f573a6ad450b87bf7d35cfc5f735d9e">riposatiAlVillaggio</a></div><div class="ttdeci">void riposatiAlVillaggio(Eroe *eroe)</div><div class="ttdoc">Permette all&#39;eroe di riposarsi e recuperare i punti vita.</div><div class="ttdef"><b>Definition</b> menu.c:744</div></div>
+<div class="ttc" id="astruct_eroe_html"><div class="ttname"><a href="struct_eroe.html">Eroe</a></div><div class="ttdef"><b>Definition</b> eroe.h:9</div></div>
+<div class="ttc" id="astruct_eroe_html_afc44ae8efca89cd8a999845f03badc7f"><div class="ttname"><a href="struct_eroe.html#afc44ae8efca89cd8a999845f03badc7f">Eroe::vita</a></div><div class="ttdeci">int vita</div><div class="ttdef"><b>Definition</b> eroe.h:13</div></div>
+</div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Se eroe è NULL, la funzione ritorna immediatamente senza fare nulla </dd></dl>
+<p>&lt; Memorizza la vita prima del riposo per calcolare il recupero</p>
+<p>&lt; Imposta la vita al massimo</p>
+
+</div>
+</div>
+<a id="a24f70eef3f978b7893e6d05f46e30efa" name="a24f70eef3f978b7893e6d05f46e30efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f70eef3f978b7893e6d05f46e30efa">&#9670;&#160;</a></span>salvaPartitaCorrente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void salvaPartitaCorrente </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_eroe.html">Eroe</a> *</td>          <td class="paramname"><span class="paramname"><em>eroe</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Salva lo stato corrente della partita. </p>
+<p>Gestisce il salvataggio della partita corrente Salva lo stato dell'eroe e delle missioni completate</p>
+<p>Questa funzione crea un salvataggio dei progressi attuali dell'eroe. Il salvataggio viene scritto su file e può essere successivamente caricato dal menu "Carica salvataggio".</p>
+<p>Processo:</p><ol type="1">
+<li>Converte i dati dell'eroe in una struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a></li>
+<li>Scrive il salvataggio su file</li>
+<li>Conferma l'operazione o segnala eventuali errori</li>
+</ol>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">eroe</td><td>Puntatore costante alla struttura dell'eroe da salvare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void Non restituisce alcun valore</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Il parametro è const perché questa funzione non modifica l'eroe </dd>
+<dd>
+La funzione esegue un controllo di sicurezza sul puntatore null prima di operare</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Se eroe è NULL, la funzione ritorna immediatamente senza fare nulla </dd>
+<dd>
+Se il salvataggio fallisce, viene mostrato un messaggio di errore ma il gioco continua normalmente</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="salvataggi_8c.html#af3c16efe1b6e045152e11ea958c0bf88" title="Crea una struttura Salvataggio a partire da una struttura Eroe.">creaSalvataggioDaEroe()</a> </dd>
+<dd>
+<a class="el" href="salvataggi_8c.html#a13f80ceb3aaf9fe232746d54c77ede32" title="Salva o aggiorna un salvataggio di gioco.">salvaGioco()</a> </dd></dl>
+<p>&lt; Converte i dati dell'eroe in formato salvataggio</p>
 
 </div>
 </div>

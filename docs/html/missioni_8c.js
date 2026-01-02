@@ -1,0 +1,28 @@
+var missioni_8c =
+[
+    [ "COLORE_BLU", "missioni_8c.html#a962e466e824e3ab90a210ebedea40283", null ],
+    [ "COLORE_CIANO", "missioni_8c.html#a182018008ad177f828aad99d8747c673", null ],
+    [ "COLORE_GIALLO", "missioni_8c.html#a70a8e5c545f34b40256c14485c845b49", null ],
+    [ "COLORE_MAGENTA", "missioni_8c.html#a085cdaf4fba0d8750c0b6043560bc4e8", null ],
+    [ "COLORE_RESET", "missioni_8c.html#ae52d71d1434e7893747f5b5af0687ca2", null ],
+    [ "COLORE_ROSSO", "missioni_8c.html#ab8ca26b7edfaada3a3acbcff309ef1cd", null ],
+    [ "COLORE_VERDE", "missioni_8c.html#a499a798be51f267243cb452c47229b05", null ],
+    [ "completaMissione", "missioni_8c.html#aed23b8cecc5e8df2f891ab0c3203222d", null ],
+    [ "eseguiMissione", "missioni_8c.html#a3fc6979cf6ee97607bdcf71cd28af962", null ],
+    [ "getDescrizioneMissione", "missioni_8c.html#af4c8ee8536c53100a657dd2ee4c37994", null ],
+    [ "getMissione", "missioni_8c.html#a29e98a568c844a804f90126dfde7dbd2", null ],
+    [ "getNomeMissione", "missioni_8c.html#a0f4db2b7c3b8afa660ff0c67d198bd59", null ],
+    [ "incrementaObiettivi", "missioni_8c.html#a05f72f5249de6c1a68acccbeb41fd6b1", null ],
+    [ "inizializzaGestoreMissioni", "missioni_8c.html#aef568376d75252444158ef638cef2e06", null ],
+    [ "inizializzaMissione", "missioni_8c.html#a1e1fc23481e963b9963fd84548e797b9", null ],
+    [ "missioneCompletata", "missioni_8c.html#adbb3e8706caacc269f95a8c7b72e9fcf", null ],
+    [ "missioneSbloccata", "missioni_8c.html#a23227139b23751c54ff01312ae84526a", null ],
+    [ "mostraMenuDuranteMissione", "missioni_8c.html#a27db372b55e7dd6844171954c6c97df8", null ],
+    [ "mostraMenuMissioni", "missioni_8c.html#a46b4f2c526efae6fb9b150395b139bd5", null ],
+    [ "mostraStatoMissione", "missioni_8c.html#a2c7460cf60f8dbd2e93a2f0de3ac9e9b", null ],
+    [ "obiettiviRaggiunti", "missioni_8c.html#a74ac475b8477bc4c37f32aa74b2c8847", null ],
+    [ "sbloccaMissioneFinale", "missioni_8c.html#a2c10c0eac36b114a66b8f0d0939fd9e6", null ],
+    [ "segnaOggettoRecuperato", "missioni_8c.html#a35c075385299f444a2c0082007f455dd", null ],
+    [ "selezionaMissione", "missioni_8c.html#a1bbe64a9fd84e926807106afd32b7c21", null ],
+    [ "tutteLePreliminariCompletate", "missioni_8c.html#a563f38a63854396d7c408e1c16b156de", null ]
+];

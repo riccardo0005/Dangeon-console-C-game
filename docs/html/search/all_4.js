@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['inizializzaeroe_0',['inizializzaEroe',['../eroe_8c.html#ac8fca7480c0a65d5cfaa1b21bfe7bb9c',1,'inizializzaEroe(Eroe *eroe, const char *nome):&#160;eroe.c'],['../eroe_8h.html#ac8fca7480c0a65d5cfaa1b21bfe7bb9c',1,'inizializzaEroe(Eroe *eroe, const char *nome):&#160;eroe.c']]],
-  ['input_5fback_1',['INPUT_BACK',['../salvataggi_8h.html#a5bddaad9262f70cf02246b86ff816e1e',1,'salvataggi.h']]]
+  ['eliminasalvataggio_0',['eliminaSalvataggio',['../salvataggi_8c.html#a0be0273d67c2ce434e6373f2348999ec',1,'eliminaSalvataggio(int idx):&#160;salvataggi.c'],['../salvataggi_8h.html#a0be0273d67c2ce434e6373f2348999ec',1,'eliminaSalvataggio(int idx):&#160;salvataggi.c']]],
+  ['eroe_1',['Eroe',['../struct_eroe.html',1,'']]],
+  ['eroe_2ec_2',['eroe.c',['../eroe_8c.html',1,'']]],
+  ['eroe_2eh_3',['eroe.h',['../eroe_8h.html',1,'']]],
+  ['eroe_5fh_4',['EROE_H',['../eroe_8h.html#a3de32032a75f5ffa33c6b2950d45843c',1,'eroe.h']]],
+  ['eseguimissione_5',['eseguiMissione',['../missioni_8c.html#a3fc6979cf6ee97607bdcf71cd28af962',1,'eseguiMissione(GestoreMissioni *gestore, Eroe *eroe, TipoMissione tipo):&#160;missioni.c'],['../missioni_8h.html#a3fc6979cf6ee97607bdcf71cd28af962',1,'eseguiMissione(GestoreMissioni *gestore, Eroe *eroe, TipoMissione tipo):&#160;missioni.c']]]
 ];

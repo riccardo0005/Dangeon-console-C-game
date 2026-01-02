@@ -1,2 +1,628 @@
 \doxysection{missioni.\+h File Reference}
 \hypertarget{missioni_8h}{}\label{missioni_8h}\index{missioni.h@{missioni.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}eroe.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_missione}{Missione}}
+\item 
+struct \mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} \{ \newline
+\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a07ad597a0f8426278d4aa45b05a1a59a}{MISSIONE\+\_\+\+PALUDE}} = 0
+, \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a5655bc185a92843db6412993007be487}{MISSIONE\+\_\+\+MAGIONE}} = 1
+, \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ad1aa34b981d8d131a8cc18806f1e399d}{MISSIONE\+\_\+\+GROTTA}} = 2
+, \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a04a813b0262a0196f899c770aaacbddb}{MISSIONE\+\_\+\+CASTELLO}} = 3
+, \newline
+\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ae74b7c123b31bed50350507601a17519}{MISSIONE\+\_\+\+NESSUNA}} = -\/1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{missioni_8h_aef568376d75252444158ef638cef2e06}{inizializza\+Gestore\+Missioni}} (\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore)
+\begin{DoxyCompactList}\small\item\em Inizializza il gestore delle missioni con tutte le missioni del gioco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{missioni_8h_a1e1fc23481e963b9963fd84548e797b9}{inizializza\+Missione}} (\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}m, \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} tipo, const char \texorpdfstring{$\ast$}{*}nome, const char \texorpdfstring{$\ast$}{*}descrizione, int obiettivi\+Totali)
+\begin{DoxyCompactList}\small\item\em Inizializza una singola missione con i parametri specificati. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{missioni_8h_a46b4f2c526efae6fb9b150395b139bd5}{mostra\+Menu\+Missioni}} (const \mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore)
+\begin{DoxyCompactList}\small\item\em Mostra il menu di selezione delle missioni disponibili. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{missioni_8h_a27db372b55e7dd6844171954c6c97df8}{mostra\+Menu\+Durante\+Missione}} (const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}missione, const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe)
+\begin{DoxyCompactList}\small\item\em Visualizza il menu di azioni disponibili durante una missione. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{missioni_8h_a2c7460cf60f8dbd2e93a2f0de3ac9e9b}{mostra\+Stato\+Missione}} (const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}missione)
+\begin{DoxyCompactList}\small\item\em Visualizza lo stato dettagliato di una missione specifica. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} \mbox{\hyperlink{missioni_8h_a1bbe64a9fd84e926807106afd32b7c21}{seleziona\+Missione}} (\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore)
+\begin{DoxyCompactList}\small\item\em Permette al giocatore di selezionare una missione dal menu. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{missioni_8h_a3fc6979cf6ee97607bdcf71cd28af962}{esegui\+Missione}} (\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore, \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe, \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} tipo)
+\begin{DoxyCompactList}\small\item\em Esegue il loop principale di una missione selezionata. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{missioni_8h_aed23b8cecc5e8df2f891ab0c3203222d}{completa\+Missione}} (\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore, \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} tipo)
+\begin{DoxyCompactList}\small\item\em Marca una missione come completata e gestisce gli effetti collaterali. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{missioni_8h_a05f72f5249de6c1a68acccbeb41fd6b1}{incrementa\+Obiettivi}} (\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}missione)
+\begin{DoxyCompactList}\small\item\em Incrementa il contatore degli obiettivi completati di una missione. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{missioni_8h_a35c075385299f444a2c0082007f455dd}{segna\+Oggetto\+Recuperato}} (\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}missione)
+\begin{DoxyCompactList}\small\item\em Segna un oggetto speciale come recuperato nella missione. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{missioni_8h_adbb3e8706caacc269f95a8c7b72e9fcf}{missione\+Completata}} (const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}missione)
+\item 
+bool \mbox{\hyperlink{missioni_8h_a23227139b23751c54ff01312ae84526a}{missione\+Sbloccata}} (const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}missione)
+\item 
+bool \mbox{\hyperlink{missioni_8h_a563f38a63854396d7c408e1c16b156de}{tutte\+Le\+Preliminari\+Completate}} (const \mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore)
+\item 
+bool \mbox{\hyperlink{missioni_8h_a74ac475b8477bc4c37f32aa74b2c8847}{obiettivi\+Raggiunti}} (const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}missione)
+\item 
+void \mbox{\hyperlink{missioni_8h_a2c10c0eac36b114a66b8f0d0939fd9e6}{sblocca\+Missione\+Finale}} (\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{missioni_8h_a0f4db2b7c3b8afa660ff0c67d198bd59}{get\+Nome\+Missione}} (\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} tipo)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{missioni_8h_af4c8ee8536c53100a657dd2ee4c37994}{get\+Descrizione\+Missione}} (\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} tipo)
+\item 
+\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{missioni_8h_a29e98a568c844a804f90126dfde7dbd2}{get\+Missione}} (\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore, \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} tipo)
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{missioni_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}\index{missioni.h@{missioni.h}!TipoMissione@{TipoMissione}}
+\index{TipoMissione@{TipoMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{TipoMissione}{TipoMissione}}
+{\footnotesize\ttfamily \label{missioni_8h_acbce430db034e51d69e38c9a3b3afb66} 
+enum \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISSIONE\_PALUDE@{MISSIONE\_PALUDE}!missioni.h@{missioni.h}}\index{missioni.h@{missioni.h}!MISSIONE\_PALUDE@{MISSIONE\_PALUDE}}}\Hypertarget{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a07ad597a0f8426278d4aa45b05a1a59a}\label{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a07ad597a0f8426278d4aa45b05a1a59a} 
+MISSIONE\+\_\+\+PALUDE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISSIONE\_MAGIONE@{MISSIONE\_MAGIONE}!missioni.h@{missioni.h}}\index{missioni.h@{missioni.h}!MISSIONE\_MAGIONE@{MISSIONE\_MAGIONE}}}\Hypertarget{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a5655bc185a92843db6412993007be487}\label{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a5655bc185a92843db6412993007be487} 
+MISSIONE\+\_\+\+MAGIONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISSIONE\_GROTTA@{MISSIONE\_GROTTA}!missioni.h@{missioni.h}}\index{missioni.h@{missioni.h}!MISSIONE\_GROTTA@{MISSIONE\_GROTTA}}}\Hypertarget{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ad1aa34b981d8d131a8cc18806f1e399d}\label{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ad1aa34b981d8d131a8cc18806f1e399d} 
+MISSIONE\+\_\+\+GROTTA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISSIONE\_CASTELLO@{MISSIONE\_CASTELLO}!missioni.h@{missioni.h}}\index{missioni.h@{missioni.h}!MISSIONE\_CASTELLO@{MISSIONE\_CASTELLO}}}\Hypertarget{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a04a813b0262a0196f899c770aaacbddb}\label{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a04a813b0262a0196f899c770aaacbddb} 
+MISSIONE\+\_\+\+CASTELLO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISSIONE\_NESSUNA@{MISSIONE\_NESSUNA}!missioni.h@{missioni.h}}\index{missioni.h@{missioni.h}!MISSIONE\_NESSUNA@{MISSIONE\_NESSUNA}}}\Hypertarget{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ae74b7c123b31bed50350507601a17519}\label{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ae74b7c123b31bed50350507601a17519} 
+MISSIONE\+\_\+\+NESSUNA&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{missioni_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{missioni_8h_aed23b8cecc5e8df2f891ab0c3203222d}\index{missioni.h@{missioni.h}!completaMissione@{completaMissione}}
+\index{completaMissione@{completaMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{completaMissione()}{completaMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_aed23b8cecc5e8df2f891ab0c3203222d} 
+void completa\+Missione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{, }\item[{\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}}}]{tipo}{}\end{DoxyParamCaption})}
+
+
+
+Marca una missione come completata e gestisce gli effetti collaterali. 
+
+Completa una missione, aggiorna i contatori e sblocca eventualmente la finale
+
+Questa funzione\+:
+\begin{DoxyItemize}
+\item Marca la missione specificata come completata
+\item Incrementa il contatore delle missioni completate
+\item Mostra un messaggio celebrativo
+\item Verifica se tutte le missioni preliminari sono complete
+\item Sblocca la missione finale se le condizioni sono soddisfatte
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em gestore} & Puntatore al \doxylink{struct_gestore_missioni}{Gestore\+Missioni} \\
+\hline
+\mbox{\texttt{in}}  & {\em tipo} & Tipo della missione da completare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+gestore deve essere un puntatore valido 
+
+tipo deve essere un valore valido (0-\/3)
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+missione-\/\texorpdfstring{$>$}{>}completata è impostato a true 
+
+gestore-\/\texorpdfstring{$>$}{>}missioni\+Completate è incrementato 
+
+MISSIONE\+\_\+\+CASTELLO può essere sbloccata se tutte le preliminari sono complete
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Se la missione è già completata, la funzione ritorna senza modifiche 
+
+Se gestore è NULL o tipo non è valido, la funzione ritorna senza operazioni
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8c_a2c10c0eac36b114a66b8f0d0939fd9e6}{sblocca\+Missione\+Finale()} 
+
+\doxylink{missioni_8c_a563f38a63854396d7c408e1c16b156de}{tutte\+Le\+Preliminari\+Completate()} 
+
+\doxylink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_a3fc6979cf6ee97607bdcf71cd28af962}\index{missioni.h@{missioni.h}!eseguiMissione@{eseguiMissione}}
+\index{eseguiMissione@{eseguiMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{eseguiMissione()}{eseguiMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_a3fc6979cf6ee97607bdcf71cd28af962} 
+bool esegui\+Missione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{, }\item[{\mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{, }\item[{\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}}}]{tipo}{}\end{DoxyParamCaption})}
+
+
+
+Esegue il loop principale di una missione selezionata. 
+
+Avvia l\textquotesingle{}esecuzione di una missione specifica Gestisce tutto il gameplay della missione (dungeon, combattimenti, ecc.) Ritorna true se la missione è stata completata
+
+Questa funzione gestisce l\textquotesingle{}intera esecuzione di una missione, fornendo un menu interattivo che permette al giocatore di\+:
+\begin{DoxyItemize}
+\item Esplorare il dungeon (da implementare)
+\item Visitare il negozio (da implementare)
+\item Controllare l\textquotesingle{}inventario
+\item Tornare al villaggio (gratis se completata, 50 monete altrimenti)
+\end{DoxyItemize}
+
+La missione continua finché il giocatore non decide di tornare al villaggio. Se la missione è completata (obiettivi raggiunti e oggetti recuperati), viene automaticamente marcata come completata.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em gestore} & Puntatore al \doxylink{struct_gestore_missioni}{Gestore\+Missioni} \\
+\hline
+\mbox{\texttt{in,out}}  & {\em eroe} & Puntatore all\textquotesingle{}\doxylink{struct_eroe}{Eroe} che esegue la missione \\
+\hline
+\mbox{\texttt{in}}  & {\em tipo} & Tipo di missione da eseguire\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se la missione è stata completata, false altrimenti
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & La missione è stata completata con successo \\
+\hline
+{\em false} & La missione non è disponibile, è già completata, o parametri non validi\\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyPrecond}{Precondition}
+gestore ed eroe devono essere puntatori validi 
+
+tipo deve essere un valore valido tra 0 e 3 
+
+La missione deve essere sbloccata e non ancora completata
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+gestore-\/\texorpdfstring{$>$}{>}missione\+Corrente è impostato a tipo durante l\textquotesingle{}esecuzione 
+
+gestore-\/\texorpdfstring{$>$}{>}missione\+Corrente è reimpostato a MISSIONE\+\_\+\+NESSUNA alla fine 
+
+Le monete dell\textquotesingle{}eroe possono essere ridotte di 50 se torna senza completare 
+
+La missione può essere marcata come completata
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Questa funzione contiene segnaposto (TODO) per sistemi non ancora implementati 
+
+Il ritorno anticipato costa 50 monete se la missione non è completa
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Attualmente alcune funzionalità sono stub e richiedono implementazione
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8c_aed23b8cecc5e8df2f891ab0c3203222d}{completa\+Missione()} 
+
+\doxylink{missioni_8c_a74ac475b8477bc4c37f32aa74b2c8847}{obiettivi\+Raggiunti()} 
+
+\doxylink{missioni_8c_a27db372b55e7dd6844171954c6c97df8}{mostra\+Menu\+Durante\+Missione()} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_af4c8ee8536c53100a657dd2ee4c37994}\index{missioni.h@{missioni.h}!getDescrizioneMissione@{getDescrizioneMissione}}
+\index{getDescrizioneMissione@{getDescrizioneMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{getDescrizioneMissione()}{getDescrizioneMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_af4c8ee8536c53100a657dd2ee4c37994} 
+const char \texorpdfstring{$\ast$}{*} get\+Descrizione\+Missione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}}}]{tipo}{}\end{DoxyParamCaption})}
+
+Ottiene la descrizione dell\textquotesingle{}obiettivo di una missione \Hypertarget{missioni_8h_a29e98a568c844a804f90126dfde7dbd2}\index{missioni.h@{missioni.h}!getMissione@{getMissione}}
+\index{getMissione@{getMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{getMissione()}{getMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_a29e98a568c844a804f90126dfde7dbd2} 
+\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*} get\+Missione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{, }\item[{\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}}}]{tipo}{}\end{DoxyParamCaption})}
+
+Ritorna il puntatore alla missione specifica nel gestore \Hypertarget{missioni_8h_a0f4db2b7c3b8afa660ff0c67d198bd59}\index{missioni.h@{missioni.h}!getNomeMissione@{getNomeMissione}}
+\index{getNomeMissione@{getNomeMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{getNomeMissione()}{getNomeMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_a0f4db2b7c3b8afa660ff0c67d198bd59} 
+const char \texorpdfstring{$\ast$}{*} get\+Nome\+Missione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}}}]{tipo}{}\end{DoxyParamCaption})}
+
+Ottiene il nome di una missione dal suo tipo \Hypertarget{missioni_8h_a05f72f5249de6c1a68acccbeb41fd6b1}\index{missioni.h@{missioni.h}!incrementaObiettivi@{incrementaObiettivi}}
+\index{incrementaObiettivi@{incrementaObiettivi}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{incrementaObiettivi()}{incrementaObiettivi()}}
+{\footnotesize\ttfamily \label{missioni_8h_a05f72f5249de6c1a68acccbeb41fd6b1} 
+void incrementa\+Obiettivi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{missione}{}\end{DoxyParamCaption})}
+
+
+
+Incrementa il contatore degli obiettivi completati di una missione. 
+
+Incrementa il contatore degli obiettivi completati (es\+: nemico sconfitto)
+
+Aumenta di uno il numero di obiettivi completati per la missione specificata. Fornisce feedback visivo all\textquotesingle{}utente riguardo al progresso della missione\+:
+\begin{DoxyItemize}
+\item Messaggio di completamento se tutti gli obiettivi sono raggiunti
+\item Messaggio di progresso con conteggio corrente altrimenti
+\end{DoxyItemize}
+
+Il contatore non può superare il numero totale di obiettivi della missione.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em missione} & Puntatore alla \doxylink{struct_missione}{Missione} da aggiornare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+missione deve essere un puntatore valido 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+missione-\/\texorpdfstring{$>$}{>}obiettivi\+Completati è incrementato di 1 
+
+Il valore viene limitato a obiettivi\+Totali se necessario 
+
+Viene stampato un messaggio di feedback su stdout
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Se missione è NULL, la funzione ritorna senza operazioni 
+
+Il valore massimo è limitato a obiettivi\+Totali anche se incrementato oltre
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8c_a74ac475b8477bc4c37f32aa74b2c8847}{obiettivi\+Raggiunti()} 
+
+\doxylink{struct_missione}{Missione} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_aef568376d75252444158ef638cef2e06}\index{missioni.h@{missioni.h}!inizializzaGestoreMissioni@{inizializzaGestoreMissioni}}
+\index{inizializzaGestoreMissioni@{inizializzaGestoreMissioni}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{inizializzaGestoreMissioni()}{inizializzaGestoreMissioni()}}
+{\footnotesize\ttfamily \label{missioni_8h_aef568376d75252444158ef638cef2e06} 
+void inizializza\+Gestore\+Missioni (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{}\end{DoxyParamCaption})}
+
+
+
+Inizializza il gestore delle missioni con tutte le missioni del gioco. 
+
+Inizializza il gestore delle missioni con i dati di default Le prime 3 missioni sono sbloccate, la finale è bloccata
+
+Questa funzione configura il \doxylink{struct_gestore_missioni}{Gestore\+Missioni} con tutte e quattro le missioni disponibili nel gioco, impostando i loro parametri iniziali. Utilizza lo stile di formattazione Vertical-\/\+Alignment-\/\+Style (Antirez).
+
+Le missioni inizializzate sono\+:
+\begin{DoxyItemize}
+\item MISSIONE\+\_\+\+PALUDE\+: "{}\+Palude Putrescente"{} -\/ 3 Generali Orco da eliminare
+\item MISSIONE\+\_\+\+MAGIONE\+: "{}\+Magione Infestata"{} -\/ 1 Vampiro Superiore + recupero chiave
+\item MISSIONE\+\_\+\+GROTTA\+: "{}\+Grotta di Cristallo"{} -\/ Recupero Spada dell\textquotesingle{}\doxylink{struct_eroe}{Eroe}
+\item MISSIONE\+\_\+\+CASTELLO\+: "{}\+Castello del Signore Oscuro"{} -\/ Boss finale (bloccata)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em gestore} & Puntatore alla struttura \doxylink{struct_gestore_missioni}{Gestore\+Missioni} da inizializzare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+gestore deve essere un puntatore valido ad una struttura allocata 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Tutte le missioni sono inizializzate con i loro parametri di default 
+
+missioni\+Completate è impostato a 0 
+
+missione\+Corrente è impostato a MISSIONE\+\_\+\+NESSUNA 
+
+Solo MISSIONE\+\_\+\+CASTELLO inizia in stato bloccato
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Se gestore è NULL, la funzione ritorna immediatamente senza operazioni 
+\end{DoxyNote}
+\Hypertarget{missioni_8h_a1e1fc23481e963b9963fd84548e797b9}\index{missioni.h@{missioni.h}!inizializzaMissione@{inizializzaMissione}}
+\index{inizializzaMissione@{inizializzaMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{inizializzaMissione()}{inizializzaMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_a1e1fc23481e963b9963fd84548e797b9} 
+void inizializza\+Missione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{m}{, }\item[{\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}}}]{tipo}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{nome}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{descrizione}{, }\item[{int}]{obiettivi\+Totali}{}\end{DoxyParamCaption})}
+
+
+
+Inizializza una singola missione con i parametri specificati. 
+
+Inizializza una singola missione con nome, descrizione e obiettivi
+
+Questa funzione configura tutti i campi di una struttura \doxylink{struct_missione}{Missione} con i valori iniziali appropriati. Il nome e la descrizione vengono copiati in modo sicuro usando strncpy con terminazione garantita della stringa.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em m} & Puntatore alla struttura \doxylink{struct_missione}{Missione} da inizializzare \\
+\hline
+\mbox{\texttt{in}}  & {\em tipo} & Tipo della missione (MISSIONE\+\_\+\+PALUDE, MISSIONE\+\_\+\+MAGIONE, etc.) \\
+\hline
+\mbox{\texttt{in}}  & {\em nome} & Nome descrittivo della missione (max 49 caratteri) \\
+\hline
+\mbox{\texttt{in}}  & {\em descrizione} & Descrizione dettagliata dell\textquotesingle{}obiettivo (max 199 caratteri) \\
+\hline
+\mbox{\texttt{in}}  & {\em obiettivi\+Totali} & Numero totale di obiettivi da completare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se m è NULL, la funzione ritorna immediatamente senza operazioni 
+
+Le stringhe vengono troncate se superano la lunghezza massima consentita 
+
+Tutte le missioni sono sbloccate di default tranne MISSIONE\+\_\+\+CASTELLO
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Il puntatore m deve essere valido e allocato prima della chiamata 
+\end{DoxyWarning}
+\Hypertarget{missioni_8h_adbb3e8706caacc269f95a8c7b72e9fcf}\index{missioni.h@{missioni.h}!missioneCompletata@{missioneCompletata}}
+\index{missioneCompletata@{missioneCompletata}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{missioneCompletata()}{missioneCompletata()}}
+{\footnotesize\ttfamily \label{missioni_8h_adbb3e8706caacc269f95a8c7b72e9fcf} 
+bool missione\+Completata (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{missione}{}\end{DoxyParamCaption})}
+
+Verifica se una missione è completata \Hypertarget{missioni_8h_a23227139b23751c54ff01312ae84526a}\index{missioni.h@{missioni.h}!missioneSbloccata@{missioneSbloccata}}
+\index{missioneSbloccata@{missioneSbloccata}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{missioneSbloccata()}{missioneSbloccata()}}
+{\footnotesize\ttfamily \label{missioni_8h_a23227139b23751c54ff01312ae84526a} 
+bool missione\+Sbloccata (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{missione}{}\end{DoxyParamCaption})}
+
+Verifica se una missione è accessibile/sbloccata \Hypertarget{missioni_8h_a27db372b55e7dd6844171954c6c97df8}\index{missioni.h@{missioni.h}!mostraMenuDuranteMissione@{mostraMenuDuranteMissione}}
+\index{mostraMenuDuranteMissione@{mostraMenuDuranteMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{mostraMenuDuranteMissione()}{mostraMenuDuranteMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_a27db372b55e7dd6844171954c6c97df8} 
+void mostra\+Menu\+Durante\+Missione (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{missione}{, }\item[{const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza il menu di azioni disponibili durante una missione. 
+
+Mostra il menu durante una missione in corso Include\+: Esplora, Negozio, Inventario, Torna al Villaggio
+
+Mostra il menu interattivo che il giocatore vede mentre è all\textquotesingle{}interno di una missione. Include lo stato corrente della missione e le opzioni disponibili\+:
+\begin{DoxyItemize}
+\item Esplora stanza del Dungeon
+\item Negozio
+\item Inventario
+\item Torna al Villaggio (con indicazione del costo se applicabile)
+\end{DoxyItemize}
+
+L\textquotesingle{}opzione di ritorno al villaggio mostra il costo di 50 monete solo se la missione non è ancora completata (obiettivi non raggiunti o oggetto speciale non recuperato).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em missione} & Puntatore costante alla \doxylink{struct_missione}{Missione} corrente \\
+\hline
+\mbox{\texttt{in}}  & {\em eroe} & Puntatore costante all\textquotesingle{}\doxylink{struct_eroe}{Eroe} (per visualizzare statistiche)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+missione e eroe devono essere puntatori validi 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Visualizza lo stato della missione e il menu su stdout
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Se missione o eroe sono NULL, la funzione ritorna immediatamente 
+
+Il costo per tornare al villaggio è 50 monete se la missione non è completa
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8c_a2c7460cf60f8dbd2e93a2f0de3ac9e9b}{mostra\+Stato\+Missione()} 
+
+\doxylink{missioni_8c_a74ac475b8477bc4c37f32aa74b2c8847}{obiettivi\+Raggiunti()} 
+
+\doxylink{struct_eroe}{Eroe} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_a46b4f2c526efae6fb9b150395b139bd5}\index{missioni.h@{missioni.h}!mostraMenuMissioni@{mostraMenuMissioni}}
+\index{mostraMenuMissioni@{mostraMenuMissioni}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{mostraMenuMissioni()}{mostraMenuMissioni()}}
+{\footnotesize\ttfamily \label{missioni_8h_a46b4f2c526efae6fb9b150395b139bd5} 
+int mostra\+Menu\+Missioni (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{}\end{DoxyParamCaption})}
+
+
+
+Mostra il menu di selezione delle missioni disponibili. 
+
+Mostra il menu di selezione delle missioni disponibili Ritorna il numero di missioni disponibili da scegliere
+
+Visualizza un menu formattato con tutte le missioni attualmente disponibili per il giocatore. Vengono mostrate solo le missioni non completate e sbloccate. Il menu include il nome e la descrizione di ciascuna missione disponibile. La missione finale viene evidenziata con una marcatura speciale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em gestore} & Puntatore costante al \doxylink{struct_gestore_missioni}{Gestore\+Missioni}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Numero di missioni disponibili (0 se tutte completate o gestore è NULL)
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+gestore deve essere un puntatore valido 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Visualizza il menu formattato su stdout
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Se non ci sono missioni disponibili, mostra un messaggio di completamento 
+
+Utilizza codici colore ANSI per migliorare la visualizzazione
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8c_a1bbe64a9fd84e926807106afd32b7c21}{seleziona\+Missione()} 
+
+\doxylink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_a2c7460cf60f8dbd2e93a2f0de3ac9e9b}\index{missioni.h@{missioni.h}!mostraStatoMissione@{mostraStatoMissione}}
+\index{mostraStatoMissione@{mostraStatoMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{mostraStatoMissione()}{mostraStatoMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_a2c7460cf60f8dbd2e93a2f0de3ac9e9b} 
+void mostra\+Stato\+Missione (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{missione}{}\end{DoxyParamCaption})}
+
+
+
+Visualizza lo stato dettagliato di una missione specifica. 
+
+Mostra lo stato di avanzamento della missione corrente
+
+Mostra informazioni complete sulla missione corrente, inclusi\+:
+\begin{DoxyItemize}
+\item Nome e descrizione della missione
+\item Progresso degli obiettivi (se applicabile) con barra visuale
+\item Stato del recupero di oggetti speciali (chiave o spada)
+\end{DoxyItemize}
+
+La funzione adatta la visualizzazione in base al tipo di missione\+:
+\begin{DoxyItemize}
+\item Per missioni con obiettivi numerici mostra una barra di progresso
+\item Per MISSIONE\+\_\+\+MAGIONE mostra lo stato della chiave
+\item Per MISSIONE\+\_\+\+GROTTA mostra lo stato della spada
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em missione} & Puntatore costante alla \doxylink{struct_missione}{Missione} da visualizzare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+missione deve essere un puntatore valido 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Stampa le informazioni formattate su stdout
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Se missione è NULL, la funzione ritorna immediatamente 
+
+La barra di progresso usa caratteri Unicode per una migliore visualizzazione
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione} 
+
+\doxylink{struct_missione}{Missione} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_a74ac475b8477bc4c37f32aa74b2c8847}\index{missioni.h@{missioni.h}!obiettiviRaggiunti@{obiettiviRaggiunti}}
+\index{obiettiviRaggiunti@{obiettiviRaggiunti}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{obiettiviRaggiunti()}{obiettiviRaggiunti()}}
+{\footnotesize\ttfamily \label{missioni_8h_a74ac475b8477bc4c37f32aa74b2c8847} 
+bool obiettivi\+Raggiunti (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{missione}{}\end{DoxyParamCaption})}
+
+Verifica se gli obiettivi della missione sono stati raggiunti \Hypertarget{missioni_8h_a2c10c0eac36b114a66b8f0d0939fd9e6}\index{missioni.h@{missioni.h}!sbloccaMissioneFinale@{sbloccaMissioneFinale}}
+\index{sbloccaMissioneFinale@{sbloccaMissioneFinale}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{sbloccaMissioneFinale()}{sbloccaMissioneFinale()}}
+{\footnotesize\ttfamily \label{missioni_8h_a2c10c0eac36b114a66b8f0d0939fd9e6} 
+void sblocca\+Missione\+Finale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{}\end{DoxyParamCaption})}
+
+Sblocca la missione finale quando le 3 missioni base sono completate \Hypertarget{missioni_8h_a35c075385299f444a2c0082007f455dd}\index{missioni.h@{missioni.h}!segnaOggettoRecuperato@{segnaOggettoRecuperato}}
+\index{segnaOggettoRecuperato@{segnaOggettoRecuperato}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{segnaOggettoRecuperato()}{segnaOggettoRecuperato()}}
+{\footnotesize\ttfamily \label{missioni_8h_a35c075385299f444a2c0082007f455dd} 
+void segna\+Oggetto\+Recuperato (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_missione}{Missione}} \texorpdfstring{$\ast$}{*}}]{missione}{}\end{DoxyParamCaption})}
+
+
+
+Segna un oggetto speciale come recuperato nella missione. 
+
+Segna un oggetto speciale come recuperato (es\+: chiave, spada dell\textquotesingle{}eroe)
+
+Imposta il flag oggetto\+Recuperato a true per la missione specificata e mostra messaggi appropriati in base al tipo di oggetto\+:
+\begin{DoxyItemize}
+\item Per MISSIONE\+\_\+\+MAGIONE\+: mostra messaggio recupero Chiave del Castello
+\item Per MISSIONE\+\_\+\+GROTTA\+: mostra messaggio recupero Spada dell\textquotesingle{}\doxylink{struct_eroe}{Eroe} e bonus attacco
+\end{DoxyItemize}
+
+Gli oggetti speciali sono\+:
+\begin{DoxyItemize}
+\item Chiave del Castello (MISSIONE\+\_\+\+MAGIONE)\+: necessaria per accedere alla missione finale
+\item Spada dell\textquotesingle{}\doxylink{struct_eroe}{Eroe} (MISSIONE\+\_\+\+GROTTA)\+: fornisce bonus di +2 all\textquotesingle{}attacco
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em missione} & Puntatore alla \doxylink{struct_missione}{Missione} in cui recuperare l\textquotesingle{}oggetto\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+missione deve essere un puntatore valido 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+missione-\/\texorpdfstring{$>$}{>}oggetto\+Recuperato è impostato a true 
+
+Messaggi informativi vengono stampati su stdout
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Se missione è NULL, la funzione ritorna senza operazioni 
+
+L\textquotesingle{}incremento effettivo dell\textquotesingle{}attacco per la Spada deve essere gestito altrove
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione} 
+
+\doxylink{struct_missione}{Missione} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_a1bbe64a9fd84e926807106afd32b7c21}\index{missioni.h@{missioni.h}!selezionaMissione@{selezionaMissione}}
+\index{selezionaMissione@{selezionaMissione}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{selezionaMissione()}{selezionaMissione()}}
+{\footnotesize\ttfamily \label{missioni_8h_a1bbe64a9fd84e926807106afd32b7c21} 
+\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione}} seleziona\+Missione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{}\end{DoxyParamCaption})}
+
+
+
+Permette al giocatore di selezionare una missione dal menu. 
+
+Permette al giocatore di selezionare una missione dal menu Ritorna il tipo di missione selezionata o MISSIONE\+\_\+\+NESSUNA se annullato
+
+Mostra il menu delle missioni disponibili e gestisce l\textquotesingle{}input dell\textquotesingle{}utente per la selezione. Valida l\textquotesingle{}input e restituisce il tipo di missione corrispondente alla scelta del giocatore.
+
+Il processo di selezione\+:
+\begin{DoxyEnumerate}
+\item Mostra tutte le missioni disponibili
+\item Richiede input numerico all\textquotesingle{}utente
+\item Valida la scelta (deve essere nel range valido)
+\item Mappa la scelta numerica alla missione corrispondente
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em gestore} & Puntatore al \doxylink{struct_gestore_missioni}{Gestore\+Missioni}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione} selezionato dall\textquotesingle{}utente, o MISSIONE\+\_\+\+NESSUNA se\+:
+\begin{DoxyItemize}
+\item gestore è NULL
+\item Non ci sono missioni disponibili
+\item L\textquotesingle{}input dell\textquotesingle{}utente non è valido
+\item Si verifica un errore di lettura
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+gestore deve essere un puntatore valido 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Non modifica lo stato del gestore
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Utilizza fgets per una lettura sicura dell\textquotesingle{}input 
+
+Mostra messaggio di errore per scelte non valide
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{missioni_8c_a46b4f2c526efae6fb9b150395b139bd5}{mostra\+Menu\+Missioni()} 
+
+\doxylink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{Tipo\+Missione} 
+\end{DoxySeeAlso}
+\Hypertarget{missioni_8h_a563f38a63854396d7c408e1c16b156de}\index{missioni.h@{missioni.h}!tutteLePreliminariCompletate@{tutteLePreliminariCompletate}}
+\index{tutteLePreliminariCompletate@{tutteLePreliminariCompletate}!missioni.h@{missioni.h}}
+\doxysubsubsection{\texorpdfstring{tutteLePreliminariCompletate()}{tutteLePreliminariCompletate()}}
+{\footnotesize\ttfamily \label{missioni_8h_a563f38a63854396d7c408e1c16b156de} 
+bool tutte\+Le\+Preliminari\+Completate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{}\end{DoxyParamCaption})}
+
+Verifica se tutte le missioni preliminari sono completate (necessario per sbloccare la missione finale) 

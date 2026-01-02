@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['salvagioco_0',['salvaGioco',['../salvataggi_8c.html#a13f80ceb3aaf9fe232746d54c77ede32',1,'salvaGioco(const Salvataggio *s):&#160;salvataggi.c'],['../salvataggi_8h.html#a13f80ceb3aaf9fe232746d54c77ede32',1,'salvaGioco(const Salvataggio *s):&#160;salvataggi.c']]]
+  ['obiettiviraggiunti_0',['obiettiviRaggiunti',['../missioni_8c.html#a74ac475b8477bc4c37f32aa74b2c8847',1,'obiettiviRaggiunti(const Missione *missione):&#160;missioni.c'],['../missioni_8h.html#a74ac475b8477bc4c37f32aa74b2c8847',1,'obiettiviRaggiunti(const Missione *missione):&#160;missioni.c']]]
 ];

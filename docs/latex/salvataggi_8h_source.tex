@@ -9,41 +9,55 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <time.h>}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{menu_8h}{menu.h}}"{}}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ MAX\_NOME\_FILE\ 256}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ INPUT\_BACK\ 'b'}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{comment}{//\ Struttura\ che\ rappresenta\ i\ dati\ salvati\ per\ una\ partita,\ con\ checksum\ CRC32}}
-\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ time\_t\ \mbox{\hyperlink{struct_salvataggio_ab91073429151884b2ac831962d6986ff}{dataSalvataggio}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Timestamp\ Unix\ del\ salvataggio}}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_salvataggio_a789c61f84ab501e0c30ab4302a266244}{nome}}[\mbox{\hyperlink{eroe_8h_abc2a76b50bd4df1b46cdeed12288cab3}{MAX\_NOME\_EROE}}];\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nome\ del\ giocatore}}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_a61e0d2a3c2fc46a802b5709304d0a24c}{vita}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Punti\ vita}}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_ae58bd36d3c97492e364eb01a075600df}{monete}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Monete}}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_a979e4c81ea9aef789909d04a9c239ff6}{oggettiPosseduti}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Oggetti\ posseduti}}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_adf720aef5afd6c2bdceb5eb2024562c0}{missioniCompletate}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Missioni\ completate}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_salvataggio_a3b68848b0498fbf56c2b84bf7bf4ff42}{crc32}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Checksum\ CRC32\ per\ controllo\ integrità\ dati}}
-\DoxyCodeLine{00025\ \}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{comment}{//\ Funzioni\ di\ conversione\ tra\ Eroe\ e\ Salvataggio}}
-\DoxyCodeLine{00028\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}\ \mbox{\hyperlink{salvataggi_8h_af3c16efe1b6e045152e11ea958c0bf88}{creaSalvataggioDaEroe}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);}
-\DoxyCodeLine{00029\ \mbox{\hyperlink{struct_eroe}{Eroe}}\ \mbox{\hyperlink{salvataggi_8h_a55dd6831205103c2503963957a3f3505}{creaEroeDaSalvataggio}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ salvataggio);}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{comment}{//\ Funzioni\ di\ gestione\ salvataggi}}
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a13f80ceb3aaf9fe232746d54c77ede32}{salvaGioco}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ s);}
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_a5dd0e9ff7d4f211f9a164a2c39367f5e}{contaSalvataggi}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a0f4001322f53c0e656294204c8d57fae}{leggiSalvataggioIndice}}(\textcolor{keywordtype}{int}\ idx,\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ s);}
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a0be0273d67c2ce434e6373f2348999ec}{eliminaSalvataggio}}(\textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{salvataggi_8h_abfaddceea4779220a1b570777e224ba5}{mostraMenuSalvataggi}}();}
-\DoxyCodeLine{00038\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_ab8529650699e14624257148e1e9a7b1b}{chiediSalvataggioDaCaricare}}();}
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_ab6063233b11a847da5d09bdfac77601a}{gestioneSalvataggioScelto}}(\textcolor{keywordtype}{int}\ sceltaSalvataggio);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{comment}{//\ Funzione\ per\ calcolare\ CRC32\ su\ un\ buffer\ di\ dati}}
-\DoxyCodeLine{00042\ uint32\_t\ \mbox{\hyperlink{salvataggi_8h_acf6a639aa0f51df5dfc1543cd2fabc14}{calcola\_crc32}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ dati,\ \textcolor{keywordtype}{size\_t}\ lunghezza);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SALVATAGGI\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ MAX\_NOME\_FILE\ 256}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ INPUT\_BACK\ 'b'}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ time\_t\ \mbox{\hyperlink{struct_salvataggio_ab91073429151884b2ac831962d6986ff}{dataSalvataggio}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Timestamp\ Unix\ del\ salvataggio\ (aggiornato\ automaticamente)}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_salvataggio_a789c61f84ab501e0c30ab4302a266244}{nome}}[\mbox{\hyperlink{eroe_8h_abc2a76b50bd4df1b46cdeed12288cab3}{MAX\_NOME\_EROE}}];\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nome\ del\ giocatore\ (usato\ come\ identificatore\ univoco)}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_a61e0d2a3c2fc46a802b5709304d0a24c}{vita}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Punti\ vita\ correnti}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_ae58bd36d3c97492e364eb01a075600df}{monete}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Monete\ possedute}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_a979e4c81ea9aef789909d04a9c239ff6}{oggettiPosseduti}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Numero\ di\ oggetti\ nell'inventario}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_salvataggio_adf720aef5afd6c2bdceb5eb2024562c0}{missioniCompletate}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Numero\ di\ missioni\ completate}}
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_salvataggio_a3b68848b0498fbf56c2b84bf7bf4ff42}{crc32}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Checksum\ CRC32\ per\ controllo\ integrità\ (calcolato\ automaticamente)}}
+\DoxyCodeLine{00026\ \}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ CONVERSIONE\ -\/-\/-\/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}\ \mbox{\hyperlink{salvataggi_8h_af3c16efe1b6e045152e11ea958c0bf88}{creaSalvataggioDaEroe}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \mbox{\hyperlink{struct_eroe}{Eroe}}\ \mbox{\hyperlink{salvataggi_8h_a55dd6831205103c2503963957a3f3505}{creaEroeDaSalvataggio}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ salvataggio);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ GESTIONE\ FILE\ -\/-\/-\/}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a13f80ceb3aaf9fe232746d54c77ede32}{salvaGioco}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ s);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_a5dd0e9ff7d4f211f9a164a2c39367f5e}{contaSalvataggi}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a0f4001322f53c0e656294204c8d57fae}{leggiSalvataggioIndice}}(\textcolor{keywordtype}{int}\ idx,\ \mbox{\hyperlink{struct_salvataggio}{Salvataggio}}*\ s);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{salvataggi_8h_a0be0273d67c2ce434e6373f2348999ec}{eliminaSalvataggio}}(\textcolor{keywordtype}{int}\ idx);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ INTERFACCIA\ UTENTE\ -\/-\/-\/}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{salvataggi_8h_a5c83a1d5a72a82268b7eae0d052b6f5b}{mostraMenuSalvataggi}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_a1c2e4a144ba24718e303cbbb6c212951}{chiediSalvataggioDaCaricare}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{salvataggi_8h_ab6063233b11a847da5d09bdfac77601a}{gestioneSalvataggioScelto}}(\textcolor{keywordtype}{int}\ sceltaSalvataggio);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ -\/-\/-\/\ NOTA\ IMPORTANTE\ -\/-\/-\/}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ Il\ sistema\ di\ salvataggio\ funziona\ così:}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ 1.\ Ogni\ eroe\ ha\ un\ NOME\ univoco\ che\ lo\ identifica}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ 2.\ Quando\ salvi\ un\ eroe,\ il\ sistema:}}
+\DoxyCodeLine{00117\ \textcolor{comment}{//\ \ \ \ -\/\ Cerca\ se\ esiste\ già\ un\ salvataggio\ con\ quel\ nome}}
+\DoxyCodeLine{00118\ \textcolor{comment}{//\ \ \ \ -\/\ Se\ SÌ:\ AGGIORNA\ il\ file\ esistente\ con\ i\ nuovi\ dati}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//\ \ \ \ -\/\ Se\ NO:\ CREA\ un\ nuovo\ file\ di\ salvataggio}}
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ 3.\ Questo\ significa\ che\ NON\ puoi\ avere\ due\ salvataggi\ con\ lo\ stesso\ nome}}
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ 4.\ Per\ avere\ più\ salvataggi,\ usa\ nomi\ diversi\ per\ gli\ eroi}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SALVATAGGI\_H}}
 
 \end{DoxyCode}

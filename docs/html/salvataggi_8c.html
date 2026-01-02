@@ -91,33 +91,57 @@ $(function(){initNavTree('salvataggi_8c.html','',''); });
   <div class="headertitle"><div class="title">salvataggi.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementazione del sistema di gestione salvataggi.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="salvataggi_8h_source.html">salvataggi.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;sys/stat.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a33f0483b64221b258b080bba5882cf3c" id="r_a33f0483b64221b258b080bba5882cf3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33f0483b64221b258b080bba5882cf3c">MKDIR</a>(path)</td></tr>
+<tr class="memdesc:a33f0483b64221b258b080bba5882cf3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro per creare directory su Unix/Linux con permessi 0700.  <br /></td></tr>
 <tr class="memitem:a475cbee9e61392fbcaa8ed16ae398486" id="r_a475cbee9e61392fbcaa8ed16ae398486"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a475cbee9e61392fbcaa8ed16ae398486">CARTELLA_SALVATAGGI</a>&#160;&#160;&#160;&quot;salvataggi&quot;</td></tr>
+<tr class="memdesc:a475cbee9e61392fbcaa8ed16ae398486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome della cartella dove vengono salvati i file di gioco.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0f4001322f53c0e656294204c8d57fae" id="r_a0f4001322f53c0e656294204c8d57fae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f4001322f53c0e656294204c8d57fae">leggiSalvataggioIndice</a> (int idx, <a class="el" href="struct_salvataggio.html">Salvataggio</a> *s)</td></tr>
+<tr class="memdesc:a0f4001322f53c0e656294204c8d57fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legge un salvataggio da file.  <br /></td></tr>
 <tr class="memitem:a13f80ceb3aaf9fe232746d54c77ede32" id="r_a13f80ceb3aaf9fe232746d54c77ede32"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13f80ceb3aaf9fe232746d54c77ede32">salvaGioco</a> (const <a class="el" href="struct_salvataggio.html">Salvataggio</a> *s)</td></tr>
+<tr class="memdesc:a13f80ceb3aaf9fe232746d54c77ede32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva o aggiorna un salvataggio di gioco.  <br /></td></tr>
 <tr class="memitem:a5dd0e9ff7d4f211f9a164a2c39367f5e" id="r_a5dd0e9ff7d4f211f9a164a2c39367f5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dd0e9ff7d4f211f9a164a2c39367f5e">contaSalvataggi</a> (void)</td></tr>
+<tr class="memdesc:a5dd0e9ff7d4f211f9a164a2c39367f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conta il numero totale di salvataggi presenti.  <br /></td></tr>
 <tr class="memitem:a0be0273d67c2ce434e6373f2348999ec" id="r_a0be0273d67c2ce434e6373f2348999ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0be0273d67c2ce434e6373f2348999ec">eliminaSalvataggio</a> (int idx)</td></tr>
+<tr class="memdesc:a0be0273d67c2ce434e6373f2348999ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un salvataggio e riordina i file rimanenti.  <br /></td></tr>
 <tr class="memitem:af3c16efe1b6e045152e11ea958c0bf88" id="r_af3c16efe1b6e045152e11ea958c0bf88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_salvataggio.html">Salvataggio</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3c16efe1b6e045152e11ea958c0bf88">creaSalvataggioDaEroe</a> (const <a class="el" href="struct_eroe.html">Eroe</a> *eroe)</td></tr>
+<tr class="memdesc:af3c16efe1b6e045152e11ea958c0bf88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a> a partire da una struttura <a class="el" href="struct_eroe.html">Eroe</a>.  <br /></td></tr>
 <tr class="memitem:a55dd6831205103c2503963957a3f3505" id="r_a55dd6831205103c2503963957a3f3505"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_eroe.html">Eroe</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55dd6831205103c2503963957a3f3505">creaEroeDaSalvataggio</a> (const <a class="el" href="struct_salvataggio.html">Salvataggio</a> *salvataggio)</td></tr>
+<tr class="memdesc:a55dd6831205103c2503963957a3f3505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una struttura <a class="el" href="struct_eroe.html">Eroe</a> a partire da una struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a>.  <br /></td></tr>
 <tr class="memitem:abfaddceea4779220a1b570777e224ba5" id="r_abfaddceea4779220a1b570777e224ba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfaddceea4779220a1b570777e224ba5">mostraMenuSalvataggi</a> ()</td></tr>
+<tr class="memdesc:abfaddceea4779220a1b570777e224ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra un menu formattato con l'elenco dei salvataggi disponibili.  <br /></td></tr>
 <tr class="memitem:a1c2e4a144ba24718e303cbbb6c212951" id="r_a1c2e4a144ba24718e303cbbb6c212951"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c2e4a144ba24718e303cbbb6c212951">chiediSalvataggioDaCaricare</a> (void)</td></tr>
+<tr class="memdesc:a1c2e4a144ba24718e303cbbb6c212951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Richiede all'utente di selezionare un salvataggio da gestire.  <br /></td></tr>
 <tr class="memitem:ab6063233b11a847da5d09bdfac77601a" id="r_ab6063233b11a847da5d09bdfac77601a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6063233b11a847da5d09bdfac77601a">gestioneSalvataggioScelto</a> (int sceltaSalvataggio)</td></tr>
+<tr class="memdesc:ab6063233b11a847da5d09bdfac77601a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce le operazioni su un salvataggio selezionato.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementazione del sistema di gestione salvataggi. </p>
+<dl class="section author"><dt>Author</dt><dd>[RICCARDO/LORENZO/BOLA/YUNUX] </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>3.0 (rimosso supporto CRC32)</dd></dl>
+<p>Questo file implementa un sistema completo per la gestione dei salvataggi di gioco, includendo:</p><ul>
+<li>Creazione e lettura di file di salvataggio</li>
+<li>Gestione della cartella dei salvataggi</li>
+<li>Conversione tra strutture <a class="el" href="struct_eroe.html">Eroe</a> e <a class="el" href="struct_salvataggio.html">Salvataggio</a></li>
+<li>Interfaccia utente per la gestione dei salvataggi </li>
+</ul>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a475cbee9e61392fbcaa8ed16ae398486" name="a475cbee9e61392fbcaa8ed16ae398486"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a475cbee9e61392fbcaa8ed16ae398486">&#9670;&#160;</a></span>CARTELLA_SALVATAGGI</h2>
 
@@ -129,6 +153,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Nome della cartella dove vengono salvati i file di gioco. </p>
 
 </div>
 </div>
@@ -148,6 +174,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">mkdir(path, 0700)</div>
 </div><!-- fragment -->
+<p>Macro per creare directory su Unix/Linux con permessi 0700. </p>
+
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
@@ -166,6 +194,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Richiede all'utente di selezionare un salvataggio da gestire. </p>
+<dl class="section return"><dt>Returns</dt><dd>int Indice del salvataggio selezionato (1-N), o -1 per annullare </dd></dl>
+
 </div>
 </div>
 <a id="a5dd0e9ff7d4f211f9a164a2c39367f5e" name="a5dd0e9ff7d4f211f9a164a2c39367f5e"></a>
@@ -182,6 +213,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Conta il numero totale di salvataggi presenti. </p>
+<p>Questa funzione determina quanti file di salvataggio esistono nella cartella contando i file consecutivi a partire da save1.dat.</p>
+<dl class="section return"><dt>Returns</dt><dd>int Numero di salvataggi presenti (0 se nessuno) </dd></dl>
 
 </div>
 </div>
@@ -200,6 +235,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Crea una struttura <a class="el" href="struct_eroe.html">Eroe</a> a partire da una struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salvataggio</td><td>Puntatore costante alla struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a> sorgente </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_eroe.html">Eroe</a> Nuova struttura <a class="el" href="struct_eroe.html">Eroe</a> con i dati del salvataggio </dd></dl>
+
 </div>
 </div>
 <a id="af3c16efe1b6e045152e11ea958c0bf88" name="af3c16efe1b6e045152e11ea958c0bf88"></a>
@@ -216,6 +260,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Crea una struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a> a partire da una struttura <a class="el" href="struct_eroe.html">Eroe</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eroe</td><td>Puntatore costante alla struttura <a class="el" href="struct_eroe.html">Eroe</a> sorgente </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_salvataggio.html">Salvataggio</a> Nuova struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a> con i dati dell'eroe </dd></dl>
 
 </div>
 </div>
@@ -234,6 +287,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Elimina un salvataggio e riordina i file rimanenti. </p>
+<p>Questa funzione elimina un file di salvataggio e rinomina tutti i file successivi per mantenere la numerazione consecutiva senza "buchi".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Indice del salvataggio da eliminare (deve essere &gt; 0)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true Eliminazione riuscita </dd>
+<dd>
+false Errore: indice invalido o file non eliminabile </dd></dl>
+
 </div>
 </div>
 <a id="ab6063233b11a847da5d09bdfac77601a" name="ab6063233b11a847da5d09bdfac77601a"></a>
@@ -250,6 +315,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gestisce le operazioni su un salvataggio selezionato. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceltaSalvataggio</td><td>Indice del salvataggio da gestire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int 1 se un'operazione è stata completata, 0 se annullata </dd></dl>
 
 </div>
 </div>
@@ -272,6 +346,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Legge un salvataggio da file. </p>
+<p>Questa funzione carica un salvataggio dal file system.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Indice del salvataggio da caricare (deve essere &gt; 0) </td></tr>
+    <tr><td class="paramname">s</td><td>Puntatore alla struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a> dove salvare i dati letti</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true Caricamento riuscito, dati validi </dd>
+<dd>
+false Errore: file non trovato o indice invalido </dd></dl>
+
 </div>
 </div>
 <a id="abfaddceea4779220a1b570777e224ba5" name="abfaddceea4779220a1b570777e224ba5"></a>
@@ -283,11 +370,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void mostraMenuSalvataggi </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Mostra un menu formattato con l'elenco dei salvataggi disponibili. </p>
+<p>Visualizza tutti i salvataggi presenti con le loro informazioni principali in un formato tabellare leggibile. </p>
 
 </div>
 </div>
@@ -305,6 +395,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Salva o aggiorna un salvataggio di gioco. </p>
+<p>Questa funzione implementa una logica intelligente di salvataggio che:</p><ul>
+<li>Cerca se esiste già un salvataggio con lo stesso nome dell'eroe</li>
+<li>Se trovato: AGGIORNA il salvataggio esistente mantenendo lo stesso slot</li>
+<li>Se non trovato: CREA un nuovo salvataggio in un nuovo slot</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Puntatore costante alla struttura <a class="el" href="struct_salvataggio.html">Salvataggio</a> da salvare</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true <a class="el" href="struct_salvataggio.html">Salvataggio</a> creato o aggiornato con successo </dd>
+<dd>
+false Errore: puntatore NULL, errore I/O, o altri problemi </dd></dl>
 
 </div>
 </div>

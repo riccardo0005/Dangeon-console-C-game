@@ -68,14 +68,15 @@ void salvaPartitaCorrente(const Eroe* eroe);
  */
 bool gestisciUscita(void);
 
+
+
 // --- UTILITÀ ---
 
-/**
- * Legge un singolo carattere dall'input e pulisce il buffer
- * Previene problemi con input multipli
- */
+//Funzione che legge un singolo carattere dall'input e pulisce il buffer
+//Previene problemi con input multipli
 char leggiCaratterePulito(void);
+
 
 void pulisciBuffer(void);
 
-#endif // MENU_H                      // Fine della guardia di inclusione: chiude il blocco #ifndef/#define
+#endif

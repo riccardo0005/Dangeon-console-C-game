@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['salvagioco_0',['salvaGioco',['../salvataggi_8c.html#a13f80ceb3aaf9fe232746d54c77ede32',1,'salvaGioco(const Salvataggio *s):&#160;salvataggi.c'],['../salvataggi_8h.html#a13f80ceb3aaf9fe232746d54c77ede32',1,'salvaGioco(const Salvataggio *s):&#160;salvataggi.c']]],
-  ['salvataggi_2ec_1',['salvataggi.c',['../salvataggi_8c.html',1,'']]],
-  ['salvataggi_2eh_2',['salvataggi.h',['../salvataggi_8h.html',1,'']]],
-  ['salvataggio_3',['Salvataggio',['../struct_salvataggio.html',1,'']]]
+  ['nome_0',['nome',['../struct_eroe.html#af4cf2aa115fea7b562d9f0a65fe7192e',1,'Eroe::nome'],['../struct_missione.html#abda40a4af94eeaa6e46d746cfed62461',1,'Missione::nome'],['../struct_salvataggio.html#a789c61f84ab501e0c30ab4302a266244',1,'Salvataggio::nome']]]
 ];

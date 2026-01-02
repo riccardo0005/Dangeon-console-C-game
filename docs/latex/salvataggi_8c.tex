@@ -1,42 +1,66 @@
 \doxysection{salvataggi.\+c File Reference}
 \hypertarget{salvataggi_8c}{}\label{salvataggi_8c}\index{salvataggi.c@{salvataggi.c}}
+
+
+Implementazione del sistema di gestione salvataggi.  
+
+
 {\ttfamily \#include "{}salvataggi.\+h"{}}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$sys/stat.\+h$>$}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
-{\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{salvataggi_8c_a33f0483b64221b258b080bba5882cf3c}{MKDIR}}(path)
-\item 
+\begin{DoxyCompactList}\small\item\em Macro per creare directory su Unix/\+Linux con permessi 0700. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{salvataggi_8c_a475cbee9e61392fbcaa8ed16ae398486}{CARTELLA\+\_\+\+SALVATAGGI}}~"{}salvataggi"{}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Nome della cartella dove vengono salvati i file di gioco. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}{leggi\+Salvataggio\+Indice}} (int idx, \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}s)
-\item 
+\begin{DoxyCompactList}\small\item\em Legge un salvataggio da file. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}{salva\+Gioco}} (const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}s)
-\item 
+\begin{DoxyCompactList}\small\item\em Salva o aggiorna un salvataggio di gioco. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}{conta\+Salvataggi}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Conta il numero totale di salvataggi presenti. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec}{elimina\+Salvataggio}} (int idx)
-\item 
+\begin{DoxyCompactList}\small\item\em Elimina un salvataggio e riordina i file rimanenti. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \mbox{\hyperlink{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88}{crea\+Salvataggio\+Da\+Eroe}} (const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe)
-\item 
+\begin{DoxyCompactList}\small\item\em Crea una struttura \doxylink{struct_salvataggio}{Salvataggio} a partire da una struttura \doxylink{struct_eroe}{Eroe}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_eroe}{Eroe}} \mbox{\hyperlink{salvataggi_8c_a55dd6831205103c2503963957a3f3505}{crea\+Eroe\+Da\+Salvataggio}} (const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}salvataggio)
-\item 
+\begin{DoxyCompactList}\small\item\em Crea una struttura \doxylink{struct_eroe}{Eroe} a partire da una struttura \doxylink{struct_salvataggio}{Salvataggio}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{salvataggi_8c_abfaddceea4779220a1b570777e224ba5}{mostra\+Menu\+Salvataggi}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Mostra un menu formattato con l\textquotesingle{}elenco dei salvataggi disponibili. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{salvataggi_8c_a1c2e4a144ba24718e303cbbb6c212951}{chiedi\+Salvataggio\+Da\+Caricare}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Richiede all\textquotesingle{}utente di selezionare un salvataggio da gestire. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}{gestione\+Salvataggio\+Scelto}} (int scelta\+Salvataggio)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gestisce le operazioni su un salvataggio selezionato. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Implementazione del sistema di gestione salvataggi. 
+
+\begin{DoxyAuthor}{Author}
+\mbox{[}RICCARDO/\+LORENZO/\+BOLA/\+YUNUX\mbox{]} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+3.\+0 (rimosso supporto CRC32)
+\end{DoxyVersion}
+Questo file implementa un sistema completo per la gestione dei salvataggi di gioco, includendo\+:
+\begin{DoxyItemize}
+\item Creazione e lettura di file di salvataggio
+\item Gestione della cartella dei salvataggi
+\item Conversione tra strutture \doxylink{struct_eroe}{Eroe} e \doxylink{struct_salvataggio}{Salvataggio}
+\item Interfaccia utente per la gestione dei salvataggi 
+\end{DoxyItemize}
 
 \label{doc-define-members}
 \Hypertarget{salvataggi_8c_doc-define-members}
@@ -46,6 +70,10 @@ int \mbox{\hyperlink{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}{gestione\+
 \doxysubsubsection{\texorpdfstring{CARTELLA\_SALVATAGGI}{CARTELLA\_SALVATAGGI}}
 {\footnotesize\ttfamily \label{salvataggi_8c_a475cbee9e61392fbcaa8ed16ae398486} 
 \#define CARTELLA\+\_\+\+SALVATAGGI~"{}salvataggi"{}}
+
+
+
+Nome della cartella dove vengono salvati i file di gioco. 
 
 \Hypertarget{salvataggi_8c_a33f0483b64221b258b080bba5882cf3c}\index{salvataggi.c@{salvataggi.c}!MKDIR@{MKDIR}}
 \index{MKDIR@{MKDIR}!salvataggi.c@{salvataggi.c}}
@@ -60,6 +88,10 @@ int \mbox{\hyperlink{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}{gestione\+
 \end{DoxyCode}
 
 
+Macro per creare directory su Unix/\+Linux con permessi 0700. 
+
+
+
 \label{doc-func-members}
 \Hypertarget{salvataggi_8c_doc-func-members}
 \doxysubsection{Function Documentation}
@@ -69,51 +101,162 @@ int \mbox{\hyperlink{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}{gestione\+
 {\footnotesize\ttfamily \label{salvataggi_8c_a1c2e4a144ba24718e303cbbb6c212951} 
 int chiedi\+Salvataggio\+Da\+Caricare (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Richiede all\textquotesingle{}utente di selezionare un salvataggio da gestire. 
+
+\begin{DoxyReturn}{Returns}
+int Indice del salvataggio selezionato (1-\/N), o -\/1 per annullare 
+\end{DoxyReturn}
 \Hypertarget{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}\index{salvataggi.c@{salvataggi.c}!contaSalvataggi@{contaSalvataggi}}
 \index{contaSalvataggi@{contaSalvataggi}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{contaSalvataggi()}{contaSalvataggi()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e} 
 int conta\+Salvataggi (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Conta il numero totale di salvataggi presenti. 
+
+Questa funzione determina quanti file di salvataggio esistono nella cartella contando i file consecutivi a partire da save1.\+dat.
+
+\begin{DoxyReturn}{Returns}
+int Numero di salvataggi presenti (0 se nessuno) 
+\end{DoxyReturn}
 \Hypertarget{salvataggi_8c_a55dd6831205103c2503963957a3f3505}\index{salvataggi.c@{salvataggi.c}!creaEroeDaSalvataggio@{creaEroeDaSalvataggio}}
 \index{creaEroeDaSalvataggio@{creaEroeDaSalvataggio}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{creaEroeDaSalvataggio()}{creaEroeDaSalvataggio()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_a55dd6831205103c2503963957a3f3505} 
 \mbox{\hyperlink{struct_eroe}{Eroe}} crea\+Eroe\+Da\+Salvataggio (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}}]{salvataggio}{}\end{DoxyParamCaption})}
 
+
+
+Crea una struttura \doxylink{struct_eroe}{Eroe} a partire da una struttura \doxylink{struct_salvataggio}{Salvataggio}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em salvataggio} & Puntatore costante alla struttura \doxylink{struct_salvataggio}{Salvataggio} sorgente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_eroe}{Eroe} Nuova struttura \doxylink{struct_eroe}{Eroe} con i dati del salvataggio 
+\end{DoxyReturn}
 \Hypertarget{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88}\index{salvataggi.c@{salvataggi.c}!creaSalvataggioDaEroe@{creaSalvataggioDaEroe}}
 \index{creaSalvataggioDaEroe@{creaSalvataggioDaEroe}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{creaSalvataggioDaEroe()}{creaSalvataggioDaEroe()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88} 
 \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} crea\+Salvataggio\+Da\+Eroe (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{}\end{DoxyParamCaption})}
 
+
+
+Crea una struttura \doxylink{struct_salvataggio}{Salvataggio} a partire da una struttura \doxylink{struct_eroe}{Eroe}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eroe} & Puntatore costante alla struttura \doxylink{struct_eroe}{Eroe} sorgente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_salvataggio}{Salvataggio} Nuova struttura \doxylink{struct_salvataggio}{Salvataggio} con i dati dell\textquotesingle{}eroe 
+\end{DoxyReturn}
 \Hypertarget{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec}\index{salvataggi.c@{salvataggi.c}!eliminaSalvataggio@{eliminaSalvataggio}}
 \index{eliminaSalvataggio@{eliminaSalvataggio}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{eliminaSalvataggio()}{eliminaSalvataggio()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec} 
 bool elimina\+Salvataggio (\begin{DoxyParamCaption}\item[{int}]{idx}{}\end{DoxyParamCaption})}
 
+
+
+Elimina un salvataggio e riordina i file rimanenti. 
+
+Questa funzione elimina un file di salvataggio e rinomina tutti i file successivi per mantenere la numerazione consecutiva senza "{}buchi"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Indice del salvataggio da eliminare (deve essere \texorpdfstring{$>$}{>} 0)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Eliminazione riuscita 
+
+false Errore\+: indice invalido o file non eliminabile 
+\end{DoxyReturn}
 \Hypertarget{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a}\index{salvataggi.c@{salvataggi.c}!gestioneSalvataggioScelto@{gestioneSalvataggioScelto}}
 \index{gestioneSalvataggioScelto@{gestioneSalvataggioScelto}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{gestioneSalvataggioScelto()}{gestioneSalvataggioScelto()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_ab6063233b11a847da5d09bdfac77601a} 
 int gestione\+Salvataggio\+Scelto (\begin{DoxyParamCaption}\item[{int}]{scelta\+Salvataggio}{}\end{DoxyParamCaption})}
 
+
+
+Gestisce le operazioni su un salvataggio selezionato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scelta\+Salvataggio} & Indice del salvataggio da gestire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 se un\textquotesingle{}operazione è stata completata, 0 se annullata 
+\end{DoxyReturn}
 \Hypertarget{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}\index{salvataggi.c@{salvataggi.c}!leggiSalvataggioIndice@{leggiSalvataggioIndice}}
 \index{leggiSalvataggioIndice@{leggiSalvataggioIndice}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{leggiSalvataggioIndice()}{leggiSalvataggioIndice()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae} 
 bool leggi\+Salvataggio\+Indice (\begin{DoxyParamCaption}\item[{int}]{idx}{, }\item[{\mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
 
+
+
+Legge un salvataggio da file. 
+
+Questa funzione carica un salvataggio dal file system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Indice del salvataggio da caricare (deve essere \texorpdfstring{$>$}{>} 0) \\
+\hline
+{\em s} & Puntatore alla struttura \doxylink{struct_salvataggio}{Salvataggio} dove salvare i dati letti\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Caricamento riuscito, dati validi 
+
+false Errore\+: file non trovato o indice invalido 
+\end{DoxyReturn}
 \Hypertarget{salvataggi_8c_abfaddceea4779220a1b570777e224ba5}\index{salvataggi.c@{salvataggi.c}!mostraMenuSalvataggi@{mostraMenuSalvataggi}}
 \index{mostraMenuSalvataggi@{mostraMenuSalvataggi}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{mostraMenuSalvataggi()}{mostraMenuSalvataggi()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_abfaddceea4779220a1b570777e224ba5} 
-void mostra\+Menu\+Salvataggi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+void mostra\+Menu\+Salvataggi (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}\index{salvataggi.c@{salvataggi.c}!salvaGioco@{salvaGioco}}
+
+
+Mostra un menu formattato con l\textquotesingle{}elenco dei salvataggi disponibili. 
+
+Visualizza tutti i salvataggi presenti con le loro informazioni principali in un formato tabellare leggibile. \Hypertarget{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}\index{salvataggi.c@{salvataggi.c}!salvaGioco@{salvaGioco}}
 \index{salvaGioco@{salvaGioco}!salvataggi.c@{salvataggi.c}}
 \doxysubsubsection{\texorpdfstring{salvaGioco()}{salvaGioco()}}
 {\footnotesize\ttfamily \label{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32} 
 bool salva\+Gioco (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_salvataggio}{Salvataggio}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
 
+
+
+Salva o aggiorna un salvataggio di gioco. 
+
+Questa funzione implementa una logica intelligente di salvataggio che\+:
+\begin{DoxyItemize}
+\item Cerca se esiste già un salvataggio con lo stesso nome dell\textquotesingle{}eroe
+\item Se trovato\+: AGGIORNA il salvataggio esistente mantenendo lo stesso slot
+\item Se non trovato\+: CREA un nuovo salvataggio in un nuovo slot
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Puntatore costante alla struttura \doxylink{struct_salvataggio}{Salvataggio} da salvare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true \doxylink{struct_salvataggio}{Salvataggio} creato o aggiornato con successo 
+
+false Errore\+: puntatore NULL, errore I/O, o altri problemi 
+\end{DoxyReturn}

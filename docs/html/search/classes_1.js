@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['salvataggio_0',['Salvataggio',['../struct_salvataggio.html',1,'']]]
+  ['gestoremissioni_0',['GestoreMissioni',['../struct_gestore_missioni.html',1,'']]]
 ];

@@ -1,6 +1,91 @@
 \doxysection{missioni.\+h}
 \hypertarget{missioni_8h_source}{}\label{missioni_8h_source}\mbox{\hyperlink{missioni_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MISSIONI\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MISSIONI\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{eroe_8h}{eroe.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Enumerazione\ per\ identificare\ le\ missioni\ disponibili}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a07ad597a0f8426278d4aa45b05a1a59a}{MISSIONE\_PALUDE}}\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Palude\ Putrescente}}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a5655bc185a92843db6412993007be487}{MISSIONE\_MAGIONE}}\ =\ 1,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Magione\ Infestata}}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ad1aa34b981d8d131a8cc18806f1e399d}{MISSIONE\_GROTTA}}\ =\ 2,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Grotta\ di\ Cristallo}}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66a04a813b0262a0196f899c770aaacbddb}{MISSIONE\_CASTELLO}}\ =\ 3,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Castello\ del\ Signore\ Oscuro\ (finale)}}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66ae74b7c123b31bed50350507601a17519}{MISSIONE\_NESSUNA}}\ =\ -\/1\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nessuna\ missione\ attiva}}
+\DoxyCodeLine{00014\ \}\ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Struttura\ che\ rappresenta\ lo\ stato\ di\ una\ singola\ missione}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ \mbox{\hyperlink{struct_missione_ac21fdecfa7a82c94e1ffbc3ab15971c8}{tipo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tipo\ di\ missione}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_missione_abda40a4af94eeaa6e46d746cfed62461}{nome}}[50];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nome\ descrittivo\ della\ missione}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_missione_a263285c7dc735e2743d4f1c5cda775c2}{descrizione}}[200];\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Descrizione\ dell'obiettivo}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_missione_a669399b24f09665118b73b97c883cdd7}{completata}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ true\ se\ la\ missione\ è\ stata\ completata}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_missione_a2e00da8a9426f0cc60bb7c0a02fb29a0}{sbloccata}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ true\ se\ la\ missione\ è\ accessibile}}
+\DoxyCodeLine{00023\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Contatori\ per\ il\ progresso\ della\ missione}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_missione_a4c0d181584f648419f6b9b992cd7ebb3}{obiettiviCompletati}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Numero\ di\ obiettivi\ raggiunti\ (es:\ 2\ Generali\ Orco\ uccisi)}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_missione_a0ad9a849efba58086b747f26e5e68d97}{obiettiviTotali}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Numero\ di\ obiettivi\ necessari\ (es:\ 3\ Generali\ Orco)}}
+\DoxyCodeLine{00027\ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Flag\ speciali\ per\ oggetti\ da\ recuperare}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_missione_af94da889a44025b86e538f6557142db5}{oggettoRecuperato}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ true\ se\ l'oggetto\ della\ missione\ è\ stato\ trovato}}
+\DoxyCodeLine{00030\ \}\ \mbox{\hyperlink{struct_missione}{Missione}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Struttura\ che\ gestisce\ tutte\ le\ missioni\ del\ gioco}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{struct_missione}{Missione}}\ \mbox{\hyperlink{struct_gestore_missioni_a75b1923d7ed953b2c667ecab67c2c6bc}{missioni}}[4];\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ delle\ 4\ missioni\ (3\ normali\ +\ 1\ finale)}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_gestore_missioni_aa616be4f382b2263c0f955e2c653440b}{missioniCompletate}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Contatore\ delle\ missioni\ completate}}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ \mbox{\hyperlink{struct_gestore_missioni_a30a6d0c51edf1e7e972431e810f355ef}{missioneCorrente}};\ \textcolor{comment}{//\ Missione\ attualmente\ in\ corso}}
+\DoxyCodeLine{00037\ \}\ \mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ INIZIALIZZAZIONE\ -\/-\/-\/}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_aef568376d75252444158ef638cef2e06}{inizializzaGestoreMissioni}}(\mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_a1e1fc23481e963b9963fd84548e797b9}{inizializzaMissione}}(\mbox{\hyperlink{struct_missione}{Missione}}*\ m,\ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ tipo,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome,\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ descrizione,\ \textcolor{keywordtype}{int}\ obiettiviTotali);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ VISUALIZZAZIONE\ MENU\ -\/-\/-\/}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{missioni_8h_a46b4f2c526efae6fb9b150395b139bd5}{mostraMenuMissioni}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_a27db372b55e7dd6844171954c6c97df8}{mostraMenuDuranteMissione}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_missione}{Missione}}*\ missione,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_a2c7460cf60f8dbd2e93a2f0de3ac9e9b}{mostraStatoMissione}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_missione}{Missione}}*\ missione);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ GESTIONE\ MISSIONI\ -\/-\/-\/}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ \mbox{\hyperlink{missioni_8h_a1bbe64a9fd84e926807106afd32b7c21}{selezionaMissione}}(\mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{missioni_8h_a3fc6979cf6ee97607bdcf71cd28af962}{eseguiMissione}}(\mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore,\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe,\ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ tipo);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_aed23b8cecc5e8df2f891ab0c3203222d}{completaMissione}}(\mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore,\ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ tipo);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_a05f72f5249de6c1a68acccbeb41fd6b1}{incrementaObiettivi}}(\mbox{\hyperlink{struct_missione}{Missione}}*\ missione);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_a35c075385299f444a2c0082007f455dd}{segnaOggettoRecuperato}}(\mbox{\hyperlink{struct_missione}{Missione}}*\ missione);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ CONTROLLO\ STATO\ -\/-\/-\/}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{missioni_8h_adbb3e8706caacc269f95a8c7b72e9fcf}{missioneCompletata}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_missione}{Missione}}*\ missione);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{missioni_8h_a23227139b23751c54ff01312ae84526a}{missioneSbloccata}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_missione}{Missione}}*\ missione);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{missioni_8h_a563f38a63854396d7c408e1c16b156de}{tutteLePreliminariCompletate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{missioni_8h_a74ac475b8477bc4c37f32aa74b2c8847}{obiettiviRaggiunti}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_missione}{Missione}}*\ missione);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{missioni_8h_a2c10c0eac36b114a66b8f0d0939fd9e6}{sbloccaMissioneFinale}}(\mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ -\/-\/-\/\ FUNZIONI\ DI\ UTILITÀ\ -\/-\/-\/}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{missioni_8h_a0f4db2b7c3b8afa660ff0c67d198bd59}{getNomeMissione}}(\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ tipo);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{missioni_8h_af4c8ee8536c53100a657dd2ee4c37994}{getDescrizioneMissione}}(\mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ tipo);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00145\ \mbox{\hyperlink{struct_missione}{Missione}}*\ \mbox{\hyperlink{missioni_8h_a29e98a568c844a804f90126dfde7dbd2}{getMissione}}(\mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore,\ \mbox{\hyperlink{missioni_8h_acbce430db034e51d69e38c9a3b3afb66}{TipoMissione}}\ tipo);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MISSIONI\_H}}
 
 \end{DoxyCode}

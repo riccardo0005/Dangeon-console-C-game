@@ -1,5 +1,10 @@
 \doxysection{menu.\+c File Reference}
 \hypertarget{menu_8c}{}\label{menu_8c}\index{menu.c@{menu.c}}
+
+
+Implementazione del sistema di menu principale del gioco.  
+
+
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
@@ -7,27 +12,75 @@
 {\ttfamily \#include "{}salvataggi.\+h"{}}\newline
 {\ttfamily \#include "{}eroe.\+h"{}}\newline
 {\ttfamily \#include "{}trucchi.\+h"{}}\newline
+{\ttfamily \#include "{}missioni.\+h"{}}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{menu_8c_a0373eed137f990f73fac4681e0c7a5e7}{MAX\+\_\+\+TRUCCHI}}~32
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Funzioni per gestire le varie missioni di gioco \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___a_n_s_i___colors_ga499a798be51f267243cb452c47229b05}{COLORE\+\_\+\+VERDE}}~"{}\textbackslash{}033\mbox{[}1;32m"{}
+\begin{DoxyCompactList}\small\item\em Colore verde grassetto. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___a_n_s_i___colors_gab8ca26b7edfaada3a3acbcff309ef1cd}{COLORE\+\_\+\+ROSSO}}~"{}\textbackslash{}033\mbox{[}1;31m"{}
+\begin{DoxyCompactList}\small\item\em Colore rosso grassetto. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___a_n_s_i___colors_ga70a8e5c545f34b40256c14485c845b49}{COLORE\+\_\+\+GIALLO}}~"{}\textbackslash{}033\mbox{[}1;33m"{}
+\begin{DoxyCompactList}\small\item\em Colore giallo grassetto. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___a_n_s_i___colors_ga962e466e824e3ab90a210ebedea40283}{COLORE\+\_\+\+BLU}}~"{}\textbackslash{}033\mbox{[}1;34m"{}
+\begin{DoxyCompactList}\small\item\em Colore blu grassetto. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___a_n_s_i___colors_ga182018008ad177f828aad99d8747c673}{COLORE\+\_\+\+CIANO}}~"{}\textbackslash{}033\mbox{[}1;36m"{}
+\begin{DoxyCompactList}\small\item\em Colore ciano grassetto. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___a_n_s_i___colors_ga085cdaf4fba0d8750c0b6043560bc4e8}{COLORE\+\_\+\+MAGENTA}}~"{}\textbackslash{}033\mbox{[}1;35m"{}
+\begin{DoxyCompactList}\small\item\em Colore magenta grassetto. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___a_n_s_i___colors_gae52d71d1434e7893747f5b5af0687ca2}{COLORE\+\_\+\+RESET}}~"{}\textbackslash{}033\mbox{[}0m"{}
+\begin{DoxyCompactList}\small\item\em Ripristina colore normale (fondamentale per evitare che tutto rimanga colorato). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-char \mbox{\hyperlink{menu_8c_a3dcb2cfbc60e13545d59a4b8dbf614ae}{leggi\+Carattere\+Pulito}} (void)
-\item 
+char \mbox{\hyperlink{group___buffer_management_ga3dcb2cfbc60e13545d59a4b8dbf614ae}{leggi\+Carattere\+Pulito}} (void)
+\begin{DoxyCompactList}\small\item\em Legge un singolo carattere dall\textquotesingle{}input e pulisce automaticamente il buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___buffer_management_gaa60cedda7865b9d1a42bfd7c3f4c73e3}{pulisci\+Buffer}} (void)
+\begin{DoxyCompactList}\small\item\em Pulisce completamente il buffer di input. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menu_8c_a1e1b8b253155b43c12d85a6c5470604d}{menu\+Principale}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gestisce il menu principale del gioco a 360 gradi. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menu_8c_a8317e99bab1d0c0dd87b5f8462d44b5b}{gestisci\+Nuova\+Partita}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gestisce l\textquotesingle{}avvio di una nuova partita. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menu_8c_a7452d80c8ff3424d6cc51c9ff8ab475b}{gestisci\+Carica\+Salvataggio}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gestisce il caricamento di un salvataggio esistente. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menu_8c_a89eb138abb5397d215c5f262de0c152a}{gestisci\+Menu\+Trucchi}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Gestisce l\textquotesingle{}accesso al menu trucchi. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modifica\+Campo\+Salvataggio}} (int scelta\+Salvataggio)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permette di modificare i campi di un salvataggio specifico. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{menu_8c_aa0d3e9d74f3d774658ee60da237393de}{menu\+Del\+Villaggio}} (\mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe, \mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}gestore)
+\begin{DoxyCompactList}\small\item\em Loop principale del gioco -\/ Menu del villaggio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_a6f573a6ad450b87bf7d35cfc5f735d9e}{riposati\+Al\+Villaggio}} (\mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe)
+\begin{DoxyCompactList}\small\item\em Permette all\textquotesingle{}eroe di riposarsi e recuperare i punti vita. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_af43665d00bb95174bbedf11ad81a1541}{mostra\+Inventario}} (const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe)
+\begin{DoxyCompactList}\small\item\em Mostra l\textquotesingle{}inventario e le statistiche dell\textquotesingle{}eroe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_a24f70eef3f978b7893e6d05f46e30efa}{salva\+Partita\+Corrente}} (const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}eroe)
+\begin{DoxyCompactList}\small\item\em Salva lo stato corrente della partita. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{menu_8c_a67d3d3b54b780ec1f018f8c3409127b6}{gestisci\+Uscita}} (void)
+\begin{DoxyCompactList}\small\item\em Gestisce la conferma di uscita dal gioco. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Implementazione del sistema di menu principale del gioco. 
+
+Questo file gestisce l\textquotesingle{}interfaccia utente principale del gioco, inclusi\+:
+\begin{DoxyItemize}
+\item Menu principale con opzioni di gioco
+\item Sistema di attivazione trucchi (codice Konami)
+\item Gestione salvataggi e caricamenti
+\item Menu del villaggio e loop di gioco principale
+\item Gestione buffer input per evitare problemi con scanf/getchar \begin{DoxyAuthor}{Author}
+\mbox{[}RICCARDO/\+LORENZO/\+BOLA/\+YUNUX\mbox{]} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+\end{DoxyItemize}
 
 \label{doc-define-members}
 \Hypertarget{menu_8c_doc-define-members}
@@ -40,6 +93,14 @@ void \mbox{\hyperlink{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modifica\+Campo
 
 
 
+\texorpdfstring{$<$}{<} Funzioni per gestire le varie missioni di gioco 
+
+\texorpdfstring{$<$}{<} Funzioni relative al menu di gioco \texorpdfstring{$<$}{<} Funzioni relative al salvataggio e il caricamento delle partite \texorpdfstring{$<$}{<} Funzioni e strutture relative all\textquotesingle{}eroe ed al personaggio \texorpdfstring{$<$}{<} Funzioni per gestire i trucchi
+
+Numero massimo di caratteri ammessi per la sequenza di attivazione trucchi
+
+Definisce la dimensione del buffer che memorizza la sequenza Konami per l\textquotesingle{}attivazione dei trucchi nel menu principale 
+
 \label{doc-func-members}
 \Hypertarget{menu_8c_doc-func-members}
 \doxysubsection{Function Documentation}
@@ -49,33 +110,499 @@ void \mbox{\hyperlink{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modifica\+Campo
 {\footnotesize\ttfamily \label{menu_8c_a7452d80c8ff3424d6cc51c9ff8ab475b} 
 void gestisci\+Carica\+Salvataggio (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{menu_8c_a89eb138abb5397d215c5f262de0c152a}\index{menu.c@{menu.c}!gestisciMenuTrucchi@{gestisciMenuTrucchi}}
+
+
+Gestisce il caricamento di un salvataggio esistente. 
+
+Questa funzione coordina l\textquotesingle{}intero processo di caricamento di un salvataggio\+:
+\begin{DoxyEnumerate}
+\item Mostra l\textquotesingle{}elenco dei salvataggi disponibili
+\item Verifica se esistono salvataggi
+\item Chiede all\textquotesingle{}utente quale salvataggio selezionare
+\item Presenta un sottomenu con opzioni\+: Carica / Elimina / Annulla
+\item Se l\textquotesingle{}utente sceglie "{}\+Carica"{}\+:
+\begin{DoxyItemize}
+\item Carica i dati del salvataggio
+\item Ricrea l\textquotesingle{}eroe con le caratteristiche salvate
+\item Ripristina lo stato delle missioni completate
+\item Entra nel menu del villaggio
+\end{DoxyItemize}
+\item Se l\textquotesingle{}utente sceglie "{}\+Elimina"{}\+:
+\begin{DoxyItemize}
+\item Chiede conferma
+\item Elimina definitivamente il salvataggio
+\end{DoxyItemize}
+\item Se l\textquotesingle{}utente sceglie "{}\+Annulla"{}\+:
+\begin{DoxyItemize}
+\item Torna al menu principale
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+La funzione include un meccanismo di sicurezza che richiede conferma esplicita prima di eliminare un salvataggio
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Implementare il salvataggio e il ripristino completo dello stato delle missioni (attualmente viene ripristinato solo il contatore delle missioni completate)\end{DoxyRefDesc}
+
+
+\begin{DoxyWarning}{Warning}
+Se non ci sono salvataggi disponibili, la funzione esce immediatamente senza mostrare ulteriori opzioni
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{salvataggi_8c_abfaddceea4779220a1b570777e224ba5}{mostra\+Menu\+Salvataggi()} 
+
+\doxylink{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}{conta\+Salvataggi()} 
+
+\doxylink{salvataggi_8c_a1c2e4a144ba24718e303cbbb6c212951}{chiedi\+Salvataggio\+Da\+Caricare()} 
+
+\doxylink{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}{leggi\+Salvataggio\+Indice()} 
+
+\doxylink{salvataggi_8c_a0be0273d67c2ce434e6373f2348999ec}{elimina\+Salvataggio()} 
+
+\doxylink{salvataggi_8c_a55dd6831205103c2503963957a3f3505}{crea\+Eroe\+Da\+Salvataggio()} 
+
+\doxylink{menu_8c_aa0d3e9d74f3d774658ee60da237393de}{menu\+Del\+Villaggio()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Variabile per memorizzare la scelta dell\textquotesingle{}utente
+
+\texorpdfstring{$<$}{<} Struttura per contenere i dati del salvataggio caricato
+
+\texorpdfstring{$<$}{<} Ricrea l\textquotesingle{}eroe dai dati del salvataggio\Hypertarget{menu_8c_a89eb138abb5397d215c5f262de0c152a}\index{menu.c@{menu.c}!gestisciMenuTrucchi@{gestisciMenuTrucchi}}
 \index{gestisciMenuTrucchi@{gestisciMenuTrucchi}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{gestisciMenuTrucchi()}{gestisciMenuTrucchi()}}
 {\footnotesize\ttfamily \label{menu_8c_a89eb138abb5397d215c5f262de0c152a} 
 void gestisci\+Menu\+Trucchi (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Gestisce l\textquotesingle{}accesso al menu trucchi. 
+
+Questa funzione viene chiamata quando l\textquotesingle{}utente accede al menu trucchi (disponibile solo dopo aver attivato la sequenza Konami). Processo\+:
+\begin{DoxyEnumerate}
+\item Mostra l\textquotesingle{}elenco dei salvataggi disponibili
+\item Verifica se esistono salvataggi da modificare
+\item Chiede all\textquotesingle{}utente quale salvataggio modificare
+\item Se valido, passa il controllo a \doxylink{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modifica\+Campo\+Salvataggio()}
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Questa funzione è accessibile solo quando trucchi\+Attivi == true
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Se non ci sono salvataggi disponibili, la funzione esce immediatamente
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modifica\+Campo\+Salvataggio()} 
+
+\doxylink{salvataggi_8c_abfaddceea4779220a1b570777e224ba5}{mostra\+Menu\+Salvataggi()} 
+
+\doxylink{salvataggi_8c_a5dd0e9ff7d4f211f9a164a2c39367f5e}{conta\+Salvataggi()} 
+
+\doxylink{salvataggi_8c_a1c2e4a144ba24718e303cbbb6c212951}{chiedi\+Salvataggio\+Da\+Caricare()} 
+\end{DoxySeeAlso}
 \Hypertarget{menu_8c_a8317e99bab1d0c0dd87b5f8462d44b5b}\index{menu.c@{menu.c}!gestisciNuovaPartita@{gestisciNuovaPartita}}
 \index{gestisciNuovaPartita@{gestisciNuovaPartita}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{gestisciNuovaPartita()}{gestisciNuovaPartita()}}
 {\footnotesize\ttfamily \label{menu_8c_a8317e99bab1d0c0dd87b5f8462d44b5b} 
 void gestisci\+Nuova\+Partita (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{menu_8c_a3dcb2cfbc60e13545d59a4b8dbf614ae}\index{menu.c@{menu.c}!leggiCaratterePulito@{leggiCaratterePulito}}
-\index{leggiCaratterePulito@{leggiCaratterePulito}!menu.c@{menu.c}}
-\doxysubsubsection{\texorpdfstring{leggiCaratterePulito()}{leggiCaratterePulito()}}
-{\footnotesize\ttfamily \label{menu_8c_a3dcb2cfbc60e13545d59a4b8dbf614ae} 
-char leggi\+Carattere\+Pulito (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Legge un singolo carattere dall\textquotesingle{}input e svuota il buffer fino a newline o EOF. Restituisce il carattere letto. \Hypertarget{menu_8c_a1e1b8b253155b43c12d85a6c5470604d}\index{menu.c@{menu.c}!menuPrincipale@{menuPrincipale}}
+
+Gestisce l\textquotesingle{}avvio di una nuova partita. 
+
+Questa funzione coordina tutte le operazioni necessarie per iniziare una nuova partita\+:
+\begin{DoxyEnumerate}
+\item Richiede il nome dell\textquotesingle{}eroe al giocatore
+\item Inizializza la struttura \doxylink{struct_eroe}{Eroe} con i parametri di default
+\item Crea un salvataggio iniziale
+\item Mostra le caratteristiche dell\textquotesingle{}eroe
+\item Inizializza il gestore delle missioni
+\item Mostra il messaggio introduttivo del gioco
+\item Entra nel menu del villaggio (loop principale di gioco)
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+La funzione crea automaticamente un salvataggio iniziale per permettere al giocatore di riprendere la partita in caso di uscita
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Se il salvataggio iniziale fallisce, viene mostrato un messaggio di errore ma il gioco continua comunque
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{struct_eroe}{Eroe} Struttura dati dell\textquotesingle{}eroe 
+
+\doxylink{eroe_8c_ac8fca7480c0a65d5cfaa1b21bfe7bb9c}{inizializza\+Eroe()} 
+
+\doxylink{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88}{crea\+Salvataggio\+Da\+Eroe()} 
+
+\doxylink{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}{salva\+Gioco()} 
+
+\doxylink{eroe_8c_ace4becbef2722cd419d079dbb14ebe51}{mostra\+Eroe()} 
+
+\doxylink{missioni_8c_aef568376d75252444158ef638cef2e06}{inizializza\+Gestore\+Missioni()} 
+
+\doxylink{menu_8c_aa0d3e9d74f3d774658ee60da237393de}{menu\+Del\+Villaggio()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Crea una variabile eroe di tipo \doxylink{struct_eroe}{Eroe}, un\textquotesingle{}istanza di \doxylink{struct_eroe}{Eroe} (vedi struct \doxylink{eroe_8h}{Eroe.\+h})
+
+\texorpdfstring{$<$}{<} Passo come parametro il campo della struct del mio eroe appena creato alla funzione
+
+\texorpdfstring{$<$}{<} Inizializzazione dell\textquotesingle{}eroe passando l\textquotesingle{}indirizzo di memoria della mia variabile eroe e il nome senza caratteri fastidiosi nel buffer
+
+\texorpdfstring{$<$}{<} Passo l\textquotesingle{}indirizzo di memoria della mia variabile eroe
+
+\texorpdfstring{$<$}{<} Mostra tutte le caratteristiche del mio eroe
+
+\texorpdfstring{$<$}{<} Creo un\textquotesingle{}istanza di \doxylink{struct_gestore_missioni}{Gestore\+Missioni}
+
+\texorpdfstring{$<$}{<} Inizializzo il gestore delle missioni (vedi \doxylink{missioni_8c}{missioni.\+c})
+
+\texorpdfstring{$<$}{<} Flag per controllare il loop di gioco\Hypertarget{menu_8c_a67d3d3b54b780ec1f018f8c3409127b6}\index{menu.c@{menu.c}!gestisciUscita@{gestisciUscita}}
+\index{gestisciUscita@{gestisciUscita}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{gestisciUscita()}{gestisciUscita()}}
+{\footnotesize\ttfamily \label{menu_8c_a67d3d3b54b780ec1f018f8c3409127b6} 
+bool gestisci\+Uscita (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gestisce la conferma di uscita dal gioco. 
+
+Questa funzione implementa un meccanismo di sicurezza che previene la perdita accidentale dei progressi. Quando l\textquotesingle{}utente sceglie di uscire\+:
+\begin{DoxyEnumerate}
+\item Mostra un avviso di ricordarsi di salvare
+\item Chiede conferma esplicita (S/N)
+\item Se conferma, esce dal loop di gioco
+\item Se non conferma, riprende il gioco
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+bool Indica se il gioco deve continuare o terminare
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Il giocatore vuole continuare a giocare (ha annullato l\textquotesingle{}uscita) \\
+\hline
+{\em false} & Il giocatore conferma l\textquotesingle{}uscita (torna al menu principale)\\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+Questa funzione NON salva automaticamente -\/ è responsabilità del giocatore salvare prima di uscire
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Esempio\ di\ utilizzo\ nel\ menu:}}
+\DoxyCodeLine{\textcolor{keywordflow}{case}\ \textcolor{charliteral}{'5'}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{menu_8c_a67d3d3b54b780ec1f018f8c3409127b6}{gestisciUscita}}();\ \textcolor{comment}{//\ Il\ valore\ di\ ritorno\ determina\ se\ continuare}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{menu_8c_aa0d3e9d74f3d774658ee60da237393de}{menu\+Del\+Villaggio()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Legge la risposta dell\textquotesingle{}utente\Hypertarget{menu_8c_aa0d3e9d74f3d774658ee60da237393de}\index{menu.c@{menu.c}!menuDelVillaggio@{menuDelVillaggio}}
+\index{menuDelVillaggio@{menuDelVillaggio}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menuDelVillaggio()}{menuDelVillaggio()}}
+{\footnotesize\ttfamily \label{menu_8c_aa0d3e9d74f3d774658ee60da237393de} 
+bool menu\+Del\+Villaggio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{, }\item[{\mbox{\hyperlink{struct_gestore_missioni}{Gestore\+Missioni}} \texorpdfstring{$\ast$}{*}}]{gestore}{}\end{DoxyParamCaption})}
+
+
+
+Loop principale del gioco -\/ Menu del villaggio. 
+
+Questa è la funzione centrale che gestisce il gameplay nel villaggio. Presenta al giocatore le seguenti opzioni\+:
+\begin{DoxyEnumerate}
+\item Intraprendi una missione -\/ permette di selezionare ed eseguire missioni
+\item Riposati -\/ ripristina i punti vita dell\textquotesingle{}eroe al massimo
+\item Inventario -\/ mostra le statistiche e l\textquotesingle{}inventario dell\textquotesingle{}eroe
+\item Salva la partita -\/ salva i progressi attuali
+\item Esci -\/ torna al menu principale (con conferma)
+\end{DoxyEnumerate}
+
+La funzione continua a ciclare finché il giocatore non sceglie di uscire o finché l\textquotesingle{}eroe non viene sconfitto (vita = 0).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em eroe} & Puntatore alla struttura dell\textquotesingle{}eroe (modificabile durante il gioco) \\
+\hline
+\mbox{\texttt{in,out}}  & {\em gestore} & Puntatore al gestore delle missioni (traccia missioni completate)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true se il gioco deve continuare, false per uscire al menu principale
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Il giocatore ha scelto di continuare a giocare \\
+\hline
+{\em false} & Il giocatore ha scelto di uscire al menu principale\\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+Questa funzione valida i puntatori all\textquotesingle{}inizio e restituisce false se nulli
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Se l\textquotesingle{}eroe muore durante una missione, il gioco dovrebbe gestirlo appropriatamente (attualmente non implementato in questa funzione)
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+stampa\+Menu\+Villaggio() 
+
+\doxylink{missioni_8c_a1bbe64a9fd84e926807106afd32b7c21}{seleziona\+Missione()} 
+
+\doxylink{missioni_8c_a3fc6979cf6ee97607bdcf71cd28af962}{esegui\+Missione()} 
+
+\doxylink{menu_8c_a6f573a6ad450b87bf7d35cfc5f735d9e}{riposati\+Al\+Villaggio()} 
+
+\doxylink{menu_8c_af43665d00bb95174bbedf11ad81a1541}{mostra\+Inventario()} 
+
+\doxylink{menu_8c_a24f70eef3f978b7893e6d05f46e30efa}{salva\+Partita\+Corrente()} 
+
+\doxylink{menu_8c_a67d3d3b54b780ec1f018f8c3409127b6}{gestisci\+Uscita()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Legge la scelta dell\textquotesingle{}utente\Hypertarget{menu_8c_a1e1b8b253155b43c12d85a6c5470604d}\index{menu.c@{menu.c}!menuPrincipale@{menuPrincipale}}
 \index{menuPrincipale@{menuPrincipale}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{menuPrincipale()}{menuPrincipale()}}
 {\footnotesize\ttfamily \label{menu_8c_a1e1b8b253155b43c12d85a6c5470604d} 
 void menu\+Principale (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}\index{menu.c@{menu.c}!modificaCampoSalvataggio@{modificaCampoSalvataggio}}
+
+
+Gestisce il menu principale del gioco a 360 gradi. 
+
+Questa è la funzione centrale che coordina tutto il flusso del menu principale. Gestisce\+:
+\begin{DoxyItemize}
+\item Visualizzazione del menu appropriato (con o senza trucchi)
+\item Lettura e validazione dell\textquotesingle{}input utente
+\item Gestione della sequenza Konami per attivare i trucchi
+\item Routing verso le varie funzionalità (nuova partita, carica, trucchi, esci)
+\end{DoxyItemize}
+
+Il menu rimane attivo in un ciclo infinito fino a quando l\textquotesingle{}utente sceglie di uscire. La sequenza Konami viene memorizzata carattere per carattere e verificata quando l\textquotesingle{}utente preme spazio come terminatore.
+
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore (il ciclo continua fino all\textquotesingle{}uscita)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+La sequenza Konami è nascosta e viene attivata inserendo una serie specifica di caratteri seguita da spazio. Una volta attivati i trucchi, appare l\textquotesingle{}opzione "{}3. Trucchi"{} nel menu.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Se l\textquotesingle{}utente inserisce una sequenza troppo lunga (\texorpdfstring{$>$}{>}MAX\+\_\+\+TRUCCHI), viene automaticamente resettata per evitare overflow del buffer
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+stampa\+Menu\+Con\+Riquadro\+ADue\+Opzioni() 
+
+stampa\+Menu\+Con\+Riquadro\+Atre\+Opzioni() 
+
+\doxylink{menu_8c_a8317e99bab1d0c0dd87b5f8462d44b5b}{gestisci\+Nuova\+Partita()} 
+
+\doxylink{menu_8c_a7452d80c8ff3424d6cc51c9ff8ab475b}{gestisci\+Carica\+Salvataggio()} 
+
+\doxylink{menu_8c_a89eb138abb5397d215c5f262de0c152a}{gestisci\+Menu\+Trucchi()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Variabile contenente l\textquotesingle{}opzione scelta dall\textquotesingle{}utente
+
+\texorpdfstring{$<$}{<} Buffer per memorizzare la sequenza Konami mediante un array di dimensione MAX\+\_\+\+TRUCCHI
+
+\texorpdfstring{$<$}{<} Contatore per la posizione corrente nel buffer dei trucchi\Hypertarget{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}\index{menu.c@{menu.c}!modificaCampoSalvataggio@{modificaCampoSalvataggio}}
 \index{modificaCampoSalvataggio@{modificaCampoSalvataggio}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{modificaCampoSalvataggio()}{modificaCampoSalvataggio()}}
 {\footnotesize\ttfamily \label{menu_8c_aa5cbbdfe35f70ea22f212ac4c6f4f0a2} 
 void modifica\+Campo\+Salvataggio (\begin{DoxyParamCaption}\item[{int}]{scelta\+Salvataggio}{}\end{DoxyParamCaption})}
 
+
+
+Permette di modificare i campi di un salvataggio specifico. 
+
+Questa funzione implementa il sistema di trucchi permettendo di modificare\+:
+\begin{DoxyEnumerate}
+\item Vita dell\textquotesingle{}eroe (aggiungere o sottrarre punti vita)
+\item Monete dell\textquotesingle{}eroe (aggiungere o sottrarre monete)
+\item Sblocco missione finale (completa automaticamente le 3 missioni preliminari)
+\end{DoxyEnumerate}
+
+Processo\+:
+\begin{DoxyEnumerate}
+\item Mostra le opzioni di modifica disponibili
+\item Carica il salvataggio selezionato
+\item Applica la modifica scelta dall\textquotesingle{}utente
+\item Salva le modifiche nel file di salvataggio
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em scelta\+Salvataggio} & Indice del salvataggio da modificare (0-\/based)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Le modifiche sono permanenti e sovrascrivono il salvataggio originale
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+L\textquotesingle{}utente può inserire valori negativi per diminuire vita/monete. La funzione modifica\+Vita/modifica\+Monete dovrebbe gestire i limiti appropriati.
+\end{DoxyWarning}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Esempio\ di\ flusso:}}
+\DoxyCodeLine{\textcolor{comment}{//\ Utente\ seleziona\ salvataggio\ 1}}
+\DoxyCodeLine{\textcolor{comment}{//\ Sceglie\ opzione\ 1\ (Vita)}}
+\DoxyCodeLine{\textcolor{comment}{//\ Inserisce\ +50\ -\/>\ vita\ aumenta\ di\ 50\ punti}}
+\DoxyCodeLine{\textcolor{comment}{//\ Modifiche\ salvate\ automaticamente}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{salvataggi_8c_a0f4001322f53c0e656294204c8d57fae}{leggi\+Salvataggio\+Indice()} 
+
+\doxylink{salvataggi_8c_a55dd6831205103c2503963957a3f3505}{crea\+Eroe\+Da\+Salvataggio()} 
+
+\doxylink{eroe_8c_a94f0caed1dfcdf0cda2f74a8de368537}{modifica\+Vita()} 
+
+\doxylink{eroe_8c_a35e9a227291bcf4781f74e0f6ed06c1c}{modifica\+Monete()} 
+
+\doxylink{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88}{crea\+Salvataggio\+Da\+Eroe()} 
+
+\doxylink{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}{salva\+Gioco()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Variabile per memorizzare la scelta dell\textquotesingle{}utente
+
+\texorpdfstring{$<$}{<} Struttura per contenere i dati del salvataggio
+
+\texorpdfstring{$<$}{<} Ricrea l\textquotesingle{}eroe dal salvataggio per modificarlo
+
+\texorpdfstring{$<$}{<} Valore di modifica (positivo o negativo)
+
+\texorpdfstring{$<$}{<} Valore di modifica (positivo o negativo)
+
+\texorpdfstring{$<$}{<} Imposta a 3 per sbloccare la missione finale
+
+\texorpdfstring{$<$}{<} Crea un nuovo salvataggio con le modifiche\Hypertarget{menu_8c_af43665d00bb95174bbedf11ad81a1541}\index{menu.c@{menu.c}!mostraInventario@{mostraInventario}}
+\index{mostraInventario@{mostraInventario}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{mostraInventario()}{mostraInventario()}}
+{\footnotesize\ttfamily \label{menu_8c_af43665d00bb95174bbedf11ad81a1541} 
+void mostra\+Inventario (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{}\end{DoxyParamCaption})}
+
+
+
+Mostra l\textquotesingle{}inventario e le statistiche dell\textquotesingle{}eroe. 
+
+Questa funzione fornisce una visualizzazione dettagliata di tutte le caratteristiche dell\textquotesingle{}eroe chiamando la funzione \doxylink{eroe_8c_ace4becbef2722cd419d079dbb14ebe51}{mostra\+Eroe()}. Include tipicamente\+: nome, vita, monete, missioni completate, ecc.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em eroe} & Puntatore costante alla struttura dell\textquotesingle{}eroe da visualizzare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Il parametro è const perché questa funzione è di sola lettura 
+
+La funzione esegue un controllo di sicurezza sul puntatore null prima di operare
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Se eroe è NULL, la funzione ritorna immediatamente senza fare nulla
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{eroe_8c_ace4becbef2722cd419d079dbb14ebe51}{mostra\+Eroe()} 
+\end{DoxySeeAlso}
+\Hypertarget{menu_8c_a6f573a6ad450b87bf7d35cfc5f735d9e}\index{menu.c@{menu.c}!riposatiAlVillaggio@{riposatiAlVillaggio}}
+\index{riposatiAlVillaggio@{riposatiAlVillaggio}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{riposatiAlVillaggio()}{riposatiAlVillaggio()}}
+{\footnotesize\ttfamily \label{menu_8c_a6f573a6ad450b87bf7d35cfc5f735d9e} 
+void riposati\+Al\+Villaggio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{}\end{DoxyParamCaption})}
+
+
+
+Permette all\textquotesingle{}eroe di riposarsi e recuperare i punti vita. 
+
+Questa funzione simula il riposo alla locanda del villaggio. Se l\textquotesingle{}eroe non è già al massimo della vita (20/20), ripristina completamente i suoi punti vita e mostra quanti punti sono stati recuperati. Se l\textquotesingle{}eroe è già in perfetta salute, lo notifica senza fare modifiche.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em eroe} & Puntatore alla struttura dell\textquotesingle{}eroe da far riposare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+La funzione esegue un controllo di sicurezza sul puntatore null prima di operare
+\end{DoxyNote}
+\begin{DoxyPrecond}{Precondition}
+L\textquotesingle{}eroe deve avere vita \texorpdfstring{$>$}{>}= 0 e \texorpdfstring{$<$}{<}= 20 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+L\textquotesingle{}eroe avrà vita = 20 (massimo)
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Esempio\ di\ utilizzo:}}
+\DoxyCodeLine{\mbox{\hyperlink{struct_eroe}{Eroe}}\ mioEroe;}
+\DoxyCodeLine{mioEroe.\mbox{\hyperlink{struct_eroe_afc44ae8efca89cd8a999845f03badc7f}{vita}}\ =\ 10;\ \textcolor{comment}{//\ Eroe\ ferito}}
+\DoxyCodeLine{\mbox{\hyperlink{menu_8c_a6f573a6ad450b87bf7d35cfc5f735d9e}{riposatiAlVillaggio}}(\&mioEroe);}
+\DoxyCodeLine{\textcolor{comment}{//\ Output:\ "{}Hai\ recuperato\ 10\ punti\ vita!"{}}}
+\DoxyCodeLine{\textcolor{comment}{//\ mioEroe.vita\ è\ ora\ 20}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Se eroe è NULL, la funzione ritorna immediatamente senza fare nulla 
+\end{DoxyWarning}
+\texorpdfstring{$<$}{<} Memorizza la vita prima del riposo per calcolare il recupero
+
+\texorpdfstring{$<$}{<} Imposta la vita al massimo\Hypertarget{menu_8c_a24f70eef3f978b7893e6d05f46e30efa}\index{menu.c@{menu.c}!salvaPartitaCorrente@{salvaPartitaCorrente}}
+\index{salvaPartitaCorrente@{salvaPartitaCorrente}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{salvaPartitaCorrente()}{salvaPartitaCorrente()}}
+{\footnotesize\ttfamily \label{menu_8c_a24f70eef3f978b7893e6d05f46e30efa} 
+void salva\+Partita\+Corrente (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_eroe}{Eroe}} \texorpdfstring{$\ast$}{*}}]{eroe}{}\end{DoxyParamCaption})}
+
+
+
+Salva lo stato corrente della partita. 
+
+Questa funzione crea un salvataggio dei progressi attuali dell\textquotesingle{}eroe. Il salvataggio viene scritto su file e può essere successivamente caricato dal menu "{}\+Carica salvataggio"{}.
+
+Processo\+:
+\begin{DoxyEnumerate}
+\item Converte i dati dell\textquotesingle{}eroe in una struttura \doxylink{struct_salvataggio}{Salvataggio}
+\item Scrive il salvataggio su file
+\item Conferma l\textquotesingle{}operazione o segnala eventuali errori
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em eroe} & Puntatore costante alla struttura dell\textquotesingle{}eroe da salvare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void Non restituisce alcun valore
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Il parametro è const perché questa funzione non modifica l\textquotesingle{}eroe 
+
+La funzione esegue un controllo di sicurezza sul puntatore null prima di operare
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Se eroe è NULL, la funzione ritorna immediatamente senza fare nulla 
+
+Se il salvataggio fallisce, viene mostrato un messaggio di errore ma il gioco continua normalmente
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{salvataggi_8c_af3c16efe1b6e045152e11ea958c0bf88}{crea\+Salvataggio\+Da\+Eroe()} 
+
+\doxylink{salvataggi_8c_a13f80ceb3aaf9fe232746d54c77ede32}{salva\+Gioco()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Converte i dati dell\textquotesingle{}eroe in formato salvataggio

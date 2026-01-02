@@ -1,0 +1,128 @@
+\doxysection{Gestione del buffer degli input }
+\hypertarget{group___buffer_management}{}\label{group___buffer_management}\index{Gestione del buffer degli input@{Gestione del buffer degli input}}
+
+
+Funzioni per la gestione corretta del buffer di input.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{group___buffer_management_ga3dcb2cfbc60e13545d59a4b8dbf614ae}{leggi\+Carattere\+Pulito}} (void)
+\begin{DoxyCompactList}\small\item\em Legge un singolo carattere dall\textquotesingle{}input e pulisce automaticamente il buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___buffer_management_gaa60cedda7865b9d1a42bfd7c3f4c73e3}{pulisci\+Buffer}} (void)
+\begin{DoxyCompactList}\small\item\em Pulisce completamente il buffer di input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funzioni per la gestione corretta del buffer di input. 
+
+NECESSITÀ\+: Pulire il buffer di input dopo scanf() e getchar() per evitare che il carattere \textquotesingle{}~\newline
+\textquotesingle{} o altri caratteri residui causino bug nelle letture successive.
+
+PROBLEMATICA\+: Sia scanf che getchar oltre al carattere letto memorizzano dei caratteri residui che sarebbero poi letti da un eventuale successivo scanf.
+
+NOTA IMPORTANTE\+: EOF è fondamentale poiché in caso l\textquotesingle{}input fallisse inaspettatamente si finirebbe in un while infinito. Con EOF l\textquotesingle{}input esce comunque permettendo al programma di non bloccarsi mai. EOF è un numero intero che vale -\/1 definito nella libreria stdio.\+h e viene restituito da getchar in varie situazioni tra cui quando fallisce. 
+
+\label{doc-func-members}
+\Hypertarget{group___buffer_management_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___buffer_management_ga3dcb2cfbc60e13545d59a4b8dbf614ae}\index{Gestione del buffer degli input@{Gestione del buffer degli input}!leggiCaratterePulito@{leggiCaratterePulito}}
+\index{leggiCaratterePulito@{leggiCaratterePulito}!Gestione del buffer degli input@{Gestione del buffer degli input}}
+\doxysubsubsection{\texorpdfstring{leggiCaratterePulito()}{leggiCaratterePulito()}}
+{\footnotesize\ttfamily \label{group___buffer_management_ga3dcb2cfbc60e13545d59a4b8dbf614ae} 
+char leggi\+Carattere\+Pulito (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Legge un singolo carattere dall\textquotesingle{}input e pulisce automaticamente il buffer. 
+
+QUANDO USARLA\+:
+\begin{DoxyItemize}
+\item Menu di gioco (scelta 1, 2, 3, ecc.)
+\item Conferme (S/N)
+\item Qualsiasi input di un singolo carattere
+\end{DoxyItemize}
+
+COME FUNZIONA\+:
+\begin{DoxyEnumerate}
+\item Legge il carattere inserito dall\textquotesingle{}utente
+\item Automaticamente svuota il buffer (rimuove \textquotesingle{}~\newline
+\textquotesingle{} e altri residui)
+\item Restituisce solo il carattere valido
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+char Il carattere inserito dall\textquotesingle{}utente (senza caratteri residui nel buffer)
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Esempio\ di\ utilizzo:}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Inserisci\ una\ scelta\ [1-\/3]:\ "{}});}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ scelta\ =\ \mbox{\hyperlink{group___buffer_management_ga3dcb2cfbc60e13545d59a4b8dbf614ae}{leggiCaratterePulito}}();}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (scelta\ ==\ \textcolor{charliteral}{'1'})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Elabora\ scelta\ 1}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Non utilizzare questa funzione per leggere stringhe o numeri, solo caratteri singoli 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___buffer_management_gaa60cedda7865b9d1a42bfd7c3f4c73e3}{pulisci\+Buffer()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Variabile per leggere i caratteri aggiuntivi dal buffer
+
+\texorpdfstring{$<$}{<} Legge il primo carattere inserito dall\textquotesingle{}utente e lo memorizza in ch
+
+\texorpdfstring{$<$}{<} Restituisce il carattere valido\Hypertarget{group___buffer_management_gaa60cedda7865b9d1a42bfd7c3f4c73e3}\index{Gestione del buffer degli input@{Gestione del buffer degli input}!pulisciBuffer@{pulisciBuffer}}
+\index{pulisciBuffer@{pulisciBuffer}!Gestione del buffer degli input@{Gestione del buffer degli input}}
+\doxysubsubsection{\texorpdfstring{pulisciBuffer()}{pulisciBuffer()}}
+{\footnotesize\ttfamily \label{group___buffer_management_gaa60cedda7865b9d1a42bfd7c3f4c73e3} 
+void pulisci\+Buffer (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Pulisce completamente il buffer di input. 
+
+QUANDO USARLA\+:
+\begin{DoxyItemize}
+\item SEMPRE dopo scanf("{}\%d"{}, ...) (numeri interi)
+\item SEMPRE dopo scanf("{}\%f"{}, ...) (numeri decimali) ~\newline
+
+\item SEMPRE dopo scanf("{}\%s"{}, ...) (stringhe)
+\end{DoxyItemize}
+
+COME FUNZIONA\+:
+\begin{DoxyEnumerate}
+\item Legge e scarta tutti i caratteri nel buffer
+\item Si ferma quando trova \textquotesingle{}~\newline
+\textquotesingle{} (newline) o EOF (fine file)
+\item Non restituisce nulla (void), pulisce solamente
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+void Questa funzione non restituisce alcun valore
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Esempio\ di\ utilizzo:}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ numero;}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Inserisci\ un\ numero:\ "{}});}
+\DoxyCodeLine{scanf(\textcolor{stringliteral}{"{}\%d"{}},\ \&numero);}
+\DoxyCodeLine{\mbox{\hyperlink{group___buffer_management_gaa60cedda7865b9d1a42bfd7c3f4c73e3}{pulisciBuffer}}();\ \ \textcolor{comment}{//\ FONDAMENTALE\ per\ evitare\ problemi}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Chiamare SEMPRE questa funzione dopo scanf per evitare malfunzionamenti 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___buffer_management_ga3dcb2cfbc60e13545d59a4b8dbf614ae}{leggi\+Carattere\+Pulito()} 
+\end{DoxySeeAlso}
+\texorpdfstring{$<$}{<} Variabile temporanea per leggere caratteri dal buffer
+
+\texorpdfstring{$<$}{<} Svuota tutto fino a newline o EOF

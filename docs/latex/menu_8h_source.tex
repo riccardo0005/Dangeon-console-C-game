@@ -4,17 +4,45 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MENU\_H\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Se\ MENU\_H\ non\ è\ definito\ allora\ entriamo:\ inizio\ guardia\ di\ inclusione}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MENU\_H\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Definisce\ MENU\_H\ per\ evitare\ doppie\ inclusioni\ dello\ stesso\ header}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{comment}{//void\ stampaMenuConRiquadroADueOpzioni();\ //\ Prototipo\ della\ funzione\ che\ stampa\ il\ menu\ con\ 2\ opzioni\ (grafica/riquadro)}}
-\DoxyCodeLine{00006\ \textcolor{comment}{//void\ stampaMenuConRiquadroAtreOpzioni();\ //\ Prototipo\ della\ funzione\ che\ stampa\ il\ menu\ con\ 3\ opzioni\ (quando\ i\ trucchi\ sono\ attivi)}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ per\ il\ tipo\ bool}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{eroe_8h}{eroe.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ la\ definizione\ della\ struttura\ Eroe}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{missioni_8h}{missioni.h}}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Include\ la\ definizione\ del\ GestoreMissioni}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{//\ Dichiarazioni\ delle\ funzioni\ menu}}
-\DoxyCodeLine{00009\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a1e1b8b253155b43c12d85a6c5470604d}{menuPrincipale}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a8317e99bab1d0c0dd87b5f8462d44b5b}{gestisciNuovaPartita}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a7452d80c8ff3424d6cc51c9ff8ab475b}{gestisciCaricaSalvataggio}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a89eb138abb5397d215c5f262de0c152a}{gestisciMenuTrucchi}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modificaCampoSalvataggio}}(\textcolor{keywordtype}{int}\ sceltaSalvataggio);}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MENU\_H\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ Fine\ della\ guardia\ di\ inclusione:\ chiude\ il\ blocco\ \#ifndef/\#define}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ -\/-\/-\/\ MENU\ PRINCIPALE\ -\/-\/-\/}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a1e1b8b253155b43c12d85a6c5470604d}{menuPrincipale}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a8317e99bab1d0c0dd87b5f8462d44b5b}{gestisciNuovaPartita}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a7452d80c8ff3424d6cc51c9ff8ab475b}{gestisciCaricaSalvataggio}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a89eb138abb5397d215c5f262de0c152a}{gestisciMenuTrucchi}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_aa5cbbdfe35f70ea22f212ac4c6f4f0a2}{modificaCampoSalvataggio}}(\textcolor{keywordtype}{int}\ sceltaSalvataggio);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ -\/-\/-\/\ MENU\ DEL\ VILLAGGIO\ -\/-\/-\/}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{menu_8h_aa0d3e9d74f3d774658ee60da237393de}{menuDelVillaggio}}(\mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe,\ \mbox{\hyperlink{struct_gestore_missioni}{GestoreMissioni}}*\ gestore);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a6f573a6ad450b87bf7d35cfc5f735d9e}{riposatiAlVillaggio}}(\mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_af43665d00bb95174bbedf11ad81a1541}{mostraInventario}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menu_8h_a24f70eef3f978b7893e6d05f46e30efa}{salvaPartitaCorrente}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_eroe}{Eroe}}*\ eroe);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{menu_8h_a67d3d3b54b780ec1f018f8c3409127b6}{gestisciUscita}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ -\/-\/-\/\ UTILITÀ\ -\/-\/-\/}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{//Funzione\ che\ legge\ un\ singolo\ carattere\ dall'input\ e\ pulisce\ il\ buffer}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//Previene\ problemi\ con\ input\ multipli}}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{group___buffer_management_ga3dcb2cfbc60e13545d59a4b8dbf614ae}{leggiCaratterePulito}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___buffer_management_gaa60cedda7865b9d1a42bfd7c3f4c73e3}{pulisciBuffer}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

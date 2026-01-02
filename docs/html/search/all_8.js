@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['oggettiposseduti_0',['oggettiPosseduti',['../struct_eroe.html#aa0fa41e668972d68db663ddfe06b00f3',1,'Eroe::oggettiPosseduti'],['../struct_salvataggio.html#a979e4c81ea9aef789909d04a9c239ff6',1,'Salvataggio::oggettiPosseduti']]]
+  ['leggicaratterepulito_0',['leggiCaratterePulito',['../group___buffer_management.html#ga3dcb2cfbc60e13545d59a4b8dbf614ae',1,'leggiCaratterePulito(void):&#160;menu.c'],['../group___buffer_management.html#ga3dcb2cfbc60e13545d59a4b8dbf614ae',1,'leggiCaratterePulito(void):&#160;menu.c']]],
+  ['leggisalvataggioindice_1',['leggiSalvataggioIndice',['../salvataggi_8c.html#a0f4001322f53c0e656294204c8d57fae',1,'leggiSalvataggioIndice(int idx, Salvataggio *s):&#160;salvataggi.c'],['../salvataggi_8h.html#a0f4001322f53c0e656294204c8d57fae',1,'leggiSalvataggioIndice(int idx, Salvataggio *s):&#160;salvataggi.c']]],
+  ['list_2',['Todo List',['../todo.html',1,'']]]
 ];
